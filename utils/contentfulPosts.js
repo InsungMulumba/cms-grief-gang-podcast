@@ -1,5 +1,5 @@
-const space = mnpcdkm1p9bz
-const accessToken = CFPAT-B8meoU843zchkv6RAKjctvCHBfVrCvGHZcS3VhXcZlA
+const space = 'mnpcdkm1p9bz'
+const accessToken = '0FsLKgi_SEKY-ZGufDAvtD4HPpNEDwguV64kFMqJu1I'
 
 const client = require('contentful').createClient({
   space: space,
