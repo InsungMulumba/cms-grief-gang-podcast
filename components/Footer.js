@@ -2,18 +2,19 @@ export default function Footer() {
   return (
     <>
       <footer>
-        Made with{' '}
-        <img src="/netliheart.svg" alt="Netlify Logo" className="logo" /> for
-        you
+        © Insung Mulumba 2021
+        {/* <img src="/netliheart.svg" alt="Netlify Logo" className="logo" /> for
+        you */}
       </footer>
       <style jsx>{`
         footer {
           width: 100%;
-          height: 100px;
+          height: 50px;
           border-top: 1px solid #eaeaea;
           display: flex;
           justify-content: center;
           align-items: center;
+          font-size: 12px;
         }
 
         .logo {

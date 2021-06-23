@@ -10,15 +10,18 @@ export default function Home({ posts }) {
   return (
     <div className="container">
       <Head>
-        <title>Next + Contentful Starter</title>
+        <title>The Grief Gang</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <Header />
-        <div className="posts">
+        <div style={{ backgroundColor: 'black', color: 'black'}}>
+
           {posts.map((p) => {
-            return <Post key={p.date} date={p.date} image={p.image.fields} title={p.title} />
+              {console.log(p.testText)}
+            return <p style={{ color: 'white'}}>{p.testText}</p>
+            // return <Post key={p.date} date={p.date} title={p.title} />
           })}
         </div>
       </main>
