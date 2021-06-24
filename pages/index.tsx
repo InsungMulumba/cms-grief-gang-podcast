@@ -1,12 +1,24 @@
 import Head from 'next/head'
+// import '../styles/globals.css'
+import { GetStaticProps } from 'next';
+import PageWithLayoutType from '../types/pageWithLayout'
+import React, { FC } from 'react'
+import { fetchEntries } from '../utils/contentfulPosts'
+import MainLayout from '../layouts/mainLayout'
 
-import { fetchEntries } from '@utils/contentfulPosts'
 
-import Header from '@components/Header'
-import Footer from '@components/Footer'
-import Post from '@components/Post'
+// function MyApp({ Component, pageProps }: AppLayoutProps) {
+// export default function Home({ posts }) {
 
-export default function Home({ posts }) {
+interface contentfulDataTypes {
+  testText: string,
+}
+
+interface HomeProps {
+  posts: Array<contentfulDataTypes>
+}
+
+const Home: FC<HomeProps> = ({ posts }) => {
   return (
     <div className="container">
       <Head>
@@ -15,18 +27,17 @@ export default function Home({ posts }) {
       </Head>
 
       <main>
-        <Header />
+        {/* <Header /> */}
         <div style={{ backgroundColor: 'black', color: 'black'}}>
-
+         
           {posts.map((p) => {
-              {console.log(p.testText)}
             return <p style={{ color: 'white'}}>{p.testText}</p>
             // return <Post key={p.date} date={p.date} title={p.title} />
           })}
         </div>
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
 
       <style jsx>{`
         .container {
@@ -67,8 +78,12 @@ export default function Home({ posts }) {
     </div>
   )
 }
+(Home as PageWithLayoutType).layout = MainLayout
 
-export async function getStaticProps() {
+export default Home;
+
+
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetchEntries()
   const posts = await res.map((p) => {
     return p.fields
@@ -76,7 +91,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts,
+      posts
     },
   }
 }
