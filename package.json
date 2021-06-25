@@ -12,7 +12,8 @@
     "contentful": "^7.14.6",
     "next": "^10.0.6",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "styled-components": "^5.3.0"
   },
   "devDependencies": {
     "@types/node": "^15.12.4",
