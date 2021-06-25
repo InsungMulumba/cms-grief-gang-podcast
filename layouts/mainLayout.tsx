@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { fetchEntries } from "../utils/contentfulPosts";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 
 type LayoutProps = {
   children: React.ReactNode;
