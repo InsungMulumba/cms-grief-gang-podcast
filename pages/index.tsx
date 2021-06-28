@@ -5,7 +5,9 @@ import PageWithLayoutType from "../types/pageWithLayout";
 import React, { FC } from "react";
 import { fetchEntries } from "../utils/contentfulPosts";
 import MainLayout from "../layouts/mainLayout";
-
+import WelcomeSlice from "../components/Home/welcome-text";
+import PicturesGrid from "../components/Home/pictures-grid";
+import WelcomeText from "../components/Home/welcome-text";
 // function MyApp({ Component, pageProps }: AppLayoutProps) {
 // export default function Home({ posts }) {
 
@@ -21,6 +23,12 @@ const TextBox = styled.div`
   font-family: "Noto Sans", sans-serif;
   padding: 10%;
   letter-spacing: 1.1px;
+`;
+
+const Slice = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: flex;
 `;
 interface HomeProps {
   posts: Array<contentfulDataTypes>;
@@ -43,9 +51,15 @@ const Home: FC<HomeProps> = ({ posts }) => {
           rel="stylesheet"
         ></link>
       </Head>
+      {/* <PicturesCarousel /> */}
+      <Slice>
+        <PicturesGrid />
+        <WelcomeText />
+      </Slice>
 
       <main>
         {/* <Header /> */}
+
         <TextBox>
           {posts.map((p) => {
             return <div key={posts.indexOf(p)}>{p.testText}</div>;
@@ -58,7 +72,6 @@ const Home: FC<HomeProps> = ({ posts }) => {
 
       <style jsx>{`
         .container {
-          height: 100vh;
           display: flex;
           flex-direction: column;
           justify-content: center;
