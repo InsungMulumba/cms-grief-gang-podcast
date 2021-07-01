@@ -5,9 +5,10 @@ import PageWithLayoutType from "../types/pageWithLayout";
 import React, { FC } from "react";
 import { fetchEntries } from "../utils/contentfulPosts";
 import MainLayout from "../layouts/mainLayout";
-import WelcomeSlice from "../components/Home/welcome-text";
-import PicturesGrid from "../components/Home/pictures-grid";
-import WelcomeText from "../components/Home/welcome-text";
+import WelcomeSlice from "../components/Home/WelcomeText";
+import AboutSlice from "../components/Home/About";
+import PicturesGrid from "../components/Home/PicturesGrid";
+import WelcomeText from "../components/Home/WelcomeText";
 // function MyApp({ Component, pageProps }: AppLayoutProps) {
 // export default function Home({ posts }) {
 
@@ -29,6 +30,12 @@ const Slice = styled.div`
   width: 100%;
   height: fit-content;
   display: flex;
+`;
+
+const AboveTheFold = styled(Slice)`
+  @media (max-width: 767px) {
+    flex-direction: column-reverse;
+  }
 `;
 interface HomeProps {
   posts: Array<contentfulDataTypes>;
@@ -52,11 +59,13 @@ const Home: FC<HomeProps> = ({ posts }) => {
         ></link>
       </Head>
       {/* <PicturesCarousel /> */}
-      <Slice>
+      <AboveTheFold>
         <PicturesGrid />
         <WelcomeText />
+      </AboveTheFold>
+      <Slice>
+        <AboutSlice />
       </Slice>
-
       <main>
         {/* <Header /> */}
 
@@ -77,7 +86,6 @@ const Home: FC<HomeProps> = ({ posts }) => {
           justify-content: center;
           align-items: center;
         }
-
         main {
           padding: 5rem 0;
           flex: 1;
@@ -86,7 +94,6 @@ const Home: FC<HomeProps> = ({ posts }) => {
           justify-content: center;
           align-items: center;
         }
-
         .posts {
           display: flex;
         }
@@ -101,7 +108,6 @@ const Home: FC<HomeProps> = ({ posts }) => {
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
         }
-
         * {
           box-sizing: border-box;
         }

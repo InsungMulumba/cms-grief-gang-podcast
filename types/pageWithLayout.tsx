@@ -1,7 +1,7 @@
   
 import { NextPage } from 'next'
 import MainLayout from '../layouts/mainLayout'
-import SecondaryLayout from '../layouts/secondarylayout'
+import SecondaryLayout from '../layouts/secondaryLayout'
 
 type PageWithMainLayoutType = NextPage & { layout: typeof MainLayout }
 

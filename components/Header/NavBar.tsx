@@ -3,7 +3,6 @@ import { useState, FC } from "react";
 
 const NavigationBarDesktop = styled.div`
   height: 150px;
-
   align-items: center;
   width: 100%;
   display: flex;
@@ -38,7 +37,6 @@ const NavLinksDesktop = styled.a`
 const Logo = styled.img`
   height: 60%;
   margin: auto 20px;
-
 `;
 
 const TagLine = styled.div`
@@ -52,7 +50,6 @@ const TagLine = styled.div`
   padding: 10px;
 `;
 const MenuToggle = styled.button`
-
   height: 100%;
   background-color: inherit;
   margin: auto 10px;
@@ -65,7 +62,7 @@ const MenuToggle = styled.button`
 const BurgerMenu = styled.div`
   width: 35px;
   height: 2px;
-  background-color: white;
+  background-color: black;
   margin: 6px;
 `;
 const NavBar: FC = () => {
@@ -73,13 +70,12 @@ const NavBar: FC = () => {
 
   return (
     <>
-
       <NavigationBarDesktop>
-      <MenuToggle onClick={() => setShowBurgerMenu(!toggleBurgerMenu)}>
-        <BurgerMenu />
-        <BurgerMenu />
-        <BurgerMenu />
-      </MenuToggle>
+        <MenuToggle onClick={() => setShowBurgerMenu(!toggleBurgerMenu)}>
+          <BurgerMenu />
+          <BurgerMenu />
+          <BurgerMenu />
+        </MenuToggle>
         <NavLinksContainerDesktop>
           <NavLinksDesktop href="/">Home </NavLinksDesktop>
           <NavLinksDesktop href="/about">About </NavLinksDesktop>
@@ -89,15 +85,13 @@ const NavBar: FC = () => {
           alt="Grief Gang Podcast logo"
           crossOrigin="anonymous"
         />
-        
+
         <NavLinksContainerDesktop>
           <NavLinksDesktop href="/libary">Library </NavLinksDesktop>
           <NavLinksDesktop href="/Blog">Blog </NavLinksDesktop>
         </NavLinksContainerDesktop>
-
       </NavigationBarDesktop>
-      <TagLine>        The podcast normalising grief
-</TagLine>
+      <TagLine> The Grief Gang Podcast</TagLine>
     </>
   );
 };

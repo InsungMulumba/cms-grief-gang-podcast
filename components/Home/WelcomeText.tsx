@@ -5,7 +5,9 @@ import colors from "../../styles/colors";
 const WelcomeSlice = styled.div`
   background-color: ${colors.mainPink};
   color: white;
-max-width: 50%;
+  @media (min-width: 767px) {
+    max-width: 50%;
+  }
 text-align: center;
 display: flex;
 align-items: center;
@@ -25,7 +27,7 @@ const Text = styled.p`
 const WelcomeText: FC = () => {
   return (
     <WelcomeSlice>
-      <Title> Title goes Here</Title>
+      <Title> The Podcast Normalising Grief</Title>
       <Text>
         "Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et
         dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation

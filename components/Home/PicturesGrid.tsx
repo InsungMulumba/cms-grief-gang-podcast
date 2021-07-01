@@ -4,8 +4,10 @@ import colors from "../../styles/colors";
 
 const Grid = styled.div`
   display: flex;
-  width: 50%;
+  @media (min-width: 767px) {
+    width: 50%;
   max-width: 50%;
+  }
   flex-direction: column;
 `;
 
@@ -15,8 +17,8 @@ const GridColumn = styled.div`
 `;
 
 const GridImage = styled.img`
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: cover;
 `;
 
