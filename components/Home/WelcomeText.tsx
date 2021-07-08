@@ -5,9 +5,9 @@ import colors from "../../styles/colors";
 const WelcomeSlice = styled.div`
   background-color: ${colors.mainPink};
   color: white;
-  @media (min-width: 767px) {
+  /* @media (min-width: 767px) {
     max-width: 50%;
-  }
+  } */
 text-align: center;
 display: flex;
 align-items: center;
@@ -16,7 +16,7 @@ flex-direction: column;
 `;
 const Title = styled.h1`
   font-family: "Noto Sans", sans-serif;
-  font-size: 36px;
+  font-size: 80px;
 `;
 
 const Text = styled.p`

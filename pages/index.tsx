@@ -7,12 +7,16 @@ import { fetchEntries } from "../utils/contentfulPosts";
 import MainLayout from "../layouts/mainLayout";
 import WelcomeSlice from "../components/Home/WelcomeText";
 import AboutSlice from "../components/Home/About";
+import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
 import WelcomeText from "../components/Home/WelcomeText";
+import { ENETUNREACH } from "constants";
 // function MyApp({ Component, pageProps }: AppLayoutProps) {
 // export default function Home({ posts }) {
 
 interface contentfulDataTypes {
+  aboutSlice: string;
+  welcomeSlice: string;
   testText: string;
 }
 
@@ -33,6 +37,7 @@ const Slice = styled.div`
 `;
 
 const AboveTheFold = styled(Slice)`
+  flex-direction: column;
   @media (max-width: 767px) {
     flex-direction: column-reverse;
   }
@@ -60,21 +65,27 @@ const Home: FC<HomeProps> = ({ posts }) => {
       </Head>
       {/* <PicturesCarousel /> */}
       <AboveTheFold>
-        <PicturesGrid />
         <WelcomeText />
+        <PicturesGrid />
       </AboveTheFold>
-      <Slice>
-        <AboutSlice />
-      </Slice>
+      <AboutSlice data={posts.aboutSlice} />
+      {/* <Slice> */}
+      {/* <AboutSlice> */}
+      {/* {posts.map((p) => {
+          console.log(p.about_slice_text);
+          return <AboutSlice data={posts.about_slice_text} />;
+        })} */}
+      {/* </Slice> */}
+      <SignUpSlice />
       <main>
         {/* <Header /> */}
 
-        <TextBox>
+        {/* <TextBox>
           {posts.map((p) => {
             return <div key={posts.indexOf(p)}>{p.testText}</div>;
             // return <Post key={p.date} date={p.date} title={p.title} />
           })}
-        </TextBox>
+        </TextBox> */}
       </main>
 
       {/* <Footer /> */}
@@ -121,9 +132,19 @@ export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetchEntries();
-  const posts = await res.map((p) => {
-    return p.fields;
+
+  const rawPosts = await res.map((p) => {
+
+    if (p.sys.contentType.sys.id === "homepage") {
+      return p.fields;
+    } 
+    else { 
+      return null
+    }
+    // return p.fields;
   });
+
+  const [posts] = rawPosts.filter(p => p);
 
   return {
     props: {
