@@ -43,7 +43,7 @@ const AboveTheFold = styled(Slice)`
   }
 `;
 interface HomeProps {
-  posts: Array<contentfulDataTypes>;
+  posts: contentfulDataTypes;
 }
 
 const Home: FC<HomeProps> = ({ posts }) => {
