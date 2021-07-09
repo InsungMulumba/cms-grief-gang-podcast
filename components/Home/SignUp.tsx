@@ -9,20 +9,19 @@ const SignUpSlice = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 60px 80px;
   background-color: ${colors.secondary};
 `;
 
 const SignUpBox = styled.div`
   /* background-color: white; */
-  padding: 40px;
   display: flex;
   flex-direction: column;
 `;
 
 const Title = styled(TitleH2)`
   text-align: center;
-  font-size: 80px;
+  font-size: 40px;
   color: white;
   font-family: "Noto Sans", sans-serif;
 `;
