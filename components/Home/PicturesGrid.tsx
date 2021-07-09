@@ -14,9 +14,10 @@ const Grid = styled.div`
 
 const GridColumn = styled.div`
   display: flex;
-  max-width: 50vw;
+  max-width: 100vw;
   @media (max-width: 767px) {
     max-width: 100vw;
+    max-width: 50vw;
   }
   border: solid 1px black;
 `;
@@ -29,6 +30,10 @@ const GridImage = styled(Image)`
     max-width: 50%;
   }
 `;
+
+// const myLoader = ({ src, width, quality }) => {
+//   return `https://example.com/${src}?w=${width}&q=${quality || 75}`
+// }
 
 const PicturesGrid: FC = () => {
   return (
