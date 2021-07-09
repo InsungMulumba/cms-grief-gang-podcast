@@ -22,7 +22,7 @@ const GridColumn = styled.div`
   border: solid 1px black;
 `;
 
-const GridImage = styled(Image)`
+const GridImage = styled.img`
   max-width: 25%;
   max-height: 100%;
   object-fit: cover;
