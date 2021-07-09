@@ -1,6 +1,7 @@
 import React, { Component, FC } from "react";
 import styled from "styled-components";
 import { TitleH2 } from "styles/headings";
+import SocialMediaLinks from '../../components/Home/SocialMediaBar';
 import colors from "../../styles/colors";
 
 const AboutSlice = styled.div`
@@ -33,6 +34,7 @@ const About: FC<AboutProps> = ({ data }) => {
     <AboutSlice>
       <TitleH2>About</TitleH2>
       <Content>{data} </Content>
+      <SocialMediaLinks />
     </AboutSlice>
   );
 };
