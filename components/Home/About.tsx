@@ -1,5 +1,6 @@
 import React, { Component, FC } from "react";
 import styled from "styled-components";
+import { TitleH2 } from "styles/headings";
 import colors from "../../styles/colors";
 
 const AboutSlice = styled.div`
@@ -16,7 +17,6 @@ const AboutSlice = styled.div`
 const Title = styled.h2`
   font-family: "Noto Sans", sans-serif;
   font-size: 80px;
-
 `;
 
 const Content = styled.p`
@@ -25,13 +25,13 @@ const Content = styled.p`
 `;
 
 interface AboutProps {
-    data: string;
-  }
+  data: string;
+}
 const About: FC<AboutProps> = ({ data }) => {
-//   console.log(`asc ${aboutSliceContent}`);
+  //   console.log(`asc ${aboutSliceContent}`);
   return (
     <AboutSlice>
-      <Title>About</Title>
+      <TitleH2>About</TitleH2>
       <Content>{data} </Content>
     </AboutSlice>
   );

@@ -1,5 +1,6 @@
 import React, { Component, FC } from "react";
 import styled from "styled-components";
+import { TitleH2 } from "styles/headings";
 import colors from "../../styles/colors";
 
 const SignUpSlice = styled.div`
@@ -16,10 +17,10 @@ const SignUpBox = styled.div`
   /* background-color: white; */
   padding: 40px;
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
 `;
 
-const Title = styled.h2`
+const Title = styled(TitleH2)`
   text-align: center;
   font-size: 80px;
   color: white;
@@ -30,7 +31,7 @@ const Content = styled.p`
   text-align: center;
   font-size: 20px;
 
-    color: white;
+  color: white;
   font-family: "Noto Sans", sans-serif;
 `;
 
@@ -57,6 +58,7 @@ const SendButton = styled.input`
   height: 40px;
   border-radius: 6px;
   margin: 10px 20px;
+  border: 2px solid;
   font-size: 15px;
 `;
 

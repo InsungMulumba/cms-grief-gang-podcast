@@ -10,9 +10,8 @@ import AboutSlice from "../components/Home/About";
 import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
 import WelcomeText from "../components/Home/WelcomeText";
-import { ENETUNREACH } from "constants";
-// function MyApp({ Component, pageProps }: AppLayoutProps) {
-// export default function Home({ posts }) {
+
+
 
 interface contentfulDataTypes {
   aboutSlice: string;
@@ -39,7 +38,6 @@ const Slice = styled.div`
 const AboveTheFold = styled(Slice)`
   flex-direction: column;
   @media (max-width: 767px) {
-    flex-direction: column-reverse;
   }
 `;
 interface HomeProps {
@@ -65,27 +63,14 @@ const Home: FC<HomeProps> = ({ posts }) => {
       </Head>
       {/* <PicturesCarousel /> */}
       <AboveTheFold>
-        <WelcomeText />
+        <WelcomeText data={posts.welcomeSlice}/>
         <PicturesGrid />
       </AboveTheFold>
       <AboutSlice data={posts.aboutSlice} />
-      {/* <Slice> */}
-      {/* <AboutSlice> */}
-      {/* {posts.map((p) => {
-          console.log(p.about_slice_text);
-          return <AboutSlice data={posts.about_slice_text} />;
-        })} */}
-      {/* </Slice> */}
+
       <SignUpSlice />
       <main>
-        {/* <Header /> */}
 
-        {/* <TextBox>
-          {posts.map((p) => {
-            return <div key={posts.indexOf(p)}>{p.testText}</div>;
-            // return <Post key={p.date} date={p.date} title={p.title} />
-          })}
-        </TextBox> */}
       </main>
 
       {/* <Footer /> */}
