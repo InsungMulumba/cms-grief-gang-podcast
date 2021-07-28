@@ -7,6 +7,7 @@ import { fetchEntries } from "../utils/contentfulPosts";
 import MainLayout from "../layouts/mainLayout";
 import WelcomeSlice from "../components/Home/WelcomeText";
 import AboutSlice from "../components/Home/About";
+import BannerSlice from "../components/Home/Banner";
 import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
 import WelcomeText from "../components/Home/WelcomeText";
@@ -63,6 +64,7 @@ const Home: FC<HomeProps> = ({ posts }) => {
       </Head>
       {/* <PicturesCarousel /> */}
       <AboveTheFold>
+        <BannerSlice />
         <WelcomeText data={posts.welcomeSlice}/>
         <PicturesGrid />
       </AboveTheFold>
