@@ -3,7 +3,7 @@ import { useState, FC } from "react";
 import colors from 'styles/colors';
 
 const NavigationBarDesktop = styled.div`
-  height: 150px;
+  height: 120px;
   align-items: center;
   width: 100%;
   display: flex;
@@ -158,7 +158,7 @@ const NavBar: FC = () => {
           <BurgerMenuClose />
           <NavLinksMobile href="/">Home </NavLinksMobile>
           <NavLinksMobile href="/about">About </NavLinksMobile>
-          <NavLinksMobile href="/library">Library </NavLinksMobile>
+          <NavLinksMobile href="/podcast">Podcast </NavLinksMobile>
           <NavLinksMobile href="/blog">Blog</NavLinksMobile>
           <NavLinksMobile href="/contact">Contact</NavLinksMobile>
 
@@ -182,11 +182,11 @@ const NavBar: FC = () => {
         />
 
         <NavLinksContainerDesktop>
-          <NavLinksDesktop href="/libary">Library </NavLinksDesktop>
+          <NavLinksDesktop href="/podcast">Podcast </NavLinksDesktop>
           <NavLinksDesktop href="/Blog">Blog </NavLinksDesktop>
         </NavLinksContainerDesktop>
       </NavigationBarDesktop>
-      <TagLine> The Grief Gang Podcast</TagLine>
+      {/* <TagLine> The Grief Gang Podcast</TagLine> */}
     </>
   );
 };

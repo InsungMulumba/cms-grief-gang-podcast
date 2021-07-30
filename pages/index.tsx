@@ -11,6 +11,7 @@ import BannerSlice from "../components/Home/Banner";
 import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
 import WelcomeText from "../components/Home/WelcomeText";
+import Header from "../components/Header/Header";
 
 
 
@@ -65,6 +66,7 @@ const Home: FC<HomeProps> = ({ posts }) => {
       {/* <PicturesCarousel /> */}
       <AboveTheFold>
         <BannerSlice />
+        <Header isMain={true} />
         <WelcomeText data={posts.welcomeSlice}/>
         <PicturesGrid />
       </AboveTheFold>

@@ -25,7 +25,7 @@ const Canvas = styled.div`
 const Layout: FC<LayoutProps> = ({ children, posts }) => {
   return (
     <>
-      <Header isMain={true} />
+      {/* <Header isMain={true} /> */}
       {posts}
       {children}
       <Footer />
