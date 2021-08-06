@@ -24,7 +24,29 @@ const SlideInLogo = keyframes`
     }
 `;
 
-const BannerOverlay = styled.div`
+const Bounce = keyframes`
+ 0% {
+  transform: translateY(0px);
+ }
+
+ 50% {
+  transform: translateY(20px);
+ }
+
+ 100% {
+  transform: translateY(0px);
+ }
+`;
+
+const SlideInArrow = keyframes`
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+`;
+const BannerOverlay = styled.a`
   width: 100%;
   height: 100vh;
   background-color: ${colors.mainPink};
@@ -56,18 +78,57 @@ const Logo = styled.img`
   width: 200px;
   left: 20%;
   animation: ${SlideInLogo} 1.5s ease-out 2.5s both;
-
+  @media (max-width: 767px) {
+    height: 250px;
+    width: 250px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;
+
+const ArrowDown = styled.img`
+  height: 45px;
+  width: 45px;
+  animation: ${Bounce} 1.5s linear infinite;
+`;
+
+const ArrowDownContainer = styled.div`
+  animation: ${SlideInArrow} 1.5s ease-out 2.5s both;
+
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  display: flex;
+  bottom: 5%;
+  justify-content: center;
+`;
+
+function scrollToHome(e) {
+  e.preventDefault();
+  const el = document.getElementById("homepage-top");
+  el.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+}
+
 const Banner: FC = () => {
   return (
     <>
       <BannerImageContainer />
-      <BannerOverlay />
+      <BannerOverlay href="/" onClick={scrollToHome} />
       <Logo
+        onClick={scrollToHome}
         src="/logo.jpg"
         alt="Grief Gang Podcast logo"
         crossOrigin="anonymous"
       />
+      <ArrowDownContainer>
+        <ArrowDown
+          onClick={scrollToHome}
+          src="/Home/down-arrow.png"
+          alt="Scroll Down Button"
+          crossOrigin="anonymous"
+        />
+      </ArrowDownContainer>
     </>
   );
 };

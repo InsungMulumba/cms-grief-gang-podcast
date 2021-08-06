@@ -17,7 +17,7 @@ const BulletinText = styled.div`
   animation: ${SlideIn} 1s ease-out 0s both;
 `;
 
-const BulletinBarDesktop = styled.div`
+const BulletinBar = styled.div`
   height: 40px;
   color: black;
   width: 100%;
@@ -34,13 +34,13 @@ const BulletinBarDesktop = styled.div`
 
 const AnnounceBar: FC = () => {
   return (
-    <BulletinBarDesktop>
+    <BulletinBar id="homepage-top">
       {" "}
       <BulletinText>
         {" "}
         Click here to listen to the most recent episode.
       </BulletinText>
-    </BulletinBarDesktop>
+    </BulletinBar>
   );
 };
 export default AnnounceBar;

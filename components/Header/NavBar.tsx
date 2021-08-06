@@ -9,7 +9,7 @@ const NavigationBarDesktop = styled.div`
   display: flex;
   /* background-color: purple; */
   justify-content: space-evenly;
-  @media (max-width: 1200px) {
+  @media (max-width: 767px) {
     height: 80px;
     flex-direction: row-reverse;
     justify-content: space-between;

@@ -66,7 +66,7 @@ const Home: FC<HomeProps> = ({ posts }) => {
       {/* <PicturesCarousel /> */}
       <AboveTheFold>
         <BannerSlice />
-        <Header isMain={true} />
+        
         <WelcomeText data={posts.welcomeSlice}/>
         <PicturesGrid />
       </AboveTheFold>

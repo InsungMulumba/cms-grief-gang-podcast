@@ -11,6 +11,8 @@ type HeaderProps = {
 const HeaderRoot = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: white;
+  width: 100%;
 `;
 
 const Header: FC<HeaderProps> = ({ isMain }) => {
