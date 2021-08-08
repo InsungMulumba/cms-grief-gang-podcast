@@ -68,7 +68,7 @@ const Home: FC<HomeProps> = ({ posts }) => {
         <BannerSlice />
         
         <WelcomeText data={posts.welcomeSlice}/>
-        <PicturesGrid />
+        {/* <PicturesGrid /> */}
       </AboveTheFold>
       <AboutSlice data={posts.aboutSlice} />
 
