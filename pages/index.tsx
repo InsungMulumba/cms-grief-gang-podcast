@@ -39,7 +39,7 @@ const Slice = styled.div`
 
 const AboveTheFold = styled(Slice)`
   flex-direction: column;
-  @media (max-width: 767px) {
+  @media (max-width: 1280px) {
   }
 `;
 interface HomeProps {

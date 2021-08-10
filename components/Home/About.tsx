@@ -10,7 +10,7 @@ const AboutSlice = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 20px 40px;
   margin-bottom: 40px;
   /* background-color: red; */
 `;
@@ -23,6 +23,7 @@ const Title = styled.h2`
 const Content = styled.p`
   font-family: "Noto Sans", sans-serif;
   font-size: 20px;
+  text-align: center;
 `;
 
 interface AboutProps {

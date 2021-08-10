@@ -5,12 +5,12 @@ import colors from "../../styles/colors";
 const Grid = styled.div`
   display: flex;
 
-  @media (min-width: 767px) {
+  @media (min-width: 1280px) {
     max-width: 100vw;
     flex-direction: row;
   }
   flex-direction: column;
-  @media (max-width: 767px) {
+  @media (max-width: 1280px) {
     flex-direction: column;
   }
 `;
@@ -18,7 +18,7 @@ const Grid = styled.div`
 const GridColumn = styled.div`
   display: flex;
   max-width: 50vw;
-  @media (max-width: 767px) {
+  @media (max-width: 1280px) {
     max-width: 100vw;
   }
   border: solid 1px black;

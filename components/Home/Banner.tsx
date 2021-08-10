@@ -78,7 +78,7 @@ const Logo = styled.img`
   width: 200px;
   left: 20%;
   animation: ${SlideInLogo} 1.5s ease-out 2.5s both;
-  @media (max-width: 767px) {
+  @media (max-width: 1280px) {
     height: 250px;
     width: 250px;
     left: 50%;

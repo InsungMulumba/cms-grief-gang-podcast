@@ -9,7 +9,7 @@ const NavigationBarDesktop = styled.div`
   display: flex;
   /* background-color: purple; */
   justify-content: space-evenly;
-  @media (max-width: 767px) {
+  @media (max-width: 1280px) {
     height: 80px;
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -19,7 +19,7 @@ const NavigationBarDesktop = styled.div`
 const NavLinksContainerDesktop = styled.div`
   display: flex;
   justify-content: space-around;
-  @media (max-width: 767px) {
+  @media (max-width: 1280px) {
     display: none;
   }
 `;
@@ -58,7 +58,7 @@ const MenuToggle = styled.button`
   height: 100%;
   background-color: inherit;
   margin: auto 10px;
-  @media (min-width: 767px) {
+  @media (min-width: 1280px) {
     display: none;
   }
   border: none;

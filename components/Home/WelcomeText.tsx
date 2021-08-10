@@ -7,7 +7,7 @@ import Header from "../../components/Header/Header";
 const WelcomeSlice = styled.div`
   background-color: ${colors.mainPink};
   color: white;
-  /* @media (min-width: 767px) {
+  /* @media (min-width: 1280px) {
     max-width: 50%;
   } */
   text-align: center;
@@ -15,7 +15,7 @@ const WelcomeSlice = styled.div`
   align-items: center;
   padding: 0%;
   flex-direction: column;
-  @media (min-width: 767px) {
+  @media (min-width: 1280px) {
   height: 100vh;}
 `;
 
@@ -31,7 +31,7 @@ const Text = styled.p`
 const HeroImage = styled.img`
 width: 100%;
 object-fit: cover;
- @media (min-width: 767px) {
+ @media (min-width: 1280px) {
   width: 40%;
   height: 80%;
   object-fit: cover;
@@ -42,9 +42,9 @@ const HeroBanner = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  @media (min-width: 767px) {
+  width: 100%;
+  @media (min-width: 1280px) {
     flex-direction: row;
-
   }
 `;
 const HeroText = styled.div`
@@ -52,9 +52,10 @@ const HeroText = styled.div`
   flex-direction: column;
   padding: 20px 40px;
   text-align: center;
+  /* width: 100%; */
 
-  @media (min-width: 767px) {
-    width: 30%;
+  @media (min-width: 1280px) {
+    width: 50%;
     text-align: left;
 
   }
