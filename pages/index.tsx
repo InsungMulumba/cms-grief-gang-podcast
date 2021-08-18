@@ -5,12 +5,12 @@ import PageWithLayoutType from "../types/pageWithLayout";
 import React, { FC } from "react";
 import { fetchEntries } from "../utils/contentfulPosts";
 import MainLayout from "../layouts/mainLayout";
-import WelcomeSlice from "../components/Home/WelcomeText";
+import WelcomeSlice from "../components/Home/WelcomeSlice";
 import AboutSlice from "../components/Home/About";
 import BannerSlice from "../components/Home/Banner";
 import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
-import WelcomeText from "../components/Home/WelcomeText";
+import WelcomeText from "../components/Home/WelcomeSlice";
 import Header from "../components/Header/Header";
 
 

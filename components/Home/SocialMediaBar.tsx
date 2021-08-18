@@ -4,17 +4,28 @@ import { FC } from "react";
 const SocialMediaIconContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 16px 0px;
+  justify-content: center;
+  margin: 20px 0px;
 `;
 
 const SocialMediaIconLink = styled.a`
   /* margin: 28px 30px; */
+  @media (min-width: 1280px) {
   height: 40px;
+  }
+  margin: 0px 5px;
+
 `;
 
 const SocialMediaIcon = styled.img`
+  @media (min-width: 1280px) {
     height: 40px;
     width: 40px;
+    }
+    margin: 0px 5px;
+
+
+
 `;
 
 const platforms = ["Instagram", "Apple", "Spotify", "Youtube", "Twitter"];
