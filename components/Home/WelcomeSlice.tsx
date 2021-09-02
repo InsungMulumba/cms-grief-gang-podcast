@@ -59,6 +59,7 @@ const Root = styled.div`
   flex-direction: column;
   @media (min-width: 1280px) {
     height: 100vh;
+    max-height: 100vh;
   }
 `;
 
@@ -66,10 +67,7 @@ const Title = styled(TitleH1)`
   margin-top: 0;
 
   @media (min-width: 1280px) {
-    font-size: 36px;
-  }
-  @media (min-width: 1280px) {
-    font-size: 56px;
+    font-size: 48px;
   }
 `;
 
@@ -102,6 +100,7 @@ const HeroBanner = styled.div`
 
   @media (min-width: 1280px) {
     flex-direction: row;
+    /* max-height: 70vh; */
   }
 `;
 const HeroText = styled.div`
@@ -113,8 +112,8 @@ const HeroText = styled.div`
   /* width: 100%; */
 
   @media (min-width: 1280px) {
-    width: 50%;
-    max-height: 80%;
+    width: 40%;
+    max-height: 90%;
     text-align: left;
     animation: ${SlideInFromLeft} 2.5s ease-out 1.5s both;
   }
