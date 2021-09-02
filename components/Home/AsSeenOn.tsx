@@ -25,7 +25,7 @@ const PartnerLogos = styled.div`
   display: contents;
   @media (min-width: 767px) {
     flex-direction: row;
-    margin-bottom: 40px;
+    margin: 20px 0px 40px;
     display: flex;
   }
 

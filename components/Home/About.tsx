@@ -14,6 +14,9 @@ const AboutSlice = styled.div`
   padding: 20px 40px;
   padding-bottom: 60px;
   background-color: #f2d7d1;
+  @media (min-width: 1280px) {
+    padding: 20px 120px;
+  }
   
 `;
 

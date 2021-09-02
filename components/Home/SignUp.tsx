@@ -21,7 +21,7 @@ const SignUpBox = styled.div`
 
 const Title = styled(TitleH2)`
   text-align: center;
-  font-size: 40px;
+
   color: white;
   font-family: "Noto Sans", sans-serif;
 `;

@@ -67,7 +67,7 @@ const Title = styled(TitleH1)`
   margin-top: 0;
 
   @media (min-width: 1280px) {
-    font-size: 48px;
+    font-size: 72px;
   }
 `;
 
@@ -108,7 +108,7 @@ const HeroText = styled.div`
   flex-direction: column;
   padding: 20px 40px;
   text-align: center;
-  justify-content: space-between;
+  justify-content: space-around;
   /* width: 100%; */
 
   @media (min-width: 1280px) {
