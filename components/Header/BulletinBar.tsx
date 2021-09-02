@@ -26,7 +26,7 @@ const BulletinBar = styled.div`
   font-family: "Noto Sans", sans-serif;
   justify-content: center;
   align-items: center;
-position: sticky;
+/* position: sticky; */
 top: 0;
   /* @media (max-width: 1280px) {
     display: none;

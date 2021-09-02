@@ -12,8 +12,9 @@ const AboutSlice = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px 40px;
-  margin-bottom: 40px;
-  /* background-color: red; */
+  padding-bottom: 60px;
+  background-color: #f2d7d1;
+  
 `;
 
 const Title = styled.h2`

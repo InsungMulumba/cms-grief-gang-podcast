@@ -7,6 +7,7 @@ import { fetchEntries } from "../utils/contentfulPosts";
 import MainLayout from "../layouts/mainLayout";
 import WelcomeSlice from "../components/Home/WelcomeSlice";
 import AboutSlice from "../components/Home/About";
+import AsSeenOn from "../components/Home/AsSeenOn";
 import BannerSlice from "../components/Home/Banner";
 import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
@@ -64,18 +65,18 @@ const Home: FC<HomeProps> = ({ posts }) => {
         ></link>
       </Head>
       {/* <PicturesCarousel /> */}
-      <AboveTheFold>
+      {/* <AboveTheFold> */}
         <BannerSlice />
         
         <WelcomeText data={posts.welcomeSlice}/>
         {/* <PicturesGrid /> */}
-      </AboveTheFold>
+      {/* </AboveTheFold> */}
       <AboutSlice data={posts.aboutSlice} />
-
+<AsSeenOn />
       <SignUpSlice />
-      <main>
+      {/* <main>
 
-      </main>
+      </main> */}
 
       {/* <Footer /> */}
 
