@@ -68,7 +68,16 @@ const BannerImageContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  /* position: relative; */
+
+  @media not all and (min-resolution: 0.001dpcm) {
+    @media {
+      .safari_only {
+        background-attachment: scroll;
+
+      }
+    }
+  }
 `;
 
 const Logo = styled.img`
@@ -113,7 +122,7 @@ function scrollToHome(e) {
 const Banner: FC = () => {
   return (
     <>
-      <BannerImageContainer />
+      <BannerImageContainer className='safari_only' />
       <BannerOverlay href="/" onClick={scrollToHome} />
       <Logo
         onClick={scrollToHome}

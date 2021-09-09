@@ -38,6 +38,10 @@ const Slice = styled.div`
   display: flex;
 `;
 
+const Container = styled.div`
+  width: 100vw;
+`;
+
 const AboveTheFold = styled(Slice)`
   flex-direction: column;
   @media (max-width: 1280px) {
@@ -49,7 +53,7 @@ interface HomeProps {
 
 const Home: FC<HomeProps> = ({ posts }) => {
   return (
-    <div className="container">
+    <Container>
       <Head>
         <title>The Grief Gang</title>
         <link rel="icon" href="/logo.ico" />
@@ -113,7 +117,7 @@ const Home: FC<HomeProps> = ({ posts }) => {
           box-sizing: border-box;
         }
       `}</style>
-    </div>
+    </Container>
   );
 };
 (Home as PageWithLayoutType).layout = MainLayout;
