@@ -32,11 +32,6 @@ const Container = styled.div`
   overflow-x: hidden;
 `;
 
-const AboveTheFold = styled(Slice)`
-  flex-direction: column;
-  @media (max-width: 1280px) {
-  }
-`;
 interface HomeProps {
   posts: contentfulDataTypes;
 }

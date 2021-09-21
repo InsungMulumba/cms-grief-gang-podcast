@@ -44,7 +44,7 @@ const PartnerImg = styled.img`
     width: 120px;
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1279px) {
     height: 120px;
     width: 120px;
   }

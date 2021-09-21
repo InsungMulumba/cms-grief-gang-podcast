@@ -9,7 +9,7 @@ const NavigationBarDesktop = styled.div`
   display: flex;
   /* background-color: purple; */
   justify-content: space-evenly;
-  @media (max-width: 1280px) {
+  @media (max-width: 1279px) {
     height: 80px;
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -19,7 +19,7 @@ const NavigationBarDesktop = styled.div`
 const NavLinksContainerDesktop = styled.div`
   display: flex;
   justify-content: space-around;
-  @media (max-width: 1280px) {
+  @media (max-width: 1279px) {
     display: none;
   }
 `;

@@ -17,7 +17,7 @@ const BulletinText = styled.div`
   animation: ${SlideIn} 1s ease-out 0s both;
 `;
 
-const BulletinBar = styled.div`
+const BulletinBar = styled.a`
   height: 40px;
   color: black;
   width: 100%;
@@ -26,19 +26,18 @@ const BulletinBar = styled.div`
   font-family: "Noto Sans", sans-serif;
   justify-content: center;
   align-items: center;
-/* position: sticky; */
-top: 0;
-  /* @media (max-width: 1280px) {
-    display: none;
-  } */
+  /* position: sticky; */
+  top: 0;
 `;
 
 const AnnounceBar: FC = () => {
   return (
-    <BulletinBar id="homepage-top">
-      {" "}
+    <BulletinBar
+      href="https://open.spotify.com/show/6RfXRi5ZaYtFcMBTPju8tL"
+      target="_blank"
+      id="homepage-top"
+    >
       <BulletinText>
-        {" "}
         Click here to listen to the most recent episode.
       </BulletinText>
     </BulletinBar>

@@ -64,7 +64,6 @@ const Root = styled.div`
 `;
 
 const Title = styled(TitleH1)`
-  margin-top: 0;
 
   @media (min-width: 1280px) {
     font-size: 72px;
@@ -103,16 +102,21 @@ const HeroBanner = styled.div`
 
   @media (min-width: 1280px) {
     flex-direction: row;
+    padding: 20px 0px;
     /* max-height: 70vh; */
   }
 `;
 const HeroText = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 20px 40px;
   text-align: center;
   justify-content: space-around;
   /* width: 100%; */
+
+  @media (max-width: 1279px) {
+    padding: 20px 40px;
+
+  }
 
   @media (min-width: 1280px) {
     width: 40%;
