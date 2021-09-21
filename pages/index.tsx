@@ -14,23 +14,12 @@ import PicturesGrid from "../components/Home/PicturesGrid";
 import WelcomeText from "../components/Home/WelcomeSlice";
 import Header from "../components/Header/Header";
 
-
-
 interface contentfulDataTypes {
   aboutSlice: string;
   welcomeSlice: string;
   testText: string;
 }
 
-const TextBox = styled.div`
-  background-color: black;
-  color: white;
-  display: flex;
-  max-width: 80%;
-  font-family: "Noto Sans", sans-serif;
-  padding: 10%;
-  letter-spacing: 1.1px;
-`;
 
 const Slice = styled.div`
   width: 100%;
@@ -39,7 +28,8 @@ const Slice = styled.div`
 `;
 
 const Container = styled.div`
-  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
 `;
 
 const AboveTheFold = styled(Slice)`
@@ -70,13 +60,13 @@ const Home: FC<HomeProps> = ({ posts }) => {
       </Head>
       {/* <PicturesCarousel /> */}
       {/* <AboveTheFold> */}
-        <BannerSlice />
-        
-        <WelcomeText data={posts.welcomeSlice}/>
-        {/* <PicturesGrid /> */}
+      <BannerSlice />
+
+      <WelcomeText data={posts.welcomeSlice} />
+      {/* <PicturesGrid /> */}
       {/* </AboveTheFold> */}
       <AboutSlice data={posts.aboutSlice} />
-<AsSeenOn />
+      <AsSeenOn />
       <SignUpSlice />
       {/* <main>
 
@@ -128,17 +118,15 @@ export const getStaticProps: GetStaticProps = async () => {
   const res = await fetchEntries();
 
   const rawPosts = await res.map((p) => {
-
     if (p.sys.contentType.sys.id === "homepage") {
       return p.fields;
-    } 
-    else { 
-      return null
+    } else {
+      return null;
     }
     // return p.fields;
   });
 
-  const [posts] = rawPosts.filter(p => p);
+  const [posts] = rawPosts.filter((p) => p);
 
   return {
     props: {

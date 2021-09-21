@@ -20,10 +20,6 @@ const AboutSlice = styled.div`
   
 `;
 
-const Title = styled.h2`
-  font-family: "Noto Sans", sans-serif;
-  font-size: 80px;
-`;
 
 const Content = styled.p`
   font-family: "Noto Sans", sans-serif;

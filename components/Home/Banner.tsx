@@ -60,7 +60,7 @@ const BannerImageContainer = styled.div`
 
   /* Set a specific height */
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
 
   /* Create the parallax scrolling effect */
@@ -71,10 +71,9 @@ const BannerImageContainer = styled.div`
   /* position: relative; */
 
   @media not all and (min-resolution: 0.001dpcm) {
-    @media {
+    @supports (-webkit-appearance: none) {
       .safari_only {
         background-attachment: scroll;
-
       }
     }
   }
@@ -122,7 +121,7 @@ function scrollToHome(e) {
 const Banner: FC = () => {
   return (
     <>
-      <BannerImageContainer className='safari_only' />
+      <BannerImageContainer className="safari_only" />
       <BannerOverlay href="/" onClick={scrollToHome} />
       <Logo
         onClick={scrollToHome}

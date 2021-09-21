@@ -74,6 +74,9 @@ const Title = styled(TitleH1)`
 const Text = styled.p`
   font-family: "Noto Sans", sans-serif;
   font-size: 18px;
+  
+
+text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
   @media (min-width: 1280px) {
     margin-bottom: 32px;
   }
