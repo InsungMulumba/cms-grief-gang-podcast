@@ -1,7 +1,7 @@
 import React, { Component, FC } from "react";
 import styled from "styled-components";
-import { TitleH2 } from "styles/headings";
-import SocialMediaLinks from '../../components/Home/SocialMediaBar';
+import { TitleH2, SliceContent } from "styles/headings";
+import SocialMediaLinks from "../../components/Home/SocialMediaBar";
 import colors from "../../styles/colors";
 import ButtonBase from "components/Navigation/ButtonBase";
 
@@ -17,14 +17,12 @@ const AboutSlice = styled.div`
   @media (min-width: 1280px) {
     padding: 20px 120px;
   }
-  
 `;
 
-
-const Content = styled.p`
-  font-family: "Noto Sans", sans-serif;
-  font-size: 20px;
-  text-align: center;
+const Content = styled(SliceContent)`
+  &&& {
+    color: black;
+  }
 `;
 
 const ContactButton = styled.a`

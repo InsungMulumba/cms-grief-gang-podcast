@@ -1,6 +1,6 @@
 import React, { Component, FC } from "react";
 import styled from "styled-components";
-import { TitleH2 } from "styles/headings";
+import { TitleH2, SliceContent } from "styles/headings";
 import colors from "../../styles/colors";
 
 const SignUpSlice = styled.div`
@@ -77,10 +77,10 @@ const SignUp: FC = () => {
     <SignUpSlice>
       <SignUpBox>
         <Title>Join Us</Title>
-        <Content>
+        <SliceContent>
           Sign up with your email address to receive recent news and blog posts
           from The Grief Gang.
-        </Content>
+        </SliceContent>
         <InputSubmitPair>
           <ContactInput type="email" placeholder="Email" name="user_email" />
           <SendButton type="submit" value="Submit" />
