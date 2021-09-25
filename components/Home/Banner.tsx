@@ -56,7 +56,7 @@ const BannerOverlay = styled.a`
 `;
 
 const BannerImageContainer = styled.div`
-  background-image: url("/Home/amber-main.jpg");
+  background-image: url("/Home/amber-main-webp.webp");
 
   /* Set a specific height */
   height: 100vh;
@@ -74,6 +74,8 @@ const BannerImageContainer = styled.div`
     @supports (-webkit-appearance: none) {
       .safari_only {
         background-attachment: scroll;
+        background-image: url("/Home/amber-main.jpg");
+
       }
     }
   }

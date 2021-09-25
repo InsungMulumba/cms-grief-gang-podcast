@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { GetStaticProps } from "next";
 import PageWithLayoutType from "../types/pageWithLayout";
 import React, { FC } from "react";
-import { fetchEntries } from "../utils/contentfulPosts";
+import { fetchEntries, getTotalEntriesNumber } from "../utils/contentfulPosts";
 import MainLayout from "../layouts/mainLayout";
 import WelcomeSlice from "../components/Home/WelcomeSlice";
 import AboutSlice from "../components/Home/About";
@@ -49,7 +49,7 @@ const Home: FC<HomeProps> = ({ posts }) => {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=optional"
           rel="stylesheet"
         ></link>
       </Head>
@@ -110,19 +110,9 @@ const Home: FC<HomeProps> = ({ posts }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetchEntries();
-
-  const rawPosts = await res.map((p) => {
-    if (p.sys.contentType.sys.id === "homepage") {
-      return p.fields;
-    } else {
-      return null;
-    }
-    // return p.fields;
-  });
-
-  const [posts] = rawPosts.filter((p) => p);
-
+  const posts = await fetchEntries("homepage");
+  
+  console.log(getTotalEntriesNumber(posts));
   return {
     props: {
       posts,
