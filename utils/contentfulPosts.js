@@ -6,6 +6,7 @@ const client = require("contentful").createClient({
   accessToken: accessToken,
 });
 
+
 export async function fetchEntries(contentType) {
   const entries = (await client.getEntries()).items;
 

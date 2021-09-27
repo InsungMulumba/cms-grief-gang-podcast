@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { GetStaticProps } from "next";
 import PageWithLayoutType from "../types/pageWithLayout";
 import React, { FC } from "react";
-import { fetchEntries, getTotalEntriesNumber } from "../utils/contentfulPosts";
 import MainLayout from "../layouts/mainLayout";
 import WelcomeSlice from "../components/Home/WelcomeSlice";
 import AboutSlice from "../components/Home/About";
@@ -13,13 +12,14 @@ import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
 import WelcomeText from "../components/Home/WelcomeSlice";
 import Header from "../components/Header/Header";
+import ContentfulApi from "../utils/ContentfulApi";
+import { homeQuery } from "../utils/queries";
 
 interface contentfulDataTypes {
   aboutSlice: string;
   welcomeSlice: string;
   testText: string;
 }
-
 
 const Slice = styled.div`
   width: 100%;
@@ -109,10 +109,16 @@ const Home: FC<HomeProps> = ({ posts }) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await fetchEntries("homepage");
-  
-  console.log(getTotalEntriesNumber(posts));
+export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+
+  const posts = await ContentfulApi.getPageContentBySlug(
+    homeQuery,
+    'homepageCollection',
+    {
+      preview: preview,
+    }
+  );
+
   return {
     props: {
       posts,
