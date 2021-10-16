@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 import colors from "../../styles/colors";
 import { useState, FC } from "react";
 
-const SlideIn = keyframes`
+const fadeIn = keyframes`
     0% {
 
 opacity: 0%;
@@ -14,7 +14,7 @@ opacity: 0%;
 `;
 
 const BulletinText = styled.div`
-  animation: ${SlideIn} 1s ease-out 0s both;
+  animation: ${fadeIn} 1s ease-out 0s both;
 `;
 
 const BulletinBar = styled.a`
@@ -23,7 +23,7 @@ const BulletinBar = styled.a`
   width: 100%;
   display: flex;
   background-color: #f2d7d1;
-  font-family: "Noto Sans", sans-serif;
+  font-family: " Spartan", sans-serif;
   justify-content: center;
   align-items: center;
   /* position: sticky; */

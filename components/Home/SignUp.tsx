@@ -23,7 +23,7 @@ const Title = styled(TitleH2)`
   text-align: center;
 
   color: white;
-  font-family: "Noto Sans", sans-serif;
+  font-family: " Spartan", sans-serif;
 `;
 
 const Content = styled.p`
@@ -31,7 +31,7 @@ const Content = styled.p`
   font-size: 20px;
 
   color: white;
-  font-family: "Noto Sans", sans-serif;
+  font-family: " Spartan", sans-serif;
 `;
 
 const ContactInput = styled.input`

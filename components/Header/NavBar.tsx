@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { useState, FC } from "react";
-import colors from 'styles/colors';
+import colors from "styles/colors";
 
 const NavigationBarDesktop = styled.div`
   height: 120px;
@@ -28,14 +28,16 @@ const NavLinksDesktop = styled.a`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  color: black;
+  color: white;
+  border-radius: 100%;
   margin: auto 50px;
   padding: 40px 30px;
-  font-family: "Noto Sans", sans-serif;
+  width: 150px;
+  font-family: " Spartan", sans-serif;
   font-size: 18px;
+  background-color: ${colors.mainPink};
   :hover {
-    background-color: ${colors.mainPink};
-    color: white;
+    border-radius: 0px;
   }
 `;
 
@@ -50,7 +52,7 @@ const TagLine = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  font-family: "Noto Sans", sans-serif;
+  font-family: " Spartan", sans-serif;
   font-size: 24px;
   padding: 10px;
 `;
@@ -151,7 +153,7 @@ const NavBar: FC = () => {
 
   return (
     <>
-    {toggleBurgerMenu ? (
+      {toggleBurgerMenu ? (
         <NavLinksContainerMobile
           onClick={() => setShowBurgerMenu(!toggleBurgerMenu)}
         >
@@ -160,8 +162,7 @@ const NavBar: FC = () => {
           <NavLinksMobile href="/about">About </NavLinksMobile>
           <NavLinksMobile href="/podcast">Podcast </NavLinksMobile>
           <NavLinksMobile href="/blog">Blog</NavLinksMobile>
-          <NavLinksMobile href="/contact">Contact</NavLinksMobile>
-
+          {/* <NavLinksMobile href="/contact">Contact</NavLinksMobile> */}
         </NavLinksContainerMobile>
       ) : null}
 

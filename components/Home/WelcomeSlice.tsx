@@ -5,44 +5,25 @@ import TitleH1 from "../../styles/headings";
 import Header from "../Header/Header";
 import SocialMediaLinks from "./SocialMediaBar";
 
-const SlideInFromLeft = keyframes`
+const FadeIn = keyframes`
     0% {
-      left: 100%;
-      opacity: 0%;
+ /* margin-left: -50%; */
+ opacity: 0;
     }
     100% {
-      left: 0;
-      opacity: 100%;
+      /* margin-left: 0%; */
+opacity: 1;
     }
 `;
 
-const RubberBand = keyframes`
+const SlideIn = keyframes`
   0% {
-    transform: scale3d(1, 1, 1);
-  }
-
-  30% {
-    transform: scale3d(1.25, 0.75, 1);
-  }
-
-  40% {
-    transform: scale3d(0.75, 1.25, 1);
-  }
-
-  50% {
-    transform: scale3d(1.15, 0.85, 1);
-  }
-
-  65% {
-    transform: scale3d(.95, 1.05, 1);
-  }
-
-  75% {
-    transform: scale3d(1.05, .95, 1);
+    margin-right: -100%;
   }
 
   100% {
-    transform: scale3d(1, 1, 1);
+    margin-right: 0%;
+
   }
 `;
 
@@ -64,18 +45,16 @@ const Root = styled.div`
 `;
 
 const Title = styled(TitleH1)`
-
   @media (min-width: 1280px) {
     font-size: 72px;
   }
 `;
 
 const Text = styled.p`
-  font-family: "Noto Sans", sans-serif;
+  font-family: " Spartan", sans-serif;
   font-size: 18px;
-  
 
-text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
   @media (min-width: 1280px) {
     margin-bottom: 32px;
   }
@@ -85,12 +64,13 @@ const HeroImage = styled.img`
   width: 100%;
   object-fit: cover;
   @media (min-width: 1280px) {
-    width: 40%;
-    max-height: 90%;
+    width: 30%;
+    max-height: 80%;
     object-fit: cover;
-    padding: 40px 80px;
+    /* padding: 40px 80px; */
+    box-shadow: 0 10px 16px 5px rgb(0 0 0 / 20%);
     &.rubber-band {
-      animation: ${RubberBand} 1.5s ease-out 0.5s both;
+      animation: ${SlideIn} 2.5s ease 0.5s both;
     }
   }
 `;
@@ -115,14 +95,15 @@ const HeroText = styled.div`
 
   @media (max-width: 1279px) {
     padding: 20px 40px;
-
   }
 
   @media (min-width: 1280px) {
     width: 40%;
     max-height: 90%;
     text-align: left;
-    animation: ${SlideInFromLeft} 2.5s ease-out 1.5s both;
+    margin-right: 5%;
+
+    animation: ${FadeIn} 2.5s ease-out 1.5s both;
   }
 `;
 
@@ -130,7 +111,6 @@ interface WelcomeProps {
   data: string;
 }
 const WelcomeText: FC<WelcomeProps> = ({ data }) => {
- 
   useEffect(() => {
     const myImg = document.querySelector("#animate-rubber-band");
 
@@ -139,7 +119,7 @@ const WelcomeText: FC<WelcomeProps> = ({ data }) => {
         if (entry.intersectionRatio > 0) {
           // console.log("in the view");
           myImg.classList.add("rubber-band");
-          // observer.unobserve; 
+          // observer.unobserve;
         } else {
           // console.log("out of view");
         }

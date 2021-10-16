@@ -49,12 +49,11 @@ const Home: FC<HomeProps> = ({ posts }) => {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=optional"
+          href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;700&display=swap"
           rel="stylesheet"
         ></link>
       </Head>
-      {/* <PicturesCarousel /> */}
-      {/* <AboveTheFold> */}
+
       <BannerSlice />
 
       <WelcomeText data={posts.welcomeSlice} />
@@ -110,10 +109,9 @@ const Home: FC<HomeProps> = ({ posts }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-
   const posts = await ContentfulApi.getPageContentBySlug(
     homeQuery,
-    'homepageCollection',
+    "homepageCollection",
     {
       preview: preview,
     }

@@ -6,6 +6,7 @@ const SocialMediaIconContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   margin: 20px 0px;
+  padding: 40px 0px;
 `;
 
 const SocialMediaIconLink = styled.a`
