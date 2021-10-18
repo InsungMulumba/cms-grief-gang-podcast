@@ -12,8 +12,18 @@ export const episodeQuery = `
 export const homeQuery = `{
     homepageCollection(limit: 20) {
       items {
-   aboutSlice
-   welcomeSlice
+        aboutSlice
+        welcomeSlice
+        mediaLink
       }
     }
   }`;
+
+export const mediaQuery = `
+    mediaCollection(limit: 20) {
+      items {
+        mediaLink
+        mediaQuery
+      }
+    }
+  `;

@@ -6,7 +6,7 @@ import React, { FC } from "react";
 import MainLayout from "../layouts/mainLayout";
 import WelcomeSlice from "../components/Home/WelcomeSlice";
 import AboutSlice from "../components/Home/About";
-import AsSeenOn from "../components/Home/AsSeenOn";
+import MediaSlice from "../components/Home/Media";
 import BannerSlice from "../components/Home/Banner";
 import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
@@ -18,7 +18,7 @@ import { homeQuery } from "../utils/queries";
 interface contentfulDataTypes {
   aboutSlice: string;
   welcomeSlice: string;
-  testText: string;
+  mediaLink: any;
 }
 
 const Slice = styled.div`
@@ -60,7 +60,7 @@ const Home: FC<HomeProps> = ({ posts }) => {
       {/* <PicturesGrid /> */}
       {/* </AboveTheFold> */}
       <AboutSlice data={posts.aboutSlice} />
-      <AsSeenOn />
+      <MediaSlice data={posts.mediaLink} />
       <SignUpSlice />
       {/* <main>
 
