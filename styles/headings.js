@@ -4,7 +4,7 @@ const TitleH1 = styled.h1`
   font-family: " Spartan", sans-serif;
   font-size: 80px;
 
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   @media (max-width: 1279px) {
     font-size: 40px;
   }
@@ -13,7 +13,7 @@ const TitleH1 = styled.h1`
 export const TitleH2 = styled.h2`
   font-family: " Spartan", sans-serif;
   font-size: 64px;
-  text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 3px 4px 3px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 1279px) {
     font-size: 32px;
@@ -24,7 +24,7 @@ export const TitleH2 = styled.h2`
 export const SliceContent = styled.p`
   text-align: center;
   font-size: 20px;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   margin: 0;
   margin-bottom: 16px;
   color: white;

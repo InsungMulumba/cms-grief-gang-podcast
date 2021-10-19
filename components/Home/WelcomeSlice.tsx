@@ -54,7 +54,7 @@ const Text = styled.p`
   font-family: " Spartan", sans-serif;
   font-size: 18px;
 
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   @media (min-width: 1280px) {
     margin-bottom: 32px;
   }
