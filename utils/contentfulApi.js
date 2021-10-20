@@ -5,38 +5,43 @@ const defaultOptions = {
   preview: false,
 };
 
+// export default class ContentfulApi {
+ const getPageContentBySlug = async (
+  query,
+  collectionName,
+  options = defaultOptions
+) => {
+  const response = await callContentful(query, options);
 
-export default class ContentfulApi {
-  static async getPageContentBySlug(query, collectionName, options = defaultOptions) {
+  const pageContent = response?.data?.[collectionName]?.items
+    ? response.data[collectionName].items
+    : [];
 
-    const response = await this.callContentful(query, options);
+  return pageContent.pop();
+};
 
-    const pageContent = response?.data?.[collectionName]?.items
-      ? response.data[collectionName].items
-      : [];
+const callContentful = async (query) => {
+  const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${space}`;
 
-    return pageContent.pop();
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query }),
+  };
+
+  try {
+    const data = await fetch(fetchUrl, fetchOptions).then((response) =>
+      response.json()
+    );
+    return data;
+  } catch (error) {
+    throw new Error("Could not fetch data from Contentful!");
   }
+};
 
-  static async callContentful(query) {
-    const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${space}`;
-
-    const fetchOptions = {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ query }),
-    };
-
-    try {
-      const data = await fetch(fetchUrl, fetchOptions).then((response) =>
-        response.json()
-      );
-      return data;
-    } catch (error) {
-      throw new Error("Could not fetch data from Contentful!");
-    }
-  }
-}
+export default getPageContentBySlug;
+// }
+// module.exports.getPageContentBySlug = getPageContentBySlug();

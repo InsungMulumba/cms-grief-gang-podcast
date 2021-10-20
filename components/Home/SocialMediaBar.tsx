@@ -32,7 +32,7 @@ const SocialMediaIcon = styled.img`
 const platforms = ["Instagram", "Apple", "Spotify", "Youtube", "Twitter"];
 
 const platformLinks = [
-  "https://www.instagram.com/thegriefgang/?hl=en",
+  "https://www.instagram.com/thegriefgangpodcast/?hl=en",
   "https://podcasts.apple.com/gb/podcast/the-grief-gang/id1489821860?i=1000526164529",
   "https://open.spotify.com/episode/4RrNlacsxKnTdGlIxjIcdp?si=3JkPT1tFQaCKzCv8NY_DQw&dl_branch=1",
   "https://youtube.com/channel/UCCpe5pGmjvqPFteN4L7T_ZA",
