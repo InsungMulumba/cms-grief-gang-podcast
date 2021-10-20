@@ -12,7 +12,7 @@ import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
 import WelcomeText from "../components/Home/WelcomeSlice";
 import Header from "../components/Header/Header";
-import ContentfulApi from "../utils/ContentfulApi"
+import ContentfulApi from "../utils/ContentfulApi";
 import { homeQuery } from "../utils/queries";
 
 interface contentfulDataTypes {
