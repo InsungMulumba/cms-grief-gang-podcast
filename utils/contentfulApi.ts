@@ -6,21 +6,17 @@ const defaultOptions = {
 };
 
 // export default class ContentfulApi {
- const getPageContentBySlug = async (
-  query,
-  collectionName,
-  options = defaultOptions
-) => {
-  const response = await callContentful(query, options);
+async function getPageContentBySlug(query, collectionName) {
+  const response = await callContentful(query);
 
   const pageContent = response?.data?.[collectionName]?.items
     ? response.data[collectionName].items
     : [];
 
   return pageContent.pop();
-};
+}
 
-const callContentful = async (query) => {
+async function callContentful(query) {
   const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${space}`;
 
   const fetchOptions = {
@@ -40,8 +36,7 @@ const callContentful = async (query) => {
   } catch (error) {
     throw new Error("Could not fetch data from Contentful!");
   }
-};
+}
 
 export default getPageContentBySlug;
-// }
-// module.exports.getPageContentBySlug = getPageContentBySlug();
+

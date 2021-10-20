@@ -12,7 +12,7 @@ import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
 import WelcomeText from "../components/Home/WelcomeSlice";
 import Header from "../components/Header/Header";
-import getPageContentBySlug from "../utils/ContentfulApi";
+import getPageContentBySlug from "../utils/contentfulApi";
 import { homeQuery } from "../utils/queries";
 
 interface contentfulDataTypes {
@@ -111,10 +111,7 @@ export default Home;
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const posts = await getPageContentBySlug(
     homeQuery,
-    "homepageCollection",
-    {
-      preview: preview,
-    }
+    "homepageCollection"
   );
 
   return {
