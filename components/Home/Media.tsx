@@ -1,9 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { FC, useEffect } from "react";
 import { TitleH2 } from "styles/headings";
-import { GetStaticProps } from "next";
-import ContentfulApi from "../../utils/ContentfulApi";
-import { mediaQuery } from "../../utils/queries";
+
 
 // interface contentfulDataTypes {
 //   mediaLink: string;
