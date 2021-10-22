@@ -19,6 +19,19 @@ export const homeQuery = `{
     }
   }`;
 
+export const newHomeQuery = `{
+    homeCollection(limit: 20) {
+      items {
+        mainImage {
+          title
+          url
+        }
+        textTitle
+        textContent
+      }
+    }
+  }`;
+
 export const mediaQuery = `
     mediaCollection(limit: 20) {
       items {

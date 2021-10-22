@@ -15,19 +15,26 @@ const AboutSlice = styled.div`
   padding-bottom: 60px;
   background-color: ${colors.cream};
   @media (min-width: 1280px) {
-    padding: 20px 120px;
+    padding: 20px 20%;
   }
 `;
 
 const Content = styled(SliceContent)`
   &&& {
     color:  ${colors.secondary};
+    @media (min-width: 1280px) {
+      text-align: left;
+    }
   }
 `;
 
 const TitleH2 = styled(TitleH2Base)`
 &&& {
   color: ${colors.secondary};
+  @media (min-width: 1280px) {
+      text-align: left;
+      width: 100%;
+    }
 }
 `;
 
@@ -48,12 +55,10 @@ interface AboutProps {
   data: string;
 }
 const About: FC<AboutProps> = ({ data }) => {
-  //   console.log(`asc ${aboutSliceContent}`);
   return (
     <AboutSlice>
-      <TitleH2>About</TitleH2>
+      <TitleH2>I'm Amber</TitleH2>
       <Content>{data} </Content>
-      <ContactButton href="/contact"> Get In Touch</ContactButton>
     </AboutSlice>
   );
 };

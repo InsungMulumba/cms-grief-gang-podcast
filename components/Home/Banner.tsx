@@ -116,7 +116,7 @@ const ArrowDownContainer = styled.div`
 
 function scrollToHome(e) {
   e.preventDefault();
-  const el = document.getElementById("homepage-top");
+  const el = document.getElementById("home");
   el.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 }
 

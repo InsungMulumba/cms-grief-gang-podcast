@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 const TitleH1 = styled.h1`
   font-family: " Spartan", sans-serif;
-  font-size: 80px;
+  font-size: 50px;
 
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   @media (max-width: 1279px) {
-    font-size: 40px;
+    font-size: 36px;
   }
 `;
 

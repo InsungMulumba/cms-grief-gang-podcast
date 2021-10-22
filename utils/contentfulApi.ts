@@ -8,7 +8,7 @@ const defaultOptions = {
 // export default class ContentfulApi {
 async function getPageContentBySlug(query, collectionName) {
   const response = await callContentful(query);
-
+  console.log(response.data);
   const pageContent = response?.data?.[collectionName]?.items
     ? response.data[collectionName].items
     : [];

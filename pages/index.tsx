@@ -13,7 +13,7 @@ import PicturesGrid from "../components/Home/PicturesGrid";
 import WelcomeText from "../components/Home/WelcomeSlice";
 import Header from "../components/Header/Header";
 import getPageContentBySlug from "../utils/contentfulApi";
-import { homeQuery } from "../utils/queries";
+import { homeQuery, newHomeQuery } from "../utils/queries";
 
 interface contentfulDataTypes {
   aboutSlice: string;
@@ -33,10 +33,11 @@ const Container = styled.div`
 `;
 
 interface HomeProps {
-  posts: contentfulDataTypes;
+  oldPosts: contentfulDataTypes;
+  newPosts: any[];
 }
 
-const Home: FC<HomeProps> = ({ posts }) => {
+const Home: FC<HomeProps> = ({ oldPosts, newPosts }) => {
   return (
     <Container>
       <Head>
@@ -55,18 +56,14 @@ const Home: FC<HomeProps> = ({ posts }) => {
       </Head>
 
       <BannerSlice />
-
-      <WelcomeText data={posts.welcomeSlice} />
-      {/* <PicturesGrid /> */}
-      {/* </AboveTheFold> */}
-      <AboutSlice data={posts.aboutSlice} />
-      <MediaSlice data={posts.mediaLink} />
-      <SignUpSlice />
-      {/* <main>
-
-      </main> */}
-
-      {/* <Footer /> */}
+      {console.log(newPosts)}
+      {
+        <>
+          <WelcomeText data={oldPosts.welcomeSlice} />
+          <AboutSlice data={oldPosts.aboutSlice} />
+          <SignUpSlice />
+        </>
+      }
 
       <style jsx>{`
         .container {
@@ -109,14 +106,15 @@ const Home: FC<HomeProps> = ({ posts }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const posts = await getPageContentBySlug(
-    homeQuery,
-    "homepageCollection"
-  );
+  const oldPosts = await getPageContentBySlug(homeQuery, "homepageCollection");
+  const newPosts = await getPageContentBySlug(newHomeQuery, "homeCollection");
+
+  const posts = String(newPosts);
 
   return {
     props: {
-      posts,
+      oldPosts,
+      newPosts,
     },
   };
 };

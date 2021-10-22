@@ -72,7 +72,6 @@ const InputSubmitPair = styled.div`
 // }
 
 const SignUp: FC = () => {
-  //   console.log(`asc ${SignUpSliceContent}`);
   return (
     <SignUpSlice>
       <SignUpBox>

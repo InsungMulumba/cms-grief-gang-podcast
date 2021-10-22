@@ -64,7 +64,7 @@ interface mediaProps {
 const Media: FC<mediaProps> = ({ data }) => {
 
   useEffect(() => {
-    console.log(data);
+    // console.log(data);
     const myImg = document.querySelectorAll(".animate-image-grow");
     let imgArray = Array.from(myImg);
 

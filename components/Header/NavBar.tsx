@@ -18,7 +18,7 @@ const NavigationBarDesktop = styled.div`
 
 const NavLinksContainerDesktop = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-aroun;
   @media (max-width: 1279px) {
     display: none;
   }
@@ -172,17 +172,16 @@ const NavBar: FC = () => {
           <BurgerMenu />
           <BurgerMenu />
         </MenuToggle>
-        <NavLinksContainerDesktop>
-          <NavLinksDesktop href="/">Home </NavLinksDesktop>
-          <NavLinksDesktop href="/about">About </NavLinksDesktop>
-        </NavLinksContainerDesktop>
         <Logo
           src="/logo.jpg"
           alt="Grief Gang Podcast logo"
           crossOrigin="anonymous"
         />
-
         <NavLinksContainerDesktop>
+
+          <NavLinksDesktop href="/">Home </NavLinksDesktop>
+ 
+
           <NavLinksDesktop href="/podcast">Podcast </NavLinksDesktop>
           <NavLinksDesktop href="/Blog">Blog </NavLinksDesktop>
         </NavLinksContainerDesktop>

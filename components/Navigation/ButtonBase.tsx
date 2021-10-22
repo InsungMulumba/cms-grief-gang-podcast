@@ -14,7 +14,6 @@ const Button = styled.a`
 `;
 
 const ButtonBase: FC = () => {
-    //   console.log(`asc ${aboutSliceContent}`);
     return (
 <Button />
     );

@@ -35,7 +35,7 @@ const AnnounceBar: FC = () => {
     <BulletinBar
       href="https://open.spotify.com/show/6RfXRi5ZaYtFcMBTPju8tL"
       target="_blank"
-      id="homepage-top"
+      id="home"
     >
       <BulletinText>
         Click here to listen to the most recent episode.

@@ -44,9 +44,7 @@ const Root = styled.div`
   }
 `;
 
-const Title = styled(TitleH1)`
-
-`;
+const Title = styled(TitleH1)``;
 
 const Text = styled.p`
   font-family: " Spartan", sans-serif;
@@ -114,44 +112,31 @@ const HeroText = styled.div`
   }
 `;
 
-interface WelcomeProps {
-  data: string;
+interface ImageTextCoupleProps {
+  textTitle: string;
+  textContent: string;
+  imageURL: string;
 }
+
+interface WelcomeProps {
+  data: ImageTextCoupleProps;
+}
+
 const WelcomeText: FC<WelcomeProps> = ({ data }) => {
-  // useEffect(() => {
-  //   const myImg = document.querySelector("#animate-rubber-band");
-  //   const myText = document.querySelector("#animate-fade");
-
-  //   const observer = new IntersectionObserver((entries) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.intersectionRatio > 0) {
-  //         // console.log("in the view");
-  //         myImg.classList.add("rubber-band");
-  //         myText.classList.add("rubber-band");
-  //         // observer.unobserve;
-  //       }
-  //     });
-  //   });
-
-  //   observer.observe(myImg);
-  //   observer.observe(myText);
-  // }, []);
-
   return (
     <Root>
       <Header isMain={true} />
       <HeroBanner>
         <HeroText>
-          <Title id="animate-fade"> The Podcast Normalising Grief</Title>
-          <Text>{data}</Text>
+          <Title>{data.textTitle}</Title>
+          <Text>{data.textContent}</Text>
         </HeroText>
         <HeroImageContainer>
           <HeroImage
-            id="band"
-            src="/Home/amber-secondary.jpg"
+            src={data.imageURL}
             alt="Amber Home Page Picture"
             crossOrigin="anonymous"
-          />{" "}
+          />
         </HeroImageContainer>
       </HeroBanner>
     </Root>
