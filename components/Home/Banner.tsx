@@ -70,7 +70,7 @@ const BannerImageContainer = styled.div`
   background-size: cover;
   /* position: relative; */
 
-  @media not all and (min-resolution: 0.001dpcm) {
+  /* @media not all and (min-resolution: 0.001dpcm) {
     @supports (-webkit-appearance: none) {
       .safari_only {
         background-attachment: scroll;
@@ -78,6 +78,12 @@ const BannerImageContainer = styled.div`
 
       }
     }
+  } */
+  _::-webkit-full-page-media,
+  _:future,
+  :root .safari_only {
+    background-attachment: scroll;
+    background-image: url("/Home/amber-main.jpg");
   }
 `;
 
