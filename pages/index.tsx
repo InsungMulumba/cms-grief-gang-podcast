@@ -7,6 +7,7 @@ import MainLayout from "../layouts/mainLayout";
 import WelcomeSlice from "../components/Home/WelcomeSlice";
 import AboutSlice from "../components/Home/About";
 import MediaSlice from "../components/Home/Media";
+import CoupleSlice from "components/Home/CoupleSlice";
 import BannerSlice from "../components/Home/Banner";
 import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
@@ -37,7 +38,12 @@ interface HomeProps {
   newPosts: any[];
 }
 
-const Home: FC<HomeProps> = ({ oldPosts, newPosts }) => {
+const orderedSlices = (unorderedSlices: any) => {
+
+  return unorderedSlices.sort(({orderNumber:a}, {orderNumber:b}) => a-b);
+}
+
+const Home: FC<HomeProps> = ({  newPosts }) => {
   return (
     <Container>
       <Head>
@@ -56,11 +62,23 @@ const Home: FC<HomeProps> = ({ oldPosts, newPosts }) => {
       </Head>
 
       <BannerSlice />
-      {console.log(newPosts)}
+      {/* {console.log(newPosts)} */}
       {
         <>
-          <WelcomeText data={oldPosts.welcomeSlice} />
-          <AboutSlice data={oldPosts.aboutSlice} />
+
+          <Header showBulletin={true} isMain={true} />
+{/* {console.log(newPosts)}
+{console.log(orderedSlices(newPosts))} */}
+
+
+          {/* {orderedSlices(newPosts).map((i, idx) => {
+            console.log(i);
+            <CoupleSlice data={i} />;
+          })} */}
+          <CoupleSlice data={orderedSlices(newPosts)[0]} />
+          <CoupleSlice data={orderedSlices(newPosts)[1]} />
+
+          {/* <AboutSlice data={oldPos ts.aboutSlice} /> */}
           <SignUpSlice />
         </>
       }

@@ -139,7 +139,7 @@ const WelcomeText: FC<WelcomeProps> = ({ data }) => {
 
   return (
     <Root>
-      <Header isMain={true} />
+      {/* <Header isMain={true} /> */}
       <HeroBanner>
         <HeroText>
           <Title id="animate-fade"> The Podcast Normalising Grief</Title>

@@ -27,21 +27,21 @@ const SlideIn = keyframes`
   }
 `;
 
-const Root = styled.div`
-  background-color: ${colors.mainPink};
+const Root = styled.div<{ bgColor: string }>`
+  background-color: ${props => props.bgColor ? props.bgColor : colors.mainPink};
+  
+  ;
   color: white;
-  /* @media (min-width: 1280px) {
-    max-width: 50%;
-  } */
+
   text-align: center;
   display: flex;
   align-items: center;
   padding: 0%;
   flex-direction: column;
-  @media (min-width: 1280px) {
+  /* @media (min-width: 1280px) {
     height: 100vh;
     max-height: 100vh;
-  }
+  } */
 `;
 
 const Title = styled(TitleH1)``;
@@ -104,43 +104,47 @@ const HeroText = styled.div`
     width: 50%;
     /* max-height: 90%; */
     text-align: left;
-    padding: 0px 20px;
+    padding: 0px 50px;
 
-    &.rubber-band {
-      animation: ${FadeIn} 2.5s ease 0.5s both;
-    }
   }
 `;
 
-interface ImageTextCoupleProps {
-  textTitle: string;
-  textContent: string;
-  imageURL: string;
+interface CoupleProps {
+  textTitle?: string;
+  textContent?: string;
+  backgroundColor?: string;
+  order?
+  mainImage?: {
+    title: string;
+    url: string;
+  };
 }
 
 interface WelcomeProps {
-  data: ImageTextCoupleProps;
+  data: CoupleProps;
 }
 
-const WelcomeText: FC<WelcomeProps> = ({ data }) => {
+const Couple: FC<WelcomeProps> = ({ data }) => {
   return (
-    <Root>
-      <Header isMain={true} />
+    <Root bgColor={data.backgroundColor}>
+      {console.log(data.backgroundColor)}
       <HeroBanner>
         <HeroText>
           <Title>{data.textTitle}</Title>
           <Text>{data.textContent}</Text>
         </HeroText>
-        <HeroImageContainer>
-          <HeroImage
-            src={data.imageURL}
-            alt="Amber Home Page Picture"
-            crossOrigin="anonymous"
-          />
-        </HeroImageContainer>
+        {data.mainImage && (
+          <HeroImageContainer>
+            <HeroImage
+              src={data.mainImage?.url}
+              alt="Amber Home Page Picture"
+              crossOrigin="anonymous"
+            />
+          </HeroImageContainer>
+        )}
       </HeroBanner>
     </Root>
   );
 };
 
-export default WelcomeText;
+export default Couple;

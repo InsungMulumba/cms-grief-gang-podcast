@@ -13,7 +13,7 @@ async function getPageContentBySlug(query, collectionName) {
     ? response.data[collectionName].items
     : [];
 
-  return pageContent.pop();
+  return pageContent;
 }
 
 async function callContentful(query) {

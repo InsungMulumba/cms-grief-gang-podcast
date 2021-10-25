@@ -8,7 +8,7 @@ const NavigationBarDesktop = styled.div`
   width: 100%;
   display: flex;
   /* background-color: purple; */
-  justify-content: space-evenly;
+  justify-content: space-between;
   @media (max-width: 1279px) {
     height: 80px;
     flex-direction: row-reverse;
@@ -18,7 +18,7 @@ const NavigationBarDesktop = styled.div`
 
 const NavLinksContainerDesktop = styled.div`
   display: flex;
-  justify-content: space-aroun;
+  justify-content: space-around;
   @media (max-width: 1279px) {
     display: none;
   }
@@ -35,6 +35,7 @@ const NavLinksDesktop = styled.a`
   width: 150px;
   font-family: " Spartan", sans-serif;
   font-size: 18px;
+  text-align: center;
   background-color: ${colors.mainPink};
   :hover {
     border-radius: 0px;
@@ -44,6 +45,9 @@ const NavLinksDesktop = styled.a`
 const Logo = styled.img`
   height: 60%;
   margin: auto 20px;
+  @media (min-width: 1280px) {
+    margin-left: 50px;
+  }
 `;
 
 const TagLine = styled.div`
@@ -158,7 +162,7 @@ const NavBar: FC = () => {
           onClick={() => setShowBurgerMenu(!toggleBurgerMenu)}
         >
           <BurgerMenuClose />
-          <NavLinksMobile href="/">Home </NavLinksMobile>
+          <NavLinksMobile href="/#home">Home </NavLinksMobile>
           <NavLinksMobile href="/about">About </NavLinksMobile>
           <NavLinksMobile href="/podcast">Podcast </NavLinksMobile>
           <NavLinksMobile href="/blog">Blog</NavLinksMobile>
@@ -178,9 +182,7 @@ const NavBar: FC = () => {
           crossOrigin="anonymous"
         />
         <NavLinksContainerDesktop>
-
-          <NavLinksDesktop href="/">Home </NavLinksDesktop>
- 
+          <NavLinksDesktop href="/#home">Home </NavLinksDesktop>
 
           <NavLinksDesktop href="/podcast">Podcast </NavLinksDesktop>
           <NavLinksDesktop href="/Blog">Blog </NavLinksDesktop>

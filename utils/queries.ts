@@ -28,6 +28,8 @@ export const newHomeQuery = `{
         }
         textTitle
         textContent
+        backgroundColor
+        orderNumber
       }
     }
   }`;

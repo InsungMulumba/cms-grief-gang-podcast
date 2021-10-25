@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 import styles from "../../styles/Layout.module.css";
-import styled from 'styled-components';
+import styled from "styled-components";
 import BulletinBar from "./BulletinBar";
 import NavBar from "./NavBar";
 
 type HeaderProps = {
   isMain: boolean;
+  showBulletin: boolean;
 };
 
 const HeaderRoot = styled.div`
@@ -15,13 +16,12 @@ const HeaderRoot = styled.div`
   width: 100%;
 `;
 
-const Header: FC<HeaderProps> = ({ isMain }) => {
-  console.log(isMain)
+const Header: FC<HeaderProps> = ({ isMain, showBulletin }) => {
+  console.log(isMain);
   return (
     <HeaderRoot>
-      <BulletinBar />
+      {showBulletin && <BulletinBar />}
       <NavBar />
-  
     </HeaderRoot>
   );
 };
