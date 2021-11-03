@@ -114,11 +114,7 @@ const Home: FC<HomeProps> = ({  newPosts }) => {
         }
         * {
           box-sizing: border-box;
-        },
-        .safari_only { 
-          background-attachment: scroll;
-          background-image: url("/Home/amber-main.jpg");
-      }
+        }
       `}</style>
     </Container>
   );

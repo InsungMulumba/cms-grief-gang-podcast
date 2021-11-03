@@ -1,6 +1,7 @@
 import React, { Component, FC } from "react";
 import styled, { keyframes } from "styled-components";
 import colors from "styles/colors";
+import {isSafari, isMobileSafari } from "react-device-detect";
 
 const OverlaySlideIn = keyframes`
     0% {
@@ -55,8 +56,11 @@ const BannerOverlay = styled.a`
   animation: ${OverlaySlideIn} 1.5s ease-out 1.5s both;
 `;
 
+const safari = isSafari || isMobileSafari;
+const imageURL = safari ? "/Home/amber-main.jpg" : "/Home/amber-main-webp.webp";
+const bAttachment = safari ? 'scroll' : 'fixed';
 const BannerImageContainer = styled.div`
-  background-image: url("/Home/amber-main-webp.webp");
+  background-image: url(${imageURL});
 
   /* Set a specific height */
   height: 100vh;
@@ -64,7 +68,7 @@ const BannerImageContainer = styled.div`
   overflow: hidden;
 
   /* Create the parallax scrolling effect */
-  background-attachment: fixed;
+  background-attachment: ${bAttachment};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -129,7 +133,7 @@ function scrollToHome(e) {
 const Banner: FC = () => {
   return (
     <>
-      <BannerImageContainer className="safari_only" />
+      <BannerImageContainer />
       <BannerOverlay href="/" onClick={scrollToHome} />
       <Logo
         onClick={scrollToHome}
