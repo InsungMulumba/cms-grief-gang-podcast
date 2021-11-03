@@ -57,6 +57,8 @@ const BannerOverlay = styled.a`
 `;
 
 const safari = isSafari || isMobileSafari;
+
+console.log(`isSafari: ${safari}`);
 const imageURL = safari ? "/Home/amber-main.jpg" : "/Home/amber-main-webp.webp";
 const bAttachment = safari ? 'scroll' : 'fixed';
 const BannerImageContainer = styled.div`
