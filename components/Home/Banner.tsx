@@ -59,21 +59,33 @@ const BannerOverlay = styled.a`
 const safari = isSafari || isMobileSafari;
 
 console.log(`isSafari: ${safari}`);
-const imageURL = safari ? "/Home/amber-main.jpg" : "/Home/amber-main-webp.webp";
-const bAttachment = safari ? 'scroll' : 'fixed';
+// const imageURL = safari ? "/Home/amber-main.jpg" : "/Home/amber-main-webp.webp";
+// const bAttachment = safari ? 'scroll' : 'fixed';
 const BannerImageContainer = styled.div`
-  background-image: url(${imageURL});
+  background-image: url("/Home/amber-main.jpg");
 
   /* Set a specific height */
   height: 100vh;
   width: 100vw;
   overflow: hidden;
 
-  /* Create the parallax scrolling effect */
-  background-attachment: ${bAttachment};
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; 
+
+
+  /* Chrome version 29 and above */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+and (min-resolution:.001dpcm) {
+selector{ 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: "fixed";
+
+
+}
+}
+
   /* position: relative; */
 
   /* @media not all and (min-resolution: 0.001dpcm) {
@@ -85,12 +97,7 @@ const BannerImageContainer = styled.div`
       }
     }
   } */
-  _::-webkit-full-page-media,
-  _:future,
-  :root .safari_only {
-    background-attachment: scroll;
-    background-image: url("/Home/amber-main.jpg");
-  }
+
 `;
 
 const Logo = styled.img`
@@ -135,7 +142,7 @@ function scrollToHome(e) {
 const Banner: FC = () => {
   return (
     <>
-      <BannerImageContainer />
+      <BannerImageContainer className='banner' />
       <BannerOverlay href="/" onClick={scrollToHome} />
       <Logo
         onClick={scrollToHome}
