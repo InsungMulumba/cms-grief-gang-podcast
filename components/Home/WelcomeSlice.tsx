@@ -118,24 +118,21 @@ interface WelcomeProps {
   data: string;
 }
 const WelcomeText: FC<WelcomeProps> = ({ data }) => {
-  // useEffect(() => {
-  //   const myImg = document.querySelector("#animate-rubber-band");
-  //   const myText = document.querySelector("#animate-fade");
+  useEffect(() => {
+    const myImg = document.querySelector("#animate-rubber-band");
 
-  //   const observer = new IntersectionObserver((entries) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.intersectionRatio > 0) {
-  //         // console.log("in the view");
-  //         myImg.classList.add("rubber-band");
-  //         myText.classList.add("rubber-band");
-  //         // observer.unobserve;
-  //       }
-  //     });
-  //   });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio > 0) {
+          // console.log("in the view");
+          myImg.classList.add("rubber-band");
+          // observer.unobserve;
+        }
+      });
+    });
 
-  //   observer.observe(myImg);
-  //   observer.observe(myText);
-  // }, []);
+    observer.observe(myImg);
+  }, []);
 
   return (
     <Root>

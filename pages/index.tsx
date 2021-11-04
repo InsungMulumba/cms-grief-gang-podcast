@@ -11,7 +11,7 @@ import CoupleSlice from "components/Home/CoupleSlice";
 import BannerSlice from "../components/Home/Banner";
 import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
-import WelcomeText from "../components/Home/WelcomeSlice";
+import ScrollButton from "../components/Navigation/ScrollToTop";
 import Header from "../components/Header/Header";
 import getPageContentBySlug from "../utils/contentfulApi";
 import { homeQuery, newHomeQuery } from "../utils/queries";
@@ -62,23 +62,16 @@ const Home: FC<HomeProps> = ({  newPosts }) => {
       </Head>
 
       <BannerSlice />
-      {/* {console.log(newPosts)} */}
       {
         <>
-
+<ScrollButton />
           <Header showBulletin={true} isMain={true} />
-{/* {console.log(newPosts)}
-{console.log(orderedSlices(newPosts))} */}
 
-
-          {/* {orderedSlices(newPosts).map((i, idx) => {
-            console.log(i);
-            <CoupleSlice data={i} />;
-          })} */}
           <CoupleSlice data={orderedSlices(newPosts)[0]} />
           <CoupleSlice data={orderedSlices(newPosts)[1]} />
 
           {/* <AboutSlice data={oldPos ts.aboutSlice} /> */}
+          
           <SignUpSlice />
         </>
       }

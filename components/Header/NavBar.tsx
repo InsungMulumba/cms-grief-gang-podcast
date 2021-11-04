@@ -109,11 +109,13 @@ const NavLinksContainerMobile = styled.div`
   flex-direction: column;
   align-items: center;
   animation: ${SlideInMobileMenu} 0.5s ease-out 0s both;
-  background-color: ${colors.mainPink};
+  background-color: white;
   justify-content: center;
+  z-index: 9;
 `;
 
 const NavLinksMobile = styled.a`
+  background-color:${colors.mainPink};
   color: white;
   width: 60%;
   justify-content: center;
@@ -121,9 +123,11 @@ const NavLinksMobile = styled.a`
   animation: ${SlideIn} 1s ease-out 0s both;
   height: 100px;
   align-items: center;
+  margin: 20px 0px;
+  border-radius: 500px;
   :hover {
-    background-color: white;
-    color: ${colors.mainPink};
+    background-color: ${colors.secondary};
+    color: white;
   }
 `;
 
@@ -163,7 +167,7 @@ const NavBar: FC = () => {
         >
           <BurgerMenuClose />
           <NavLinksMobile href="/#home">Home </NavLinksMobile>
-          <NavLinksMobile href="/about">About </NavLinksMobile>
+          {/* <NavLinksMobile href="/about">About </NavLinksMobile> */}
           <NavLinksMobile href="/podcast">Podcast </NavLinksMobile>
           <NavLinksMobile href="/blog">Blog</NavLinksMobile>
           {/* <NavLinksMobile href="/contact">Contact</NavLinksMobile> */}

@@ -1,12 +1,18 @@
 import styled, { keyframes } from "styled-components";
 import { FC, useEffect } from "react";
 import { TitleH2 } from "styles/headings";
+import colors from "../../styles/colors";
 
+const Text = styled.p`
+  font-family: " Spartan", sans-serif;
+  font-size: 24px;
+  color: white;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  @media (min-width: 1280px) {
+    margin-bottom: 32px;
+  }
+`;
 
-// interface contentfulDataTypes {
-//   mediaLink: string;
-//   mediaName: string;
-// }
 
 const imageGrow = keyframes`
     0% {
@@ -24,6 +30,7 @@ const Root = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px 40px;
+  background-color: ${colors.secondary};
 `;
 
 const PartnerLogos = styled.div`
@@ -48,11 +55,13 @@ const PartnerImg = styled.img`
   @media (min-width: 1280px) {
     height: 120px;
     width: 120px;
+
   }
 
   @media (max-width: 1279px) {
     height: 120px;
     width: 120px;
+    margin: 5% 0%;
   }
 `;
 
@@ -61,7 +70,7 @@ interface mediaProps {
 }
 
 
-const Media: FC<mediaProps> = ({ data }) => {
+const Media: FC = () => {
 
   useEffect(() => {
     // console.log(data);
@@ -86,7 +95,7 @@ const Media: FC<mediaProps> = ({ data }) => {
 
   return (
     <Root>
-      <TitleH2>As seen on</TitleH2>
+      <Text>We've also been featured on a number of different platforms</Text>
       <PartnerLogos>
         <PartnerImg
           className="animate-image-grow"

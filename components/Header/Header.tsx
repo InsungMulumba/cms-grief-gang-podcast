@@ -19,7 +19,7 @@ const HeaderRoot = styled.div`
 const Header: FC<HeaderProps> = ({ isMain, showBulletin }) => {
   console.log(isMain);
   return (
-    <HeaderRoot>
+    <HeaderRoot id="home">
       {showBulletin && <BulletinBar />}
       <NavBar />
     </HeaderRoot>

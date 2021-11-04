@@ -88,6 +88,11 @@ const HeroBanner = styled.div`
     height: calc(100vh - 160px);
     /* max-height: 70vh; */
   }
+
+
+  &.fade {
+      animation: ${FadeIn} 1.5s ease 0.5s both;
+    }
 `;
 const HeroText = styled.div`
   display: flex;
@@ -125,10 +130,26 @@ interface WelcomeProps {
 }
 
 const Couple: FC<WelcomeProps> = ({ data }) => {
+
+  useEffect(() => {
+    const mySlice = document.querySelector("#animate-fade");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio > 0) {
+          // console.log("in the view");
+          mySlice.classList.add("fade");
+          // observer.unobserve;
+        }
+      });
+    });
+
+    observer.observe(mySlice);
+  }, []);
+
   return (
     <Root bgColor={data.backgroundColor}>
-      {console.log(data.backgroundColor)}
-      <HeroBanner>
+      <HeroBanner id="animate-fade">
         <HeroText>
           <Title>{data.textTitle}</Title>
           <Text>{data.textContent}</Text>

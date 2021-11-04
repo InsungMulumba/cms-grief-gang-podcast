@@ -142,7 +142,7 @@ function scrollToHome(e) {
 const Banner: FC = () => {
   return (
     <>
-      <BannerImageContainer className='banner' />
+      <BannerImageContainer className='banner' id='banner' />
       <BannerOverlay href="/" onClick={scrollToHome} />
       <Logo
         onClick={scrollToHome}
