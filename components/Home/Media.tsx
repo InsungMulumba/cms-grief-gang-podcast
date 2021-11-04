@@ -6,7 +6,7 @@ import colors from "../../styles/colors";
 const Text = styled.p`
   font-family: " Spartan", sans-serif;
   font-size: 24px;
-  color: white;
+  color: black;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   @media (min-width: 1280px) {
     margin-bottom: 32px;
@@ -30,7 +30,7 @@ const Root = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px 40px;
-  background-color: ${colors.secondary};
+  background-color: white;
 `;
 
 const PartnerLogos = styled.div`
