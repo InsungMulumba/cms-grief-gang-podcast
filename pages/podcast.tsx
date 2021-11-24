@@ -17,6 +17,20 @@ const Root = styled.div`
   flex-direction: column;
 `;
 
+const HeroBanner = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+
+  @media (min-width: 1280px) {
+width: 50%;
+align-self: center;    padding: 0px;
+    height: calc(100vh - 120px);
+    /* max-height: 70vh; */
+  }
+  `;
+
 const Title = styled(TitleH1)`
   color: white;
   text-align: center;
@@ -41,7 +55,7 @@ const AcastContainer = styled.div`
 @media (min-width: 1280px) {
     
 
-    padding: 0px 25%;
+    /* padding: 0px 25%; */
   }
 `;
 
@@ -60,7 +74,7 @@ const HeroText = styled.div`
     
     /* max-height: 90%; */
     text-align: left;
-    padding: 0px 25%;
+    /* padding: 0px 25%; */
   }
 `;
 
@@ -83,6 +97,7 @@ const Podcast: FC = () => {
       </Head>
       <Header isMain={true} showBulletin={false} />
       <Root>
+        <HeroBanner>
         <HeroText>
           <Title>Podcast</Title>
           <Text>
@@ -94,13 +109,14 @@ const Podcast: FC = () => {
         <iframe
           title="Embed Player"
           width="100%"
-          height="188px"
-          src="https://embed.acast.com/788dfcd8-9b93-58b8-957c-7caaeb444b8a/616d4d94102fc20013c2cc41"
+          height="138px"
+          src="https://embed.acast.com/61853de864f92b00193bfaae/8fc12960-8a19-47e5-b019-6d5570b29623"
           scrolling="no"
           frameBorder="0"
         ></iframe>
         </AcastContainer>
         <SocialMediaLinks />
+        </HeroBanner>
         <Media />
       </Root>
     </>

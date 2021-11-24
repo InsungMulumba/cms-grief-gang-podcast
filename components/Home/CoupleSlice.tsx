@@ -94,7 +94,7 @@ const HeroBanner = styled.div`
       animation: ${FadeIn} 1.5s ease 0.5s both;
     }
 `;
-const HeroText = styled.div`
+const HeroText = styled.div<{ extraPadding: boolean }>`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -109,8 +109,9 @@ const HeroText = styled.div`
     width: 50%;
     /* max-height: 90%; */
     text-align: left;
-    padding: 0px 50px;
-
+    /* padding: 0px 50px; */
+    padding: ${props => props.extraPadding ? '0px 50px' : '0px'};
+/* justify-content: start; */
   }
 `;
 
@@ -150,7 +151,7 @@ const Couple: FC<WelcomeProps> = ({ data }) => {
   return (
     <Root bgColor={data.backgroundColor}>
       <HeroBanner id="animate-fade">
-        <HeroText>
+        <HeroText extraPadding={data.mainImage}>
           <Title>{data.textTitle}</Title>
           <Text>{data.textContent}</Text>
         </HeroText>

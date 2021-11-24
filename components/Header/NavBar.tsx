@@ -30,7 +30,7 @@ const NavLinksDesktop = styled.a`
   flex-direction: column;
   color: white;
   border-radius: 100%;
-  margin: auto 50px;
+  margin: auto 30px;
   padding: 25px 30px;
   width: 150px;
   font-family: " Spartan", sans-serif;
@@ -169,6 +169,7 @@ const NavBar: FC = () => {
           <NavLinksMobile href="/#home">Home </NavLinksMobile>
           {/* <NavLinksMobile href="/about">About </NavLinksMobile> */}
           <NavLinksMobile href="/podcast">Podcast </NavLinksMobile>
+          <NavLinksMobile href="/events">Events</NavLinksMobile>
           <NavLinksMobile href="/blog">Blog</NavLinksMobile>
           {/* <NavLinksMobile href="/contact">Contact</NavLinksMobile> */}
         </NavLinksContainerMobile>
@@ -189,6 +190,8 @@ const NavBar: FC = () => {
           <NavLinksDesktop href="/#home">Home </NavLinksDesktop>
 
           <NavLinksDesktop href="/podcast">Podcast </NavLinksDesktop>
+          <NavLinksDesktop href="/events">Events </NavLinksDesktop>
+
           <NavLinksDesktop href="/Blog">Blog </NavLinksDesktop>
         </NavLinksContainerDesktop>
       </NavigationBarDesktop>
