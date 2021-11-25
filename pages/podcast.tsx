@@ -9,7 +9,6 @@ import TitleH1 from "../styles/headings";
 import SocialMediaLinks from "../components/Home/SocialMediaBar";
 import Media from "../components/Home/Media";
 
-
 const Root = styled.div`
   display: flex;
   background-color: ${colors.mainPink};
@@ -24,12 +23,14 @@ const HeroBanner = styled.div`
   width: 100%;
 
   @media (min-width: 1280px) {
-width: 50%;
-align-self: center;    padding: 0px;
+    width: 50%;
+    align-self: center;
+    padding: 0px;
     height: calc(100vh - 120px);
-    /* max-height: 70vh; */
+    justify-content: flex-start;
+    padding-top: 50px;
   }
-  `;
+`;
 
 const Title = styled(TitleH1)`
   color: white;
@@ -47,14 +48,11 @@ const Text = styled.p`
 `;
 
 const AcastContainer = styled.div`
-
-@media (max-width: 1279px) {
+  @media (max-width: 1279px) {
     padding: 20px 40px;
   }
 
-@media (min-width: 1280px) {
-    
-
+  @media (min-width: 1280px) {
     /* padding: 0px 25%; */
   }
 `;
@@ -68,10 +66,10 @@ const HeroText = styled.div`
 
   @media (max-width: 1279px) {
     padding: 20px 40px;
+
   }
 
   @media (min-width: 1280px) {
-    
     /* max-height: 90%; */
     text-align: left;
     /* padding: 0px 25%; */
@@ -98,24 +96,24 @@ const Podcast: FC = () => {
       <Header isMain={true} showBulletin={false} />
       <Root>
         <HeroBanner>
-        <HeroText>
-          <Title>Podcast</Title>
-          <Text>
-            You can listen and subscribe to The Good Grief podcast on all major
-            podcast platforms or press play on the playlist provided.
-          </Text>
-        </HeroText>
-        <AcastContainer>
-        <iframe
-          title="Embed Player"
-          width="100%"
-          height="138px"
-          src="https://embed.acast.com/61853de864f92b00193bfaae/8fc12960-8a19-47e5-b019-6d5570b29623"
-          scrolling="no"
-          frameBorder="0"
-        ></iframe>
-        </AcastContainer>
-        <SocialMediaLinks />
+          <HeroText>
+            <Title>Podcast</Title>
+            <Text>
+              You can listen and subscribe to The Good Grief podcast on all
+              major podcast platforms or press play on the playlist provided.
+            </Text>
+          </HeroText>
+          <AcastContainer>
+            <iframe
+              title="Embed Player"
+              width="100%"
+              height="138px"
+              src="https://embed.acast.com/61853de864f92b00193bfaae/8fc12960-8a19-47e5-b019-6d5570b29623"
+              scrolling="no"
+              frameBorder="0"
+            ></iframe>
+          </AcastContainer>
+          <SocialMediaLinks />
         </HeroBanner>
         <Media />
       </Root>

@@ -27,12 +27,12 @@ const SlideIn = keyframes`
   }
 `;
 
-const Root = styled.div<{ bgColor: string }>`
-  background-color: ${props => props.bgColor ? props.bgColor : colors.mainPink};
-  
-  ;
-  color: white;
+const Root = styled.div<{ bgColor: string, desktopMaxHeight: string}>`
+  background-color: ${(props) =>
+    props.bgColor ? props.bgColor : colors.mainPink};
 
+  color: white;
+  max-height:  ${(props) => props.desktopMaxHeight ? props.desktopMaxHeight : 'auto'};
   text-align: center;
   display: flex;
   align-items: center;
@@ -86,13 +86,13 @@ const HeroBanner = styled.div`
     flex-direction: row;
     padding: 0px;
     height: calc(100vh - 160px);
+    max-height: 100%;
     /* max-height: 70vh; */
   }
 
-
   &.fade {
-      animation: ${FadeIn} 1.5s ease 0.5s both;
-    }
+    animation: ${FadeIn} 1.5s ease 0.5s both;
+  }
 `;
 const HeroText = styled.div<{ extraPadding: boolean }>`
   display: flex;
@@ -110,8 +110,8 @@ const HeroText = styled.div<{ extraPadding: boolean }>`
     /* max-height: 90%; */
     text-align: left;
     /* padding: 0px 50px; */
-    padding: ${props => props.extraPadding ? '0px 50px' : '0px'};
-/* justify-content: start; */
+    padding: ${(props) => (props.extraPadding ? "0px 50px" : "0px")};
+    /* justify-content: start; */
   }
 `;
 
@@ -119,7 +119,8 @@ interface CoupleProps {
   textTitle?: string;
   textContent?: string;
   backgroundColor?: string;
-  order?
+  desktopMaxHeight?: string;
+  order?;
   mainImage?: {
     title: string;
     url: string;
@@ -131,7 +132,6 @@ interface WelcomeProps {
 }
 
 const Couple: FC<WelcomeProps> = ({ data }) => {
-
   useEffect(() => {
     const mySlice = document.querySelector("#animate-fade");
 
@@ -149,7 +149,7 @@ const Couple: FC<WelcomeProps> = ({ data }) => {
   }, []);
 
   return (
-    <Root bgColor={data.backgroundColor}>
+    <Root bgColor={data.backgroundColor} desktopMaxHeight={data.desktopMaxHeight}>
       <HeroBanner id="animate-fade">
         <HeroText extraPadding={data.mainImage}>
           <Title>{data.textTitle}</Title>
