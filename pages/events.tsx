@@ -136,7 +136,7 @@ const Events: FC = () => {
             <Gala src="/Events/gala.jpg" />
             <EventText>
               <Text>{EventsGalaText} </Text>
-              <EventButton>Tickets & More info</EventButton>
+              <EventButton target='_blank' href='https://www.eventbrite.com/e/the-christmas-grief-gala-tickets-203269403257'>Tickets & More info</EventButton>
             </EventText>
           </EventContainer>
         </HeroBanner>
