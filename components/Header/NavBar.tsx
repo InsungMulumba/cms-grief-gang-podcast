@@ -146,7 +146,7 @@ const BurgerMenuClose = styled.div`
     content: "";
     width: 100%;
     height: 4px;
-    background-color: white;
+    background-color: ${colors.mainPink};
   }
   &:before {
     transform: rotate(45deg);

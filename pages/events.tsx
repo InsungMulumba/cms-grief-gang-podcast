@@ -54,14 +54,22 @@ const Title = styled(TitleH1)`
 
 const EventContainer = styled.div`
   width: 100%;
-  max-height: calc(100vh - 360px);
   display: flex;
   background-color: #f2d7d1;
+  flex-direction: column;
+  @media (min-width: 1280px) {
+    flex-direction: row;
+    max-height: calc(100vh - 360px);
+  }
 `;
 
 const Gala = styled.img`
   object-fit: contain;
   width: 50%;
+
+  @media (max-width: 1280px) {
+    width: 100%;
+  }
   height: 100%;
 `;
 
@@ -70,19 +78,36 @@ const EventText = styled.div`
   justify-content: center;
   flex-direction: column;
   padding: 0px 50px;
+  @media (min-width: 1280px) {
+
+    padding:  50px;
+  }
 `;
 const Text = styled.p`
   font-family: " Spartan", sans-serif;
-  font-size: 32px;
+  font-size: 24px;
   color: white;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   margin: 0px;
+  margin-bottom: 30px;
 `;
 
 const EventsGalaText =
-  "We are delighted to announce that along with The Grief Gang, TNN are hosting a Christmas Party - The Grief Christmas Gala.";
+  <>We are delighted to announce that along with TNN, The Grief Gang are hosting a Christmas Party - The Grief Christmas Gala. <br/> We have a number of great speakers on our panel and a wide number of activites planned for the night.<br/> <br/>  Tickets and more info can be accessed via the link below!</>
 
-  // TODO PHONE VIEW
+  const EventButton = styled.a`
+    border-radius: 500px;
+    border: 1px solid white;
+    color: white;
+    width: fit-content;
+    padding: 20px;
+    align-self: center;
+    margin: 50px 0px; 
+     @media (min-width: 1280px) {
+    margin: 0px;
+    }
+  `;
+// TODO PHONE VIEW
 const Events: FC = () => {
   return (
     <>
@@ -111,9 +136,9 @@ const Events: FC = () => {
             <Gala src="/Events/gala.jpg" />
             <EventText>
               <Text>{EventsGalaText} </Text>
+              <EventButton>Tickets & More info</EventButton>
             </EventText>
           </EventContainer>
-
         </HeroBanner>
       </Root>
     </>
