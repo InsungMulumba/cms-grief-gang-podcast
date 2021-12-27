@@ -13,6 +13,7 @@ const Root = styled.div`
   background-color: ${colors.mainPink};
   justify-content: center;
   flex-direction: column;
+  height: 100vh;
 `;
 
 const HeroBanner = styled.div`
@@ -79,8 +80,7 @@ const EventText = styled.div`
   flex-direction: column;
   padding: 0px 50px;
   @media (min-width: 1280px) {
-
-    padding:  50px;
+    padding: 50px;
   }
 `;
 const Text = styled.p`
@@ -92,21 +92,28 @@ const Text = styled.p`
   margin-bottom: 30px;
 `;
 
-const EventsGalaText =
-  <>We are delighted to announce that along with TNN, The Grief Gang are hosting a Christmas Party - The Grief Christmas Gala. <br/> We have a number of great speakers on our panel and a wide number of activites planned for the night.<br/> <br/>  Tickets and more info can be accessed via the link below!</>
+const EventsGalaText = (
+  <>
+    We are delighted to announce that along with TNN, The Grief Gang are hosting
+    a Christmas Party - The Grief Christmas Gala. <br /> We have a number of
+    great speakers on our panel and a wide number of activites planned for the
+    night.
+    <br /> <br /> Tickets and more info can be accessed via the link below!
+  </>
+);
 
-  const EventButton = styled.a`
-    border-radius: 500px;
-    border: 1px solid white;
-    color: white;
-    width: fit-content;
-    padding: 20px;
-    align-self: center;
-    margin: 50px 0px; 
-     @media (min-width: 1280px) {
+const EventButton = styled.a`
+  border-radius: 500px;
+  border: 1px solid white;
+  color: white;
+  width: fit-content;
+  padding: 20px;
+  align-self: center;
+  margin: 50px 0px;
+  @media (min-width: 1280px) {
     margin: 0px;
-    }
-  `;
+  }
+`;
 // TODO PHONE VIEW
 const Events: FC = () => {
   return (
@@ -128,7 +135,11 @@ const Events: FC = () => {
       <Header isMain={true} showBulletin={false} />
 
       <Root>
-        <HeroBanner>
+        <Title>
+          We have a whole host of parties and events being planned behind the
+          scenes. <br /> Stay tuned for more announcements!
+        </Title>
+        {/* <HeroBanner>
           <HeroText>
             <Title>Events</Title>
           </HeroText>
@@ -139,7 +150,7 @@ const Events: FC = () => {
               <EventButton target='_blank' href='https://www.eventbrite.com/e/the-christmas-grief-gala-tickets-203269403257'>Tickets & More info</EventButton>
             </EventText>
           </EventContainer>
-        </HeroBanner>
+        </HeroBanner> */}
       </Root>
     </>
   );
