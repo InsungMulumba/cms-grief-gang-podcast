@@ -30,7 +30,7 @@ const Slice = styled.div`
 
 const Container = styled.div`
   max-width: 100vw;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 `;
 
 interface HomeProps {
@@ -39,11 +39,12 @@ interface HomeProps {
 }
 
 const orderedSlices = (unorderedSlices: any) => {
+  return unorderedSlices.sort(
+    ({ orderNumber: a }, { orderNumber: b }) => a - b
+  );
+};
 
-  return unorderedSlices.sort(({orderNumber:a}, {orderNumber:b}) => a-b);
-}
-
-const Home: FC<HomeProps> = ({  newPosts }) => {
+const Home: FC<HomeProps> = ({ newPosts }) => {
   return (
     <Container>
       <Head>
@@ -64,14 +65,12 @@ const Home: FC<HomeProps> = ({  newPosts }) => {
       <BannerSlice />
       {
         <>
-<ScrollButton />
+          {/* <ScrollButton /> */}
           <Header showBulletin={true} isMain={true} />
 
           <CoupleSlice data={orderedSlices(newPosts)[0]} />
           <CoupleSlice data={orderedSlices(newPosts)[1]} />
 
-          {/* <AboutSlice data={oldPos ts.aboutSlice} /> */}
-          
           <SignUpSlice />
         </>
       }

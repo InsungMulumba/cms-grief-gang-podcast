@@ -27,12 +27,13 @@ const SlideIn = keyframes`
   }
 `;
 
-const Root = styled.div<{ bgColor: string, desktopMaxHeight: string}>`
+const Root = styled.div<{ bgColor: string; desktopMaxHeight: string }>`
   background-color: ${(props) =>
     props.bgColor ? props.bgColor : colors.mainPink};
 
   color: white;
-  max-height:  ${(props) => props.desktopMaxHeight ? props.desktopMaxHeight : 'auto'};
+  max-height: ${(props) =>
+    props.desktopMaxHeight ? props.desktopMaxHeight : "auto"};
   text-align: center;
   display: flex;
   align-items: center;
@@ -60,7 +61,7 @@ const HeroImage = styled.img`
   width: 100%;
   object-fit: cover;
   @media (min-width: 1280px) {
-    max-height: 100%;
+    height: 100%;
     object-fit: cover;
     /* padding: 40px 80px; */
     box-shadow: 0 10px 16px 5px rgb(0 0 0 / 20%);
@@ -73,6 +74,7 @@ const HeroImage = styled.img`
 const HeroImageContainer = styled.div`
   @media (min-width: 1280px) {
     width: 50%;
+    min-height: 100%;
   }
 `;
 
@@ -85,7 +87,7 @@ const HeroBanner = styled.div`
   @media (min-width: 1280px) {
     flex-direction: row;
     padding: 0px;
-    height: calc(100vh - 160px);
+    min-height: calc(100vh - 80px);
     max-height: 100%;
     /* max-height: 70vh; */
   }
@@ -149,7 +151,10 @@ const Couple: FC<WelcomeProps> = ({ data }) => {
   }, []);
 
   return (
-    <Root bgColor={data.backgroundColor} desktopMaxHeight={data.desktopMaxHeight}>
+    <Root
+      bgColor={data.backgroundColor}
+      desktopMaxHeight={data.desktopMaxHeight}
+    >
       <HeroBanner id="animate-fade">
         <HeroText extraPadding={data.mainImage}>
           <Title>{data.textTitle}</Title>

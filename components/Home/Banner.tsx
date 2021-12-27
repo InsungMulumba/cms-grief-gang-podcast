@@ -57,23 +57,13 @@ const BannerOverlay = styled.a`
 
 const BannerImageContainer = styled.div`
   /* background-image: url("/Home/amber-main.jpg"); */
-
   /* Set a specific height */
   height: 100vh;
-  width: 100vw;
   overflow: hidden;
-
+  /* max-width: 100vw;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-
-  /* Chrome version 29 and above */
-  @media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
-    selector {
-      /* Create the parallax scrolling effect */
-      background-attachment: "fixed";
-    }
-  }
+  background-size: cover; */
 `;
 
 const Logo = styled.img`
@@ -96,14 +86,14 @@ const Logo = styled.img`
 `;
 
 const ArrowDown = styled.img`
-  height: 65px;
-  width: 65px;
+  height: 75px;
+  width: 75px;
   animation: ${Bounce} 1.5s linear infinite;
 `;
 
 const ArrowDownContainer = styled.div`
   animation: ${FadeIn} 1.5s ease-out 2.5s both;
-
+  padding: 20px 0px;
   position: absolute;
   left: 0%;
   right: 0%;
@@ -117,7 +107,7 @@ const Slogan = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  color: ${colors.secondary};
+  color: ${colors.mainPink};
   font-size: 64px;
   font-weight: 900;
   width: 100%;
@@ -143,25 +133,19 @@ function scrollToHome(e) {
 const Banner: FC = () => {
   return (
     <>
-      <BannerImageContainer className="banner" id="banner" />
-      <BannerOverlay href="/" onClick={scrollToHome} />
-      <Logo
-        onClick={scrollToHome}
-        src="/logo.jpg"
-        alt="Grief Gang Podcast logo"
-        crossOrigin="anonymous"
-      />
-      <Slogan>
-        Welcome to the gang. <br /> The one you never asked to be a part of.
-      </Slogan>
-      <ArrowDownContainer>
-        <ArrowDown
-          onClick={scrollToHome}
-          src="/Home/down-arrow-black.png"
-          alt="Scroll Down Button"
-          crossOrigin="anonymous"
-        />
-      </ArrowDownContainer>
+      <BannerImageContainer className="banner" id="banner">
+        <Slogan>
+          Welcome to the gang. <br /> The one you never asked to be a part of.
+        </Slogan>
+        <ArrowDownContainer>
+          <ArrowDown
+            onClick={scrollToHome}
+            src="/Home/down-arrow.svg"
+            alt="Scroll Down Button"
+            crossOrigin="anonymous"
+          />
+        </ArrowDownContainer>
+      </BannerImageContainer>
     </>
   );
 };

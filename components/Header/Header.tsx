@@ -14,6 +14,9 @@ const HeaderRoot = styled.div`
   flex-direction: column;
   background-color: white;
   width: 100%;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
 `;
 
 const Header: FC<HeaderProps> = ({ isMain, showBulletin }) => {

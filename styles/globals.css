@@ -15,14 +15,6 @@ a {
   text-decoration: none;
 }
 
-
-  @media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
-    .banner {
-      /* Create the parallax scrolling effect */
-      background-attachment: fixed;
-    }
-  }
-
 * {
   box-sizing: border-box;
 }

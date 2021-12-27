@@ -3,12 +3,14 @@ import { useState, FC } from "react";
 import colors from "styles/colors";
 
 const NavigationBarDesktop = styled.div`
-  height: 120px;
+  height: 80px;
   align-items: center;
   width: 100%;
   display: flex;
   /* background-color: purple; */
   justify-content: space-between;
+  /* position: sticky;
+  top: 0px; */
   @media (max-width: 1279px) {
     height: 80px;
     flex-direction: row-reverse;
@@ -19,6 +21,7 @@ const NavigationBarDesktop = styled.div`
 const NavLinksContainerDesktop = styled.div`
   display: flex;
   justify-content: space-around;
+  height: 100%;
   @media (max-width: 1279px) {
     display: none;
   }
@@ -28,17 +31,18 @@ const NavLinksDesktop = styled.a`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  color: white;
+  color: ${colors.mainPink};
   border-radius: 100%;
-  margin: auto 30px;
+  margin: 0px 30px;
   padding: 25px 30px;
   width: 150px;
   font-family: " Spartan", sans-serif;
   font-size: 18px;
   text-align: center;
-  background-color: ${colors.mainPink};
   :hover {
     border-radius: 0px;
+    background-color: ${colors.mainPink};
+    color: white;
   }
 `;
 
@@ -115,7 +119,7 @@ const NavLinksContainerMobile = styled.div`
 `;
 
 const NavLinksMobile = styled.a`
-  background-color:${colors.mainPink};
+  background-color: ${colors.mainPink};
   color: white;
   width: 60%;
   justify-content: center;
