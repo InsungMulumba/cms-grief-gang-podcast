@@ -14,7 +14,7 @@ const SignUpSlice = styled.div`
 `;
 
 const SignUpBox = styled.div`
-  /* background-color: white; */
+  max-width: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -56,15 +56,20 @@ const SendButton = styled.input`
   padding: 4px 20px;
   height: 40px;
   border-radius: 6px;
-  margin: 10px 20px;
+  margin: 10px auto;
   border: 2px solid;
+  width: fit-content;
   font-size: 15px;
 `;
-
+const InputPair = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const InputSubmitPair = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
+  flex-direction: column;
 `;
 
 // interface SignUpProps {
@@ -80,10 +85,15 @@ const SignUp: FC = () => {
           Sign up with your email address to receive recent news and blog posts
           from The Grief Gang.
         </SliceContent>
-        <InputSubmitPair>
-          <ContactInput type="email" placeholder="Email" name="user_email" />
-          <SendButton type="submit" value="Submit" />
-        </InputSubmitPair>
+        <form name="contact" method="POST" data-netlify="true">
+          <InputSubmitPair>
+            <InputPair>
+              <ContactInput type="email" placeholder="Email" name="email" />
+              <ContactInput type="text" placeholder="Name" name="name" />
+            </InputPair>
+            <SendButton type="submit" />
+          </InputSubmitPair>
+        </form>
       </SignUpBox>
     </SignUpSlice>
   );
