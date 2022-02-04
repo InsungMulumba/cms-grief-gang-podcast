@@ -104,6 +104,7 @@ const SignUp: FC = () => {
     e.preventDefault();
     setContactSuccess(true);
     console.log("contact submitted");
+    document.forms["myForm"].submit();
   };
 
   return (
@@ -115,6 +116,7 @@ const SignUp: FC = () => {
           from The Grief Gang.
         </SliceContent>
         <form
+          id="myForm"
           name="contact"
           action="/"
           onSubmit={formSubmit}
