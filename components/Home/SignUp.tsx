@@ -118,13 +118,13 @@ const SignUp: FC = () => {
   const formSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     console.log(encode({ "form-name": "contact", ...formState }));
 
-    // fetch("/", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //   body: encode({ "form-name": "contact", ...formState }),
-    // })
-    //   .then(() => console.log("Success!"))
-    //   .catch((error) => console.log(error));
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...formState }),
+    })
+      .then(() => console.log("Success!"))
+      .catch((error) => console.log(error));
     event.preventDefault();
     setContactSuccess(true);
   };
@@ -144,9 +144,8 @@ const SignUp: FC = () => {
           from The Grief Gang.
         </SliceContent>
         <form
-          id="myForm"
           name="contact"
-          onSubmit={(event) => formSubmit(event)}
+          onSubmit={formSubmit}
           method="POST"
           data-netlify="true"
         >
