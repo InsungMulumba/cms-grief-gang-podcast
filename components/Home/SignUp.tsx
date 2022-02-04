@@ -1,4 +1,4 @@
-import React, { Component, FC } from "react";
+import React, { useState, FC } from "react";
 import styled from "styled-components";
 import { TitleH2, SliceContent } from "styles/headings";
 import colors from "../../styles/colors";
@@ -50,17 +50,42 @@ const ContactInput = styled.input`
   }
 `;
 
-const SendButton = styled.input`
+const SendButton = styled.button`
   background-color: ${colors.secondary};
   color: white;
-  padding: 4px 20px;
+  padding: 0px 20px;
   height: 40px;
   border-radius: 6px;
   margin: 10px auto;
   border: 2px solid;
-  width: fit-content;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
   font-size: 15px;
+  :hover {
+    background-color: white;
+    color: ${colors.secondary};
+  }
 `;
+
+const SignUpSuccess = styled.div`
+  background-color: #18bd5b;
+  color: white;
+  width: 150px;
+  border-radius: 6px;
+  padding: 0px 20px;
+  font-size: 15px;
+  height: 40px;
+  display: flex;
+  margin: 10px auto;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid;
+`;
+
 const InputPair = styled.div`
   display: flex;
   justify-content: center;
@@ -72,20 +97,30 @@ const InputSubmitPair = styled.div`
   flex-direction: column;
 `;
 
-// interface SignUpProps {
-//   data: string;
-// }
-
 const SignUp: FC = () => {
+  const [toggleContactSuccess, setContactSuccess] = useState(false);
+
+  const formSubmit = (e) => {
+    e.preventDefault();
+    setContactSuccess(true);
+    console.log("contact submitted");
+  };
+
   return (
     <SignUpSlice>
       <SignUpBox>
         <Title>Join Us</Title>
         <SliceContent>
-          Sign up with your email address to receive recent news and blog posts
+          Sign up with your email address to receive news updates and blog posts
           from The Grief Gang.
         </SliceContent>
-        <form name="contact" action="#" method="POST" data-netlify="true">
+        <form
+          name="contact"
+          action="/"
+          onSubmit={formSubmit}
+          method="POST"
+          data-netlify="true"
+        >
           <input type="hidden" name="form-name" value="contact" />
           <InputSubmitPair>
             <InputPair>
@@ -102,7 +137,10 @@ const SignUp: FC = () => {
                 id="yourname"
               />
             </InputPair>
-            <SendButton type="submit" />
+            {!toggleContactSuccess && (
+              <SendButton type="submit">Sign up</SendButton>
+            )}
+            {toggleContactSuccess && <SignUpSuccess>Thank You</SignUpSuccess>}
           </InputSubmitPair>
         </form>
       </SignUpBox>

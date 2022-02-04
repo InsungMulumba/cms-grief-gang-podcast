@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import colors from "../../styles/colors";
-import { useState, FC } from "react";
+import { FC } from "react";
 
 const fadeIn = keyframes`
     0% {
