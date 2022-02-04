@@ -116,13 +116,15 @@ const SignUp: FC = () => {
   };
 
   const formSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...formState }),
-    })
-      .then(() => console.log("Success!"))
-      .catch((error) => console.log(error));
+    console.log(encode({ "form-name": "contact", ...formState }));
+
+    // fetch("/", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //   body: encode({ "form-name": "contact", ...formState }),
+    // })
+    //   .then(() => console.log("Success!"))
+    //   .catch((error) => console.log(error));
     event.preventDefault();
     setContactSuccess(true);
   };
@@ -155,14 +157,14 @@ const SignUp: FC = () => {
                 type="email"
                 placeholder="Email"
                 name="email"
-                id="youremail"
+                id="email"
                 onChange={handleChange}
               />
               <ContactInput
                 type="text"
                 placeholder="Name"
                 name="name"
-                id="yourname"
+                id="name"
                 onChange={handleChange}
               />
             </InputPair>
