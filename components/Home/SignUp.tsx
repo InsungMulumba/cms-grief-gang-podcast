@@ -85,11 +85,22 @@ const SignUp: FC = () => {
           Sign up with your email address to receive recent news and blog posts
           from The Grief Gang.
         </SliceContent>
-        <form name="contact" method="POST" data-netlify="true">
+        <form name="contact" action="#" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
           <InputSubmitPair>
             <InputPair>
-              <ContactInput type="email" placeholder="Email" name="email" />
-              <ContactInput type="text" placeholder="Name" name="name" />
+              <ContactInput
+                type="email"
+                placeholder="Email"
+                name="email"
+                id="youremail"
+              />
+              <ContactInput
+                type="text"
+                placeholder="Name"
+                name="name"
+                id="yourname"
+              />
             </InputPair>
             <SendButton type="submit" />
           </InputSubmitPair>
