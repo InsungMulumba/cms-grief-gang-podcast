@@ -98,15 +98,41 @@ const InputSubmitPair = styled.div`
 `;
 
 const SignUp: FC = () => {
-  const [toggleContactSuccess, setContactSuccess] = useState(false);
+  interface FormPost {
+    name?: string;
+    email?: string;
+  }
 
-  const formSubmit = (e) => {
-    e.preventDefault();
-    setContactSuccess(true);
-    console.log("contact submitted");
-    document.forms["myForm"].submit();
+  // Thanks to Ju-LI https://jama-ai.medium.com/next-js-typescript-netlify-forms-the-no-redirect-version-d9bf859502cd
+  const [formState, setFormState] = useState<FormPost>();
+  const [submitted, setContactSuccess] = useState(false);
+
+  const encode = (data: any) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
   };
 
+  const formSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...formState }),
+    })
+      .then(() => console.log("Success!"))
+      .catch((error) => console.log(error));
+    event.preventDefault();
+    setContactSuccess(true);
+  };
+
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setFormState({
+      ...formState,
+      [e.currentTarget.id]: e.currentTarget.value,
+    });
+  };
   return (
     <SignUpSlice>
       <SignUpBox>
@@ -118,8 +144,7 @@ const SignUp: FC = () => {
         <form
           id="myForm"
           name="contact"
-          action="/"
-          onSubmit={formSubmit}
+          onSubmit={(event) => formSubmit(event)}
           method="POST"
           data-netlify="true"
         >
@@ -131,18 +156,18 @@ const SignUp: FC = () => {
                 placeholder="Email"
                 name="email"
                 id="youremail"
+                onChange={handleChange}
               />
               <ContactInput
                 type="text"
                 placeholder="Name"
                 name="name"
                 id="yourname"
+                onChange={handleChange}
               />
             </InputPair>
-            {!toggleContactSuccess && (
-              <SendButton type="submit">Sign up</SendButton>
-            )}
-            {toggleContactSuccess && <SignUpSuccess>Thank You</SignUpSuccess>}
+            {!submitted && <SendButton type="submit">Sign up</SendButton>}
+            {submitted && <SignUpSuccess>Thank You!</SignUpSuccess>}
           </InputSubmitPair>
         </form>
       </SignUpBox>
