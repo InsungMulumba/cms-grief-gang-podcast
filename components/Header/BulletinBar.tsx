@@ -18,7 +18,7 @@ const BulletinText = styled.div`
 
 const BulletinBar = styled.a`
   height: 40px;
-  color: black;
+  color: white;
   width: 100%;
   display: flex;
   background-color: #f2d7d1;

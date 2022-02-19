@@ -51,6 +51,8 @@ const HeroText = styled.div`
 const Title = styled(TitleH1)`
   color: white;
   text-align: center;
+  max-width: 70%;
+  margin: auto;
 `;
 
 const EventContainer = styled.div`

@@ -138,7 +138,7 @@ const SignUp: FC = () => {
   return (
     <SignUpSlice>
       <SignUpBox>
-        <Title>Join Us</Title>
+        <Title>Keep me posted</Title>
         <SliceContent>
           Sign up with your email address to receive news updates and blog posts
           from The Grief Gang.

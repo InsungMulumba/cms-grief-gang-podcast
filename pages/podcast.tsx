@@ -66,7 +66,6 @@ const HeroText = styled.div`
 
   @media (max-width: 1279px) {
     padding: 20px 40px;
-
   }
 
   @media (min-width: 1280px) {
@@ -99,7 +98,7 @@ const Podcast: FC = () => {
           <HeroText>
             <Title>Podcast</Title>
             <Text>
-              You can listen and subscribe to The Good Grief podcast on all
+              You can listen and subscribe to The Grief Gang podcast on all
               major podcast platforms or press play on the playlist provided.
             </Text>
           </HeroText>
