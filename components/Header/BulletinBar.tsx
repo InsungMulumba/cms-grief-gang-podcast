@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { FC } from "react";
+import colors from "../../styles/colors";
 
 const fadeIn = keyframes`
     0% {
@@ -21,7 +22,7 @@ const BulletinBar = styled.a`
   color: white;
   width: 100%;
   display: flex;
-  background-color: #f2d7d1;
+  background-color: ${colors.mainPink};
   font-family: " Spartan", sans-serif;
   justify-content: center;
   align-items: center;
