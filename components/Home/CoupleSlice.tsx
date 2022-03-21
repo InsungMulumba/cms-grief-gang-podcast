@@ -4,6 +4,26 @@ import colors from "../../styles/colors";
 import TitleH1 from "../../styles/headings";
 import Header from "../Header/Header";
 import SocialMediaLinks from "./SocialMediaBar";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+
+interface CoupleSliceProps {
+  textTitle?: string;
+  textContent?: string;
+  backgroundColor?: string;
+  desktopMaxHeight?: string;
+  reverseSliceOrder?: boolean;
+  orderNumber: number;
+  mainContent?: any;
+  mainImage?: {
+    title: string;
+    url: string;
+  };
+}
+
+interface WelcomeProps {
+  data: CoupleSliceProps;
+  setHeight?: boolean;
+}
 
 const FadeIn = keyframes`
     0% {
@@ -27,22 +47,23 @@ const SlideIn = keyframes`
   }
 `;
 
-const Root = styled.div<{ bgColor: string; desktopMaxHeight: string }>`
+const Root = styled.div<{
+  bgColor: string;
+  desktopMaxHeight: string;
+  setHeight: boolean;
+}>`
   background-color: ${(props) =>
     props.bgColor ? props.bgColor : colors.mainPink};
 
   color: white;
-  max-height: ${(props) =>
-    props.desktopMaxHeight ? props.desktopMaxHeight : "auto"};
+  /* max-height: calc(100vh - 120px); */
   text-align: center;
   display: flex;
   align-items: center;
-  padding: 0%;
   flex-direction: column;
-  /* @media (min-width: 1280px) {
-    height: 100vh;
-    max-height: 100vh;
-  } */
+  @media (min-width: 1280px) {
+    height: ${(props) => (props.setHeight ? "100vh" : "auto")};
+  }
 `;
 
 const Title = styled(TitleH1)``;
@@ -54,6 +75,7 @@ const Text = styled.p`
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   @media (min-width: 1280px) {
     margin-bottom: 32px;
+    font-size: 26px;
   }
 `;
 
@@ -61,9 +83,8 @@ const HeroImage = styled.img`
   width: 100%;
   object-fit: cover;
   @media (min-width: 1280px) {
-    height: 100%;
     object-fit: cover;
-    /* padding: 40px 80px; */
+    height: 100%;
     box-shadow: 0 10px 16px 5px rgb(0 0 0 / 20%);
     &.rubber-band {
       animation: ${FadeIn} 2.5s ease 0.5s both;
@@ -74,20 +95,21 @@ const HeroImage = styled.img`
 const HeroImageContainer = styled.div`
   @media (min-width: 1280px) {
     width: 50%;
-    min-height: 100%;
+    height: 100%;
   }
 `;
 
-const HeroBanner = styled.div`
+const HeroBanner = styled.div<{ orderNumber: Number }>`
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 100%;
 
   @media (min-width: 1280px) {
-    flex-direction: row;
+    flex-direction: ${(props) =>
+      props.orderNumber % 2 === 0 ? "row" : "row-reverse"};
     padding: 0px;
-    min-height: calc(100vh - 80px);
+    /* min-height: calc(100vh - 120px); */
     max-height: 100%;
     /* max-height: 70vh; */
   }
@@ -96,7 +118,7 @@ const HeroBanner = styled.div`
     animation: ${FadeIn} 1.5s ease 0.5s both;
   }
 `;
-const HeroText = styled.div<{ extraPadding: boolean }>`
+const HeroText = styled.div<{ image: boolean }>`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -108,32 +130,26 @@ const HeroText = styled.div<{ extraPadding: boolean }>`
   }
 
   @media (min-width: 1280px) {
-    width: 50%;
+    width: ${(props) => (props.image ? "50%" : "auto")};
     /* max-height: 90%; */
+    justify-content: flex-start;
+
     text-align: left;
     /* padding: 0px 50px; */
-    padding: ${(props) => (props.extraPadding ? "0px 50px" : "0px")};
+    padding: 0px 50px;
     /* justify-content: start; */
   }
 `;
 
-interface CoupleProps {
-  textTitle?: string;
-  textContent?: string;
-  backgroundColor?: string;
-  desktopMaxHeight?: string;
-  order?;
-  mainImage?: {
-    title: string;
-    url: string;
-  };
-}
+const options = {
+  renderText: (text) => {
+    return text.split("\n").reduce((children, textSegment, index) => {
+      return [...children, index > 0 && <br key={index} />, textSegment];
+    }, []);
+  },
+};
 
-interface WelcomeProps {
-  data: CoupleProps;
-}
-
-const Couple: FC<WelcomeProps> = ({ data }) => {
+const Couple: FC<WelcomeProps> = ({ data, setHeight }) => {
   useEffect(() => {
     const mySlice = document.querySelector("#animate-fade");
 
@@ -154,11 +170,14 @@ const Couple: FC<WelcomeProps> = ({ data }) => {
     <Root
       bgColor={data.backgroundColor}
       desktopMaxHeight={data.desktopMaxHeight}
+      setHeight={setHeight}
     >
-      <HeroBanner id="animate-fade">
-        <HeroText extraPadding={data.mainImage}>
+      <HeroBanner orderNumber={data.orderNumber} id="animate-fade">
+        <HeroText image={data.mainImage}>
           <Title>{data.textTitle}</Title>
-          <Text>{data.textContent}</Text>
+          <Text>
+            {documentToReactComponents(data.mainContent.json, options)}
+          </Text>
         </HeroText>
         {data.mainImage && (
           <HeroImageContainer>

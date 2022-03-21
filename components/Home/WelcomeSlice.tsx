@@ -44,9 +44,7 @@ const Root = styled.div`
   }
 `;
 
-const Title = styled(TitleH1)`
-
-`;
+const Title = styled(TitleH1)``;
 
 const Text = styled.p`
   font-family: " Spartan", sans-serif;
@@ -87,7 +85,7 @@ const HeroBanner = styled.div`
   @media (min-width: 1280px) {
     flex-direction: row;
     padding: 0px;
-    height: calc(100vh - 160px);
+    /* height: calc(100vh - 160px); */
     /* max-height: 70vh; */
   }
 `;

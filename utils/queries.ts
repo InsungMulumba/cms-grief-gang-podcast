@@ -26,6 +26,9 @@ export const newHomeQuery = `{
           title
           url
         }
+        mainContent {
+          json
+        }
         textTitle
         textContent
         backgroundColor

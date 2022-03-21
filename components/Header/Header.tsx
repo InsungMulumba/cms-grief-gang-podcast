@@ -5,7 +5,6 @@ import BulletinBar from "./BulletinBar";
 import NavBar from "./NavBar";
 
 type HeaderProps = {
-  isMain: boolean;
   showBulletin: boolean;
 };
 
@@ -19,8 +18,7 @@ const HeaderRoot = styled.div`
   z-index: 1;
 `;
 
-const Header: FC<HeaderProps> = ({ isMain, showBulletin }) => {
-  console.log(isMain);
+const Header: FC<HeaderProps> = ({ showBulletin }) => {
   return (
     <HeaderRoot id="home">
       {showBulletin && <BulletinBar />}

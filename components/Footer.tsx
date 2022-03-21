@@ -4,7 +4,7 @@ const Footer: FC = () => {
   return (
     <>
       <footer>
-        © Insung Mulumba 2021
+        © Insung Mulumba 2022
         {/* <img src="/netliheart.svg" alt="Netlify Logo" className="logo" /> for
         you */}
       </footer>
@@ -25,7 +25,7 @@ const Footer: FC = () => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
 export default Footer;

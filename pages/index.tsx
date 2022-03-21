@@ -8,7 +8,7 @@ import WelcomeSlice from "../components/Home/WelcomeSlice";
 import AboutSlice from "../components/Home/About";
 import MediaSlice from "../components/Home/Media";
 import CoupleSlice from "components/Home/CoupleSlice";
-import BannerSlice from "../components/Home/Banner";
+import BannerSlice from "../components/Landing/Banner";
 import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
 import ScrollButton from "../components/Navigation/ScrollToTop";
@@ -64,10 +64,9 @@ const Home: FC<HomeProps> = ({ newPosts }) => {
       <BannerSlice />
       {
         <>
-          {/* <ScrollButton /> */}
-          <Header showBulletin={true} isMain={true} />
+          <Header showBulletin={true} />
 
-          <CoupleSlice data={orderedSlices(newPosts)[0]} />
+          <CoupleSlice data={orderedSlices(newPosts)[0]} setHeight={true} />
           <CoupleSlice data={orderedSlices(newPosts)[1]} />
 
           <SignUpSlice />
@@ -119,7 +118,8 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const newPosts = await getPageContentBySlug(newHomeQuery, "homeCollection");
 
   const posts = String(newPosts);
-
+  console.log(oldPosts);
+  console.log(newPosts);
   return {
     props: {
       oldPosts,
