@@ -186,7 +186,7 @@ const NavBar: FC = () => {
           <BurgerMenu />
         </MenuToggle>
         <Logo
-          src="/logo.jpg"
+          src="/logo.png"
           alt="Grief Gang Podcast logo"
           crossOrigin="anonymous"
         />

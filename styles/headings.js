@@ -27,7 +27,7 @@ export const SliceContent = styled.p`
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   margin: 0;
   margin-bottom: 16px;
-  color: white;
+  color: #ed693c;
   font-family: " Spartan", sans-serif;
 `;
 

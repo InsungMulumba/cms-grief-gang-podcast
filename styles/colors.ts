@@ -1,8 +1,7 @@
-
 const colors = {
-    mainPink: '#DFA1A4',
-    secondary: '#BF857F',
-    cream: '#fff8f0'
-}
+  mainPink: "#ED693C",
+  secondary: "#F7C1CB",
+  tertiary: "#FAE3DC",
+};
 
 export default colors;

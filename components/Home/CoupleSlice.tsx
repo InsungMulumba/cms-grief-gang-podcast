@@ -99,6 +99,7 @@ const HeroImageContainer = styled.div`
   }
 `;
 
+const HeroPaddingLarge = "20px 80px";
 const HeroBanner = styled.div<{ orderNumber: Number }>`
   display: flex;
   justify-content: center;
@@ -136,7 +137,7 @@ const HeroText = styled.div<{ image: boolean }>`
 
     text-align: left;
     /* padding: 0px 50px; */
-    padding: 0px 50px;
+    padding: ${HeroPaddingLarge};
     /* justify-content: start; */
   }
 `;

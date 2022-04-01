@@ -2,6 +2,7 @@ import React, { useState, FC } from "react";
 import styled from "styled-components";
 import { TitleH2, SliceContent } from "styles/headings";
 import colors from "../../styles/colors";
+import { validate } from "email-validator";
 
 const SignUpSlice = styled.div`
   width: 100%;
@@ -10,7 +11,7 @@ const SignUpSlice = styled.div`
   justify-content: center;
   align-items: center;
   padding: 60px 80px;
-  background-color: ${colors.secondary};
+  background-color: ${colors.tertiary};
 `;
 
 const SignUpBox = styled.div`
@@ -22,7 +23,7 @@ const SignUpBox = styled.div`
 const Title = styled(TitleH2)`
   text-align: center;
 
-  color: white;
+  color: #ed693c;
   font-family: " Spartan", sans-serif;
 `;
 
@@ -51,7 +52,7 @@ const ContactInput = styled.input`
 `;
 
 const SendButton = styled.button`
-  background-color: ${colors.secondary};
+  background-color: ${colors.mainPink};
   color: white;
   padding: 0px 20px;
   height: 40px;
@@ -97,6 +98,10 @@ const InputSubmitPair = styled.div`
   flex-direction: column;
 `;
 
+const ErrorMessage = styled.p`
+  color: red;
+`;
+
 const SignUp: FC = () => {
   interface FormPost {
     name?: string;
@@ -106,7 +111,7 @@ const SignUp: FC = () => {
   // Thanks to Ju-LI https://jama-ai.medium.com/next-js-typescript-netlify-forms-the-no-redirect-version-d9bf859502cd
   const [formState, setFormState] = useState<FormPost>();
   const [submitted, setContactSuccess] = useState(false);
-
+  const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
   const encode = (data: any) => {
     return Object.keys(data)
       .map(
@@ -117,15 +122,24 @@ const SignUp: FC = () => {
 
   const formSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     console.log(encode({ "form-name": "contact", ...formState }));
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...formState }),
-    })
-      .then(() => console.log("Success!"))
-      .catch((error) => console.log(error));
     event.preventDefault();
+
+    if (!validate(formState?.email) || !formState.email) {
+      event.preventDefault();
+      setShowErrorMessage(true);
+      return;
+    }
+
+    if (process.env.NODE_ENV === "production") {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...formState }),
+      })
+        .then(() => console.log("Success!"))
+        .catch((error) => console.log(error));
+    }
+
     setContactSuccess(true);
   };
 
@@ -169,6 +183,9 @@ const SignUp: FC = () => {
             </InputPair>
             {!submitted && <SendButton type="submit">Sign up</SendButton>}
             {submitted && <SignUpSuccess>Thank You!</SignUpSuccess>}
+            {showErrorMessage && (
+              <ErrorMessage>Please use a valid email address</ErrorMessage>
+            )}
           </InputSubmitPair>
         </form>
       </SignUpBox>
