@@ -7,7 +7,7 @@ import Header from "../components/Header/Header";
 import Head from "next/head";
 import TitleH1 from "../styles/headings";
 import SocialMediaLinks from "../components/Home/SocialMediaBar";
-import Media from "../components/Home/Media";
+import Media from "../components/AsSeenOnSlice/Media";
 
 const Root = styled.div`
   display: flex;
@@ -114,7 +114,7 @@ const Podcast: FC = () => {
           </AcastContainer>
           <SocialMediaLinks />
         </HeroBanner>
-        <Media />
+        {/* <Media /> */}
       </Root>
     </>
   );

@@ -100,6 +100,7 @@ const InputSubmitPair = styled.div`
 
 const ErrorMessage = styled.p`
   color: red;
+  text-align: center;
 `;
 
 const SignUp: FC = () => {
@@ -111,7 +112,10 @@ const SignUp: FC = () => {
   // Thanks to Ju-LI https://jama-ai.medium.com/next-js-typescript-netlify-forms-the-no-redirect-version-d9bf859502cd
   const [formState, setFormState] = useState<FormPost>();
   const [submitted, setContactSuccess] = useState(false);
-  const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
+  const [showEmailErrorMessage, setShowEmailErrorMessage] =
+    useState<boolean>(false);
+  const [showNameErrorMessage, setShowNameErrorMessage] =
+    useState<boolean>(false);
   const encode = (data: any) => {
     return Object.keys(data)
       .map(
@@ -126,7 +130,13 @@ const SignUp: FC = () => {
 
     if (!validate(formState?.email) || !formState.email) {
       event.preventDefault();
-      setShowErrorMessage(true);
+      setShowEmailErrorMessage(true);
+      return;
+    }
+
+    if (formState.name?.length < 2 || !formState.name) {
+      event.preventDefault();
+      setShowNameErrorMessage(true);
       return;
     }
 
@@ -183,8 +193,11 @@ const SignUp: FC = () => {
             </InputPair>
             {!submitted && <SendButton type="submit">Sign up</SendButton>}
             {submitted && <SignUpSuccess>Thank You!</SignUpSuccess>}
-            {showErrorMessage && (
+            {showEmailErrorMessage && (
               <ErrorMessage>Please use a valid email address</ErrorMessage>
+            )}
+            {showNameErrorMessage && (
+              <ErrorMessage>Please enter a name</ErrorMessage>
             )}
           </InputSubmitPair>
         </form>

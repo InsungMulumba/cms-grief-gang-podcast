@@ -5,16 +5,15 @@ import PageWithLayoutType from "../types/pageWithLayout";
 import React, { FC } from "react";
 import MainLayout from "../layouts/mainLayout";
 import WelcomeSlice from "../components/Home/WelcomeSlice";
-import AboutSlice from "../components/Home/About";
-import MediaSlice from "../components/Home/Media";
+import MediaSlice from "../components/AsSeenOnSlice/Media";
 import CoupleSlice from "components/Home/CoupleSlice";
 import BannerSlice from "../components/Landing/Banner";
 import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
-import ScrollButton from "../components/Navigation/ScrollToTop";
 import Header from "../components/Header/Header";
 import getPageContentBySlug from "../utils/contentfulApi";
 import { homeQuery, newHomeQuery } from "../utils/queries";
+import MiscSlice from "../components/AsSeenOnSlice/Slice";
 
 interface contentfulDataTypes {
   aboutSlice: string;
@@ -43,6 +42,9 @@ const orderedSlices = (unorderedSlices: any) => {
   );
 };
 
+const SLIDE_COUNT = 5;
+const slides = Array.from(Array(SLIDE_COUNT).keys());
+
 const Home: FC<HomeProps> = ({ newPosts }) => {
   return (
     <Container>
@@ -68,7 +70,7 @@ const Home: FC<HomeProps> = ({ newPosts }) => {
 
           <CoupleSlice data={orderedSlices(newPosts)[0]} setHeight={true} />
           <CoupleSlice data={orderedSlices(newPosts)[1]} />
-
+          <MiscSlice />
           <SignUpSlice />
         </>
       }

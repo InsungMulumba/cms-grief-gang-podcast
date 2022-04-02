@@ -75,7 +75,7 @@ const Text = styled.p`
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   @media (min-width: 1280px) {
     margin-bottom: 32px;
-    font-size: 26px;
+    font-size: 20px;
   }
 `;
 

@@ -13,7 +13,6 @@ const Text = styled.p`
   }
 `;
 
-
 const imageGrow = keyframes`
     0% {
       opacity: 0%;
@@ -25,6 +24,9 @@ const imageGrow = keyframes`
 
 const Root = styled.div`
   width: 100%;
+  @media (min-width: 1280px) {
+    width: 70%;
+  }
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,9 +55,8 @@ const PartnerImg = styled.img`
     animation: ${imageGrow} 3.5s ease-out 0.5s both;
   }
   @media (min-width: 1280px) {
-    height: 120px;
-    width: 120px;
-
+    height: 180px;
+    width: 180px;
   }
 
   @media (max-width: 1279px) {
@@ -66,12 +67,10 @@ const PartnerImg = styled.img`
 `;
 
 interface mediaProps {
-  data: string
+  data: string;
 }
 
-
 const Media: FC = () => {
-
   useEffect(() => {
     // console.log(data);
     const myImg = document.querySelectorAll(".animate-image-grow");
@@ -119,5 +118,3 @@ const Media: FC = () => {
 };
 
 export default Media;
-
-
