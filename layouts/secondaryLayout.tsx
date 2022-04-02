@@ -10,7 +10,7 @@ type LayoutProps = {
 const Layout: React.FunctionComponent<LayoutProps> = ({ children, posts }) => {
   return (
     <>
-      <Header showBulletin={false} isMain={false} />
+      <Header showBulletin={false} />
       {posts}
       {children}
     </>
