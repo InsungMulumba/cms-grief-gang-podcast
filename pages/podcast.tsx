@@ -92,7 +92,7 @@ const Podcast: FC = () => {
           rel="stylesheet"
         ></link>
       </Head>
-      <Header isMain={true} showBulletin={false} />
+      <Header showBulletin={false} />
       <Root>
         <HeroBanner>
           <HeroText>
