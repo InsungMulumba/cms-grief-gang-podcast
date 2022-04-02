@@ -134,7 +134,7 @@ const Events: FC = () => {
           rel="stylesheet"
         ></link>
       </Head>
-      <Header isMain={true} showBulletin={false} />
+      <Header showBulletin={false} />
 
       <Root>
         <Title>
