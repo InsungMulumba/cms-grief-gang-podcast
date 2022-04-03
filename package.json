@@ -13,8 +13,6 @@
     "@contentful/rich-text-react-renderer": "^15.11.1",
     "contentful": "^7.14.6",
     "email-validator": "^2.0.4",
-    "embla-carousel-autoplay": "^6.2.0",
-    "embla-carousel-react": "^6.2.0",
     "keen-slider": "^6.6.5",
     "next": "^10.0.6",
     "react": "17.0.2",

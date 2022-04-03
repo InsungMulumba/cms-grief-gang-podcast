@@ -62,7 +62,7 @@ const Root = styled.div<{
   align-items: center;
   flex-direction: column;
   @media (min-width: 1280px) {
-    height: ${(props) => (props.setHeight ? "100vh" : "auto")};
+    height: ${(props) => (props.setHeight ? "calc(100vh - 120px)" : "auto")};
   }
 `;
 
@@ -73,9 +73,9 @@ const Text = styled.p`
   font-size: 18px;
 
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
-  @media (min-width: 1280px) {
-    margin-bottom: 32px;
-    font-size: 20px;
+
+  @media (min-width: 1920px) {
+    font-size: 26px;
   }
 `;
 

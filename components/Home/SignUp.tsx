@@ -98,9 +98,10 @@ const InputSubmitPair = styled.div`
   flex-direction: column;
 `;
 
-const ErrorMessage = styled.p`
+const ErrorMessage = styled.span`
   color: red;
   text-align: center;
+  font-size: 20px;
 `;
 
 const SignUp: FC = () => {
