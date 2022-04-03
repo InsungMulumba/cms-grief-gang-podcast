@@ -47,7 +47,7 @@ const NavLinksDesktop = styled.a`
 `;
 
 const Logo = styled.img`
-  height: 60%;
+  height: 100%;
   margin: auto 20px;
   @media (min-width: 1280px) {
     margin-left: 50px;
