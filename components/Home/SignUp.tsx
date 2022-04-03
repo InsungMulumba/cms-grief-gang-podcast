@@ -11,6 +11,10 @@ const SignUpSlice = styled.div`
   justify-content: center;
   align-items: center;
   padding: 60px 80px;
+  @media (max-width: 1279px) {
+    padding: 20px 40px;
+  }
+
   background-color: ${colors.tertiary};
 `;
 
@@ -90,18 +94,28 @@ const SignUpSuccess = styled.div`
 const InputPair = styled.div`
   display: flex;
   justify-content: center;
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 const InputSubmitPair = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   flex-direction: column;
 `;
 
 const ErrorMessage = styled.span`
   color: red;
   text-align: center;
-  font-size: 20px;
+  font-size: 14px;
+`;
+
+const PrivacyPolicy = styled.span`
+  color: ${colors.mainPink};
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 16px;
 `;
 
 const SignUp: FC = () => {
@@ -168,6 +182,10 @@ const SignUp: FC = () => {
           Sign up with your email address to receive news updates and blog posts
           from The Grief Gang.
         </SliceContent>
+        <PrivacyPolicy>
+          *By signing up, you confirm that you agree to our privacy policy
+        </PrivacyPolicy>
+
         <form
           name="contact"
           onSubmit={formSubmit}
