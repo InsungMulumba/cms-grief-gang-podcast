@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const totalPages = Math.ceil(
       postSummaries.total / Config.pageMeta.pagination.pageSize
     );
-    console.log(postSummaries);
+    // console.log(postSummaries);
     return {
       props: {
         postSummaries: postSummaries.items,
