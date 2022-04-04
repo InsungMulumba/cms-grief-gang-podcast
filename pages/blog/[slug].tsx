@@ -40,7 +40,7 @@ export async function getStaticPaths() {
   // on production
   return {
     paths,
-    fallback: "blocking",
+    fallback: false,
   };
 }
 
@@ -53,6 +53,7 @@ export async function getStaticProps({ params, preview = false }) {
   // So that if we do not have a post on production,
   // the 404 is served
   if (!post) {
+    console.log("not a blog post");
     return {
       notFound: true,
     };

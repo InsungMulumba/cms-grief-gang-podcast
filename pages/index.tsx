@@ -48,21 +48,6 @@ const slides = Array.from(Array(SLIDE_COUNT).keys());
 const Home: FC<HomeProps> = ({ newPosts }) => {
   return (
     <Container>
-      <Head>
-        <title>The Grief Gang</title>
-        <link rel="icon" href="/logo.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;700&display=swap"
-          rel="stylesheet"
-        ></link>
-      </Head>
-
       <BannerSlice />
       {
         <>
