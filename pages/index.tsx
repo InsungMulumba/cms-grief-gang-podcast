@@ -5,15 +5,15 @@ import PageWithLayoutType from "../types/pageWithLayout";
 import React, { FC } from "react";
 import MainLayout from "../layouts/mainLayout";
 import WelcomeSlice from "../components/Home/WelcomeSlice";
-import MediaSlice from "../components/AsSeenOnSlice/Media";
+import MediaSlice from "../slices/AsSeenOnSlice/Media";
 import CoupleSlice from "components/Home/CoupleSlice";
 import BannerSlice from "../components/Landing/Banner";
 import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
 import Header from "../components/Header/Header";
 import { getPageContentBySlug } from "../utils/contentfulApi";
-import { homeQuery, newHomeQuery } from "../utils/queries";
-import MiscSlice from "../components/AsSeenOnSlice/Slice";
+import { faqQuery, newHomeQuery } from "../utils/queries";
+import MiscSlice from "../slices/AsSeenOnSlice/Slice";
 
 interface contentfulDataTypes {
   aboutSlice: string;
@@ -46,6 +46,8 @@ const SLIDE_COUNT = 5;
 const slides = Array.from(Array(SLIDE_COUNT).keys());
 
 const Home: FC<HomeProps> = ({ newPosts }) => {
+  console.log(newPosts);
+
   return (
     <Container>
       <BannerSlice />
@@ -102,10 +104,12 @@ export default Home;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const newPosts = await getPageContentBySlug(newHomeQuery, "homeCollection");
+  const faqs = await getPageContentBySlug(faqQuery, "faqCollection");
 
   return {
     props: {
       newPosts,
+      faqs,
     },
   };
 };

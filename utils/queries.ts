@@ -46,6 +46,14 @@ export const mediaQuery = `
     }
   `;
 
+export const faqQuery = `{
+  faqCollection(limit: 20) {
+    items {
+      question
+      answer
+    }
+  }
+}`;
 // dont think we need this one below
 export const blogQuery = `{
     blogPostCollection(limit: 2, skip: 0, order: date_DESC) {

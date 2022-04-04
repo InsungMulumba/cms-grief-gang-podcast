@@ -12,12 +12,6 @@ const Root = styled.div`
     }
   }
 `;
-const images = [
-  "/Carousel/media-1.webp",
-  "/Carousel/media-2.webp",
-  "/Carousel/media-3.webp",
-  "/Carousel/media-4.webp",
-];
 
 const CarouselImage = styled.img`
   width: 100%;
@@ -27,6 +21,13 @@ const CarouselImage = styled.img`
   object-fit: cover;
 `;
 const Carousel: FC = () => {
+  const images = [
+    "/Carousel/media-1.webp",
+    "/Carousel/media-2.webp",
+    "/Carousel/media-3.webp",
+    "/Carousel/media-4.webp",
+  ];
+
   const [refCallback, slider] = useKeenSlider(
     {
       loop: true,
@@ -65,19 +66,14 @@ const Carousel: FC = () => {
 
   return (
     <Root ref={refCallback} className="keen-slider">
-      <div className="keen-slider__slide">
-        <CarouselImage src="/Carousel/media-1.webp" />
-      </div>
-      ;
-      <div className="keen-slider__slide ">
-        <CarouselImage src="/Carousel/media-2.webp" />
-      </div>
-      <div className="keen-slider__slide ">
-        <CarouselImage src="/Carousel/media-3.webp" />
-      </div>
-      <div className="keen-slider__slide ">
-        <CarouselImage src="/Carousel/media-4.webp" />
-      </div>
+      {images &&
+        images.map((i) => {
+          return (
+            <div className="keen-slider__slide">
+              <CarouselImage src={i} />
+            </div>
+          );
+        })}
     </Root>
   );
 };

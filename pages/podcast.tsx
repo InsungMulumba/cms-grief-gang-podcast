@@ -6,7 +6,7 @@ import PageWithLayoutType from "../types/pageWithLayout";
 import Header from "../components/Header/Header";
 import Head from "next/head";
 import TitleH1 from "../styles/headings";
-import Media from "../components/AsSeenOnSlice/Media";
+import Media from "../slices/AsSeenOnSlice/Media";
 
 const Root = styled.div`
   display: flex;
