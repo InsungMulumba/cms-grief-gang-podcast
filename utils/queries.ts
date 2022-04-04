@@ -45,3 +45,19 @@ export const mediaQuery = `
       }
     }
   `;
+
+export const blogQuery = `{
+    blogPostCollection(limit: 2, skip: 0, order: date_DESC) {
+      total
+      items {
+        sys {
+          id
+        }
+        date
+        title
+        slug
+        content
+        tags
+      }
+    }
+  }`;

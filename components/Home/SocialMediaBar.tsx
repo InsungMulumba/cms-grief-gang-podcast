@@ -5,28 +5,27 @@ const SocialMediaIconContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 20px 0px;
   padding: 40px 0px;
 `;
 
 const SocialMediaIconLink = styled.a`
   /* margin: 28px 30px; */
   @media (min-width: 1280px) {
-  height: 40px;
+    height: 40px;
   }
   margin: 0px 5px;
-
 `;
 
 const SocialMediaIcon = styled.img`
   @media (min-width: 1280px) {
-    height: 40px;
-    width: 40px;
-    }
-    margin: 0px 5px;
+    height: 60px;
+    width: 60px;
+  }
+  margin: 0px 5px;
 
-
-
+  :hover {
+    transform: scale(1.1);
+  }
 `;
 
 const platforms = ["Instagram", "Apple", "Spotify", "Youtube", "Twitter"];

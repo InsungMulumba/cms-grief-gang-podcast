@@ -6,7 +6,6 @@ import PageWithLayoutType from "../types/pageWithLayout";
 import Header from "../components/Header/Header";
 import Head from "next/head";
 import TitleH1 from "../styles/headings";
-import SocialMediaLinks from "../components/Home/SocialMediaBar";
 import Media from "../components/AsSeenOnSlice/Media";
 
 const Root = styled.div`
@@ -112,7 +111,7 @@ const Podcast: FC = () => {
               frameBorder="0"
             ></iframe>
           </AcastContainer>
-          <SocialMediaLinks />
+          {/* <SocialMediaLinks /> */}
         </HeroBanner>
         {/* <Media /> */}
       </Root>

@@ -11,7 +11,7 @@ import BannerSlice from "../components/Landing/Banner";
 import SignUpSlice from "../components/Home/SignUp";
 import PicturesGrid from "../components/Home/PicturesGrid";
 import Header from "../components/Header/Header";
-import getPageContentBySlug from "../utils/contentfulApi";
+import { getPageContentBySlug } from "../utils/contentfulApi";
 import { homeQuery, newHomeQuery } from "../utils/queries";
 import MiscSlice from "../components/AsSeenOnSlice/Slice";
 
@@ -116,15 +116,10 @@ const Home: FC<HomeProps> = ({ newPosts }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const oldPosts = await getPageContentBySlug(homeQuery, "homepageCollection");
   const newPosts = await getPageContentBySlug(newHomeQuery, "homeCollection");
 
-  const posts = String(newPosts);
-  console.log(oldPosts);
-  console.log(newPosts);
   return {
     props: {
-      oldPosts,
       newPosts,
     },
   };

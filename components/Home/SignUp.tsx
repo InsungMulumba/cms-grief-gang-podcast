@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { TitleH2, SliceContent } from "styles/headings";
 import colors from "../../styles/colors";
 import { validate } from "email-validator";
+import SocialMediaLinks from "./SocialMediaBar";
 
 const SignUpSlice = styled.div`
   width: 100%;
@@ -116,6 +117,9 @@ const PrivacyPolicy = styled.span`
   font-size: 12px;
   text-align: center;
   margin-bottom: 16px;
+  a {
+    color: blue;
+  }
 `;
 
 const SignUp: FC = () => {
@@ -183,9 +187,15 @@ const SignUp: FC = () => {
           from The Grief Gang.
         </SliceContent>
         <PrivacyPolicy>
-          *By signing up, you confirm that you agree to our privacy policy
+          *By signing up, you confirm that you agree to our{" "}
+          <a
+            href="/privacy-policy.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            privacy policy
+          </a>
         </PrivacyPolicy>
-
         <form
           name="contact"
           onSubmit={formSubmit}
@@ -220,6 +230,7 @@ const SignUp: FC = () => {
             )}
           </InputSubmitPair>
         </form>
+        <SocialMediaLinks />
       </SignUpBox>
     </SignUpSlice>
   );
