@@ -46,6 +46,7 @@ export const mediaQuery = `
     }
   `;
 
+// dont think we need this one below
 export const blogQuery = `{
     blogPostCollection(limit: 2, skip: 0, order: date_DESC) {
       total
@@ -57,6 +58,24 @@ export const blogQuery = `{
         title
         slug
         content
+        blogContent {
+          json
+          links {
+            assets { 
+              block {
+                sys {
+                  id
+                }
+                url
+                title
+                width
+                height
+                description
+                contentType 
+              }
+            }
+          }
+        }
         tags
       }
     }

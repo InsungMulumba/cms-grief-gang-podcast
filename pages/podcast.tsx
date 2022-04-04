@@ -106,7 +106,7 @@ const Podcast: FC = () => {
               title="Embed Player"
               width="100%"
               height="138px"
-              src="https://embed.acast.com/61853de864f92b00193bfaae/8fc12960-8a19-47e5-b019-6d5570b29623"
+              src="https://embed.acast.com/s/the-grief-gang"
               scrolling="no"
               frameBorder="0"
             ></iframe>

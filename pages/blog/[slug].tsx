@@ -3,26 +3,29 @@ import { GetStaticProps } from "next";
 import PageWithLayoutType from "../../types/pageWithLayout";
 import MainLayout from "../../layouts/mainLayout";
 import { getAllPostSlugs, getPostBySlug } from "../../utils/contentfulApi";
+import { renderPost } from "../../utils/RichTextRender";
+import ReactDom from "react-dom";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const PostWrapper: FC<any> = (props) => {
   const { post, preview } = props;
 
-  return (
-    <>
-      {post.title}
-      {post.content}
-    </>
-    // <MainLayout preview={preview}>
-    //   <PageMeta
-    //     title={post.title}
-    //     description={post.excerpt}
-    //     url={`${Config.pageMeta.blogIndex.url}/${post.slug}`}
-    //     canonical={post.externalUrl ? post.externalUrl : false}
-    //   />
+  return <>{renderPost(post.blogContent)}</>;
 
-    //   <Post post={post} />
-    // </MainLayout>
-  );
+  /* {post.title}
+      {post.content}
+      {console.log(post.content)} */
+
+  // <MainLayout preview={preview}>
+  //   <PageMeta
+  //     title={post.title}
+  //     description={post.excerpt}
+  //     url={`${Config.pageMeta.blogIndex.url}/${post.slug}`}
+  //     canonical={post.externalUrl ? post.externalUrl : false}
+  //   />
+
+  //   <Post post={post} />
+  // </MainLayout>
 };
 
 (PostWrapper as PageWithLayoutType).layout = MainLayout;
@@ -36,8 +39,6 @@ export async function getStaticPaths() {
     return { params: { slug } };
   });
 
-  // Using fallback: "blocking" here enables preview mode for unpublished blog slugs
-  // on production
   return {
     paths,
     fallback: false,
@@ -49,9 +50,6 @@ export async function getStaticProps({ params, preview = false }) {
     preview: preview,
   });
 
-  // Add this with fallback: "blocking"
-  // So that if we do not have a post on production,
-  // the 404 is served
   if (!post) {
     console.log("not a blog post");
     return {

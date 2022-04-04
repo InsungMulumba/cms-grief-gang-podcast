@@ -1,7 +1,6 @@
 import React, { Component, FC } from "react";
 import styled, { keyframes } from "styled-components";
 import colors from "styles/colors";
-import { isSafari, isMobileSafari } from "react-device-detect";
 
 const OverlaySlideIn = keyframes`
     0% {

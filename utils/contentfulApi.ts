@@ -203,14 +203,52 @@ export async function getPostBySlug(slug, options = defaultOptions) {
         title
         slug
         content
+        blogContent {
+       
+            json
+            links {
+              entries {
+                inline {
+                  sys {
+                    id
+                  }
+                  __typename
+                  ... on BlogPost {
+                    title
+                    slug
+                  }
+                }
+                block {
+                  sys {
+                    id
+                  }
+
+                }
+              }
+              assets {
+                block {
+                  sys {
+                    id
+                  }
+                  url
+                  title
+                  width
+                  height
+                  description
+                }
+              }
+            }
+          }
+        
         tags
       }
     }
   }`;
 
   const response = await callContentful(query, variables);
-  const post = response.data.blogPostCollection.items
-    ? response.data.blogPostCollection.items
+
+  const post = response.data?.blogPostCollection?.items
+    ? response.data?.blogPostCollection.items
     : [];
 
   return post.pop();
