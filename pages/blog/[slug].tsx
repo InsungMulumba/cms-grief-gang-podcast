@@ -62,8 +62,6 @@ export async function getStaticProps({ params, preview = false }) {
     props: {
       preview,
       post,
-
-      fallback: "blocking",
     },
   };
 }
