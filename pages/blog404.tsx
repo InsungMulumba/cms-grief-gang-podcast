@@ -12,7 +12,7 @@ const Root = styled.div`
   justify-content: center;
   width: 100%;
   height: calc(100vh - 50px);
-  background-color: ${colors.mainPink};
+  background-color: ${colors.burntOrange};
   color: white;
 `;
 

@@ -1,9 +1,9 @@
 import React, { Component, FC, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import colors from "../../styles/colors";
-import TitleH1 from "../../styles/headings";
-import Header from "../Header/Header";
-import SocialMediaLinks from "./SocialMediaBar";
+import colors from "../styles/colors";
+import TitleH1 from "../styles/headings";
+import Header from "../components/Header/Header";
+import SocialMediaLinks from "../components/Home/SocialMediaBar";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 interface CoupleSliceProps {
@@ -53,7 +53,7 @@ const Root = styled.div<{
   setHeight: boolean;
 }>`
   background-color: ${(props) =>
-    props.bgColor ? props.bgColor : colors.mainPink};
+    props.bgColor ? props.bgColor : colors.burntOrange};
 
   color: white;
   /* max-height: calc(100vh - 120px); */
@@ -68,7 +68,7 @@ const Root = styled.div<{
 
 const Title = styled(TitleH1)``;
 
-const Text = styled.p`
+const Text = styled.div`
   font-family: " Spartan", sans-serif;
   font-size: 18px;
 

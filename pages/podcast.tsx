@@ -6,13 +6,16 @@ import PageWithLayoutType from "../types/pageWithLayout";
 import Header from "../components/Header/Header";
 import Head from "next/head";
 import TitleH1 from "../styles/headings";
-import Media from "../slices/AsSeenOnSlice/Media";
+import { GetStaticProps } from "next";
+import { getPageContentBySlug } from "../utils/contentfulApi";
+import { faqQuery } from "../utils/queries";
 
 const Root = styled.div`
   display: flex;
-  background-color: ${colors.mainPink};
+  background-color: ${colors.bubblegumPink};
   justify-content: center;
   flex-direction: column;
+  min-height: calc(100vh - 120px);
 `;
 
 const HeroBanner = styled.div`
@@ -74,23 +77,17 @@ const HeroText = styled.div`
   }
 `;
 
-const Podcast: FC = () => {
+type faq = {
+  question: String;
+  answer: String;
+};
+interface PodcastProps {
+  faqs: faq[];
+}
+
+const Podcast: FC<PodcastProps> = ({ faqs }) => {
   return (
     <>
-      <Head>
-        <title>The Grief Gang | Podcast</title>
-        <link rel="icon" href="/logo.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;700&display=swap"
-          rel="stylesheet"
-        ></link>
-      </Head>
       <Header showBulletin={false} />
       <Root>
         <HeroBanner>
@@ -111,7 +108,7 @@ const Podcast: FC = () => {
               frameBorder="0"
             ></iframe>
           </AcastContainer>
-          {/* <SocialMediaLinks /> */}
+          {console.log(faqs)}
         </HeroBanner>
         {/* <Media /> */}
       </Root>
@@ -122,3 +119,13 @@ const Podcast: FC = () => {
 (Podcast as PageWithLayoutType).layout = MainLayout;
 
 export default Podcast;
+
+export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+  const faqs = await getPageContentBySlug(faqQuery, "faqCollection");
+
+  return {
+    props: {
+      faqs,
+    },
+  };
+};

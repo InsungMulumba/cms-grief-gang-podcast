@@ -1,10 +1,6 @@
 import Link from "next/link";
 // import ReactMarkdown from "react-markdown";
 // import ReactMarkdownRenderers from "@utils/ReactMarkdownRenderers";
-// import {
-//   formatPublishedDateForDateTime,
-//   formatPublishedDateForDisplay,
-// } from "@utils/Date";
 
 export default function PostList(props) {
   const { posts } = props;

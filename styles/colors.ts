@@ -1,7 +1,8 @@
 const colors = {
-  mainPink: "#ED693C",
-  secondary: "#F7C1CB",
-  tertiary: "#FAE3DC",
+  burntOrange: "#ED693C",
+  bubblegumPink: "#F7C1CB",
+  brownCream: "#FAE3DC",
+  cream: "#FCFAF6",
 };
 
 export default colors;

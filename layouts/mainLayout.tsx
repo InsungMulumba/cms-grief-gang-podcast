@@ -38,7 +38,7 @@ const Layout: FC<LayoutProps> = ({ children, posts }) => {
           rel="stylesheet"
         ></link>
       </Head>
-      {posts}
+
       {children}
       <Footer />
     </>

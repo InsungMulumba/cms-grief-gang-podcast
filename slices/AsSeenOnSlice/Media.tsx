@@ -72,7 +72,6 @@ interface mediaProps {
 
 const Media: FC = () => {
   useEffect(() => {
-    // console.log(data);
     const myImg = document.querySelectorAll(".animate-image-grow");
     let imgArray = Array.from(myImg);
 
@@ -84,7 +83,7 @@ const Media: FC = () => {
           }
           // observer.unobserve;
         } else {
-          // console.log("out of view");
+          //out of view
         }
       });
     });

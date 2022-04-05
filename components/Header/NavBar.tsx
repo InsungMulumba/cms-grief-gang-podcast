@@ -31,7 +31,7 @@ const NavLinksDesktop = styled.a`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  color: ${colors.mainPink};
+  color: ${colors.burntOrange};
   border-radius: 100%;
   margin: 0px 30px;
   padding: 25px 30px;
@@ -41,7 +41,7 @@ const NavLinksDesktop = styled.a`
   text-align: center;
   :hover {
     border-radius: 0px;
-    background-color: ${colors.mainPink};
+    background-color: ${colors.burntOrange};
     color: white;
   }
 `;
@@ -119,7 +119,7 @@ const NavLinksContainerMobile = styled.div`
 `;
 
 const NavLinksMobile = styled.a`
-  background-color: ${colors.mainPink};
+  background-color: ${colors.burntOrange};
   color: white;
   width: 60%;
   justify-content: center;
@@ -130,7 +130,7 @@ const NavLinksMobile = styled.a`
   margin: 20px 0px;
   border-radius: 500px;
   :hover {
-    background-color: ${colors.secondary};
+    background-color: ${colors.bubblegumPink};
     color: white;
   }
 `;
@@ -150,7 +150,7 @@ const BurgerMenuClose = styled.div`
     content: "";
     width: 100%;
     height: 4px;
-    background-color: ${colors.mainPink};
+    background-color: ${colors.burntOrange};
   }
   &:before {
     transform: rotate(45deg);

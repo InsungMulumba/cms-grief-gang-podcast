@@ -3,7 +3,7 @@ import styled from "styled-components";
 import colors from "../../styles/colors";
 
 const Button = styled.a`
-  background-color: ${colors.secondary};
+  background-color: ${colors.bubblegumPink};
   color: white;
   padding: 4px 20px;
   height: 40px;
@@ -14,11 +14,7 @@ const Button = styled.a`
 `;
 
 const ButtonBase: FC = () => {
-    return (
-<Button />
-    );
-  };
-  
-  export default ButtonBase;
+  return <Button />;
+};
 
-  
+export default ButtonBase;

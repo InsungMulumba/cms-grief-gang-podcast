@@ -2,17 +2,14 @@ import Head from "next/head";
 import styled from "styled-components";
 import { GetStaticProps } from "next";
 import PageWithLayoutType from "../types/pageWithLayout";
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import MainLayout from "../layouts/mainLayout";
-import WelcomeSlice from "../components/Home/WelcomeSlice";
-import MediaSlice from "../slices/AsSeenOnSlice/Media";
-import CoupleSlice from "components/Home/CoupleSlice";
+import CoupleSlice from "slices/CoupleSlice";
 import BannerSlice from "../components/Landing/Banner";
 import SignUpSlice from "../components/Home/SignUp";
-import PicturesGrid from "../components/Home/PicturesGrid";
 import Header from "../components/Header/Header";
 import { getPageContentBySlug } from "../utils/contentfulApi";
-import { faqQuery, newHomeQuery } from "../utils/queries";
+import { newHomeQuery } from "../utils/queries";
 import MiscSlice from "../slices/AsSeenOnSlice/Slice";
 
 interface contentfulDataTypes {
@@ -34,6 +31,7 @@ const Container = styled.div`
 interface HomeProps {
   oldPosts: contentfulDataTypes;
   newPosts: any[];
+  faqs: any[];
 }
 
 const orderedSlices = (unorderedSlices: any) => {
@@ -46,21 +44,29 @@ const SLIDE_COUNT = 5;
 const slides = Array.from(Array(SLIDE_COUNT).keys());
 
 const Home: FC<HomeProps> = ({ newPosts }) => {
-  console.log(newPosts);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    // https://github.com/vercel/next.js/discussions/17443
+    setMounted(true);
+  }, []);
 
   return (
     <Container>
       <BannerSlice />
-      {
+      {mounted && (
         <>
           <Header showBulletin={true} />
+          {newPosts && (
+            <>
+              <CoupleSlice data={orderedSlices(newPosts)[0]} setHeight={true} />
+              <CoupleSlice data={orderedSlices(newPosts)[1]} />
+            </>
+          )}
 
-          <CoupleSlice data={orderedSlices(newPosts)[0]} setHeight={true} />
-          <CoupleSlice data={orderedSlices(newPosts)[1]} />
           <MiscSlice />
           <SignUpSlice />
         </>
-      }
+      )}
 
       <style jsx>{`
         .container {
@@ -104,12 +110,10 @@ export default Home;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const newPosts = await getPageContentBySlug(newHomeQuery, "homeCollection");
-  const faqs = await getPageContentBySlug(faqQuery, "faqCollection");
 
   return {
     props: {
       newPosts,
-      faqs,
     },
   };
 };

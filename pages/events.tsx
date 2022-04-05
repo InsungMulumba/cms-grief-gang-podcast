@@ -10,7 +10,7 @@ import Head from "next/head";
 
 const Root = styled.div`
   display: flex;
-  background-color: ${colors.mainPink};
+  background-color: ${colors.burntOrange};
   justify-content: center;
   flex-direction: column;
   height: 100vh;

@@ -16,7 +16,7 @@ const SignUpSlice = styled.div`
     padding: 20px 40px;
   }
 
-  background-color: ${colors.tertiary};
+  background-color: ${colors.brownCream};
 `;
 
 const SignUpBox = styled.div`
@@ -57,7 +57,7 @@ const ContactInput = styled.input`
 `;
 
 const SendButton = styled.button`
-  background-color: ${colors.mainPink};
+  background-color: ${colors.burntOrange};
   color: white;
   padding: 0px 20px;
   height: 40px;
@@ -73,7 +73,7 @@ const SendButton = styled.button`
   font-size: 15px;
   :hover {
     background-color: white;
-    color: ${colors.secondary};
+    color: ${colors.bubblegumPink};
   }
 `;
 
@@ -113,7 +113,7 @@ const ErrorMessage = styled.span`
 `;
 
 const PrivacyPolicy = styled.span`
-  color: ${colors.mainPink};
+  color: ${colors.burntOrange};
   font-size: 12px;
   text-align: center;
   margin-bottom: 16px;

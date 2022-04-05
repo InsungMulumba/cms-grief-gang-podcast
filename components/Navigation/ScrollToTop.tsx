@@ -9,7 +9,7 @@ const Root = styled.a`
   inset: auto 5% 5% auto;
   border-radius: 50%;
   background-color: white;
-  color: ${colors.mainPink};
+  color: ${colors.burntOrange};
   font-size: 50px;
   justify-content: center;
   width: 100px;

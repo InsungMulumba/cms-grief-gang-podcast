@@ -4,13 +4,19 @@ import PageWithLayoutType from "../../types/pageWithLayout";
 import MainLayout from "../../layouts/mainLayout";
 import { getAllPostSlugs, getPostBySlug } from "../../utils/contentfulApi";
 import { renderPost } from "../../utils/RichTextRender";
-import ReactDom from "react-dom";
+import Header from "../../components/Header/Header";
+
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const PostWrapper: FC<any> = (props) => {
   const { post, preview } = props;
 
-  return <>{renderPost(post.blogContent)}</>;
+  return (
+    <>
+      <Header showBulletin={false} />
+      {renderPost(post.blogContent)}
+    </>
+  );
 
   /* {post.title}
       {post.content}

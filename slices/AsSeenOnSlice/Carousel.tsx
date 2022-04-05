@@ -69,7 +69,7 @@ const Carousel: FC = () => {
       {images &&
         images.map((i) => {
           return (
-            <div className="keen-slider__slide">
+            <div key={i} className="keen-slider__slide">
               <CarouselImage src={i} />
             </div>
           );

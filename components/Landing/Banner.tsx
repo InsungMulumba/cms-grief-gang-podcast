@@ -48,7 +48,7 @@ const FadeIn = keyframes`
 const BannerOverlay = styled.a`
   width: 100%;
   height: 100vh;
-  /* background-color: ${colors.mainPink}; */
+  /* background-color: ${colors.burntOrange}; */
   position: absolute;
   opacity: 0.5;
   animation: ${OverlaySlideIn} 1.5s ease-out 1.5s both;
@@ -106,7 +106,7 @@ const Slogan = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  color: ${colors.mainPink};
+  color: ${colors.burntOrange};
   font-size: 64px;
   font-weight: 900;
   width: 100%;

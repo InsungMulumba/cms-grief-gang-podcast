@@ -6,8 +6,19 @@ import {
 import { Config } from "../../utils/config";
 import PostList from "components/PostList";
 import { GetStaticProps } from "next";
+import styled from "styled-components";
 import PageWithLayoutType from "../../types/pageWithLayout";
 import MainLayout from "../../layouts/mainLayout";
+import Header from "../../components/Header/Header";
+import colors from "styles/colors";
+
+const Root = styled.div`
+  display: flex;
+  background-color: ${colors.brownCream};
+  justify-content: center;
+  flex-direction: column;
+  min-height: calc(100vh - 120px);
+`;
 
 const BlogIndex: FC<any> = (props) => {
   const { postSummaries, currentPage, totalPages, pageContent } = props;
@@ -18,11 +29,16 @@ const BlogIndex: FC<any> = (props) => {
     : "Articles | Next.js Contentful blog starter";
 
   return (
-    <PostList
-      posts={postSummaries}
-      totalPages={totalPages}
-      currentPage={currentPage}
-    />
+    <>
+      <Header showBulletin={false} />
+      <Root>
+        <PostList
+          posts={postSummaries}
+          totalPages={totalPages}
+          currentPage={currentPage}
+        />
+      </Root>
+    </>
   );
 };
 
@@ -53,5 +69,5 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
         preview,
       },
     };
-  } else console.log("hit");
+  } else console.log("Error: no posts");
 };
