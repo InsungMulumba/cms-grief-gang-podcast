@@ -23,7 +23,7 @@ const BulletinBar = styled.a`
   width: 100%;
   display: flex;
   background-color: ${colors.burntOrange};
-  font-family: " Spartan", sans-serif;
+  font-family: "Spartan", sans-serif;
   justify-content: center;
   align-items: center;
   /* position: sticky; */

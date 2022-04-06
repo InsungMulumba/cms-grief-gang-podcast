@@ -37,11 +37,10 @@ export const newHomeQuery = `{
     }
   }`;
 
-export const mediaQuery = `
-    mediaCollection(limit: 20) {
+export const acastQuery = `
+    acastLinkCollection(limit: 1) {
       items {
-        mediaLink
-        mediaQuery
+        url
       }
     }
   `;
@@ -51,8 +50,17 @@ export const faqQuery = `{
     items {
       question
       answer
+      orderNumber
     }
   }
+}`;
+
+export const asFeaturedInQuery = `{
+  asFeaturedInCollection(limit: 10) {
+    items {
+      mediaUrl
+      mediaLogo
+    }
 }`;
 // dont think we need this one below
 export const blogQuery = `{

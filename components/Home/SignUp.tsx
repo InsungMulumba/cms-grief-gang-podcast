@@ -11,7 +11,7 @@ const SignUpSlice = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 60px 80px;
+  padding: 100px 80px;
   @media (max-width: 1279px) {
     padding: 20px 40px;
   }
@@ -29,7 +29,7 @@ const Title = styled(TitleH2)`
   text-align: center;
 
   color: #ed693c;
-  font-family: " Spartan", sans-serif;
+  font-family: "Spartan", sans-serif;
 `;
 
 const Content = styled.p`
@@ -37,7 +37,7 @@ const Content = styled.p`
   font-size: 20px;
 
   color: white;
-  font-family: " Spartan", sans-serif;
+  font-family: "Spartan", sans-serif;
 `;
 
 const ContactInput = styled.input`

@@ -4,7 +4,7 @@ import { TitleH2 } from "styles/headings";
 import colors from "../../styles/colors";
 
 const Text = styled.p`
-  font-family: " Spartan", sans-serif;
+  font-family: "Spartan", sans-serif;
   font-size: 24px;
   color: black;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);

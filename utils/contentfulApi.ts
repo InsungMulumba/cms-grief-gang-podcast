@@ -253,3 +253,9 @@ export async function getPostBySlug(slug, options = defaultOptions) {
 
   return post.pop();
 }
+
+export const orderedContentfulEntries = (unorderedSlices: any) => {
+  return unorderedSlices.sort(
+    ({ orderNumber: a }, { orderNumber: b }) => a - b
+  );
+};

@@ -8,14 +8,20 @@ import Head from "next/head";
 import TitleH1 from "../styles/headings";
 import { GetStaticProps } from "next";
 import { getPageContentBySlug } from "../utils/contentfulApi";
-import { faqQuery } from "../utils/queries";
+import { faqQuery, acastQuery } from "../utils/queries";
+import Accordion from "components/Accordion/Accordion";
 
 const Root = styled.div`
   display: flex;
-  background-color: ${colors.bubblegumPink};
-  justify-content: center;
+  background-color: ${colors.brownCream};
+  justify-content: start;
   flex-direction: column;
   min-height: calc(100vh - 120px);
+  padding: 20px 40px;
+
+  @media (min-width: 1280px) {
+    padding: 100px 80px;
+  }
 `;
 
 const HeroBanner = styled.div`
@@ -28,34 +34,35 @@ const HeroBanner = styled.div`
     width: 50%;
     align-self: center;
     padding: 0px;
-    height: calc(100vh - 120px);
+    /* height: calc(100vh - 120px); */
     justify-content: flex-start;
     padding-top: 50px;
   }
 `;
 
 const Title = styled(TitleH1)`
-  color: white;
+  color: black;
   text-align: center;
 `;
 
 const Text = styled.p`
-  font-family: " Spartan", sans-serif;
+  font-family: "Spartan", sans-serif;
   font-size: 24px;
-  color: white;
+  color: black;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   @media (min-width: 1280px) {
     margin-bottom: 32px;
+    text-align: center;
   }
 `;
 
 const AcastContainer = styled.div`
   @media (max-width: 1279px) {
-    padding: 20px 40px;
   }
 
   @media (min-width: 1280px) {
-    /* padding: 0px 25%; */
+    padding: 20px 40px;
+    margin-bottom: 40px;
   }
 `;
 
@@ -65,10 +72,6 @@ const HeroText = styled.div`
   text-align: center;
   justify-content: center;
   /* width: 100%; */
-
-  @media (max-width: 1279px) {
-    padding: 20px 40px;
-  }
 
   @media (min-width: 1280px) {
     /* max-height: 90%; */
@@ -80,6 +83,9 @@ const HeroText = styled.div`
 type faq = {
   question: String;
   answer: String;
+  orderNumber: Number;
+  // header: String;
+  // content: String;
 };
 interface PodcastProps {
   faqs: faq[];
@@ -90,26 +96,28 @@ const Podcast: FC<PodcastProps> = ({ faqs }) => {
     <>
       <Header showBulletin={false} />
       <Root>
-        <HeroBanner>
-          <HeroText>
-            <Title>Podcast</Title>
-            <Text>
-              You can listen and subscribe to The Grief Gang podcast on all
-              major podcast platforms or press play on the playlist provided.
-            </Text>
-          </HeroText>
-          <AcastContainer>
-            <iframe
-              title="Embed Player"
-              width="100%"
-              height="138px"
-              src="https://embed.acast.com/s/the-grief-gang"
-              scrolling="no"
-              frameBorder="0"
-            ></iframe>
-          </AcastContainer>
-          {console.log(faqs)}
-        </HeroBanner>
+        {/* <HeroBanner> */}
+        <HeroText>
+          <Title>Podcast</Title>
+          <Text>
+            You can listen and subscribe to The Grief Gang podcast on all major
+            podcast platforms or press play on the playlist provided.
+          </Text>
+        </HeroText>
+        <AcastContainer>
+          <iframe
+            title="Embed Player"
+            width="100%"
+            height="138px"
+            src="https://embed.acast.com/61853de864f92b00193bfaae/623dd60393448e0012f67f97"
+            scrolling="no"
+            frameBorder="0"
+          ></iframe>
+        </AcastContainer>
+        {console.log(faqs)}
+        <Accordion items={faqs} />
+        {/* </HeroBanner> */}
+
         {/* <Media /> */}
       </Root>
     </>
@@ -122,10 +130,14 @@ export default Podcast;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const faqs = await getPageContentBySlug(faqQuery, "faqCollection");
-
+  const acastLink = await getPageContentBySlug(
+    acastQuery,
+    "acastLinkCollection"
+  );
   return {
     props: {
       faqs,
+      acastLink,
     },
   };
 };

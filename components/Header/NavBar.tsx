@@ -36,7 +36,7 @@ const NavLinksDesktop = styled.a`
   margin: 0px 30px;
   padding: 25px 30px;
   width: 150px;
-  font-family: " Spartan", sans-serif;
+  font-family: "Spartan", sans-serif;
   font-size: 18px;
   text-align: center;
   :hover {
@@ -60,7 +60,7 @@ const TagLine = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  font-family: " Spartan", sans-serif;
+  font-family: "Spartan", sans-serif;
   font-size: 24px;
   padding: 10px;
 `;

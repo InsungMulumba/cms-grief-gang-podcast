@@ -11,6 +11,7 @@ import Header from "../components/Header/Header";
 import { getPageContentBySlug } from "../utils/contentfulApi";
 import { newHomeQuery } from "../utils/queries";
 import MiscSlice from "../slices/AsSeenOnSlice/Slice";
+import { orderedContentfulEntries } from "../utils/contentfulApi";
 
 interface contentfulDataTypes {
   aboutSlice: string;
@@ -34,11 +35,11 @@ interface HomeProps {
   faqs: any[];
 }
 
-const orderedSlices = (unorderedSlices: any) => {
-  return unorderedSlices.sort(
-    ({ orderNumber: a }, { orderNumber: b }) => a - b
-  );
-};
+// const orderedSlices = (unorderedSlices: any) => {
+//   return unorderedSlices.sort(
+//     ({ orderNumber: a }, { orderNumber: b }) => a - b
+//   );
+// };
 
 const SLIDE_COUNT = 5;
 const slides = Array.from(Array(SLIDE_COUNT).keys());
@@ -58,8 +59,11 @@ const Home: FC<HomeProps> = ({ newPosts }) => {
           <Header showBulletin={true} />
           {newPosts && (
             <>
-              <CoupleSlice data={orderedSlices(newPosts)[0]} setHeight={true} />
-              <CoupleSlice data={orderedSlices(newPosts)[1]} />
+              <CoupleSlice
+                data={orderedContentfulEntries(newPosts)[0]}
+                setHeight={true}
+              />
+              <CoupleSlice data={orderedContentfulEntries(newPosts)[1]} />
             </>
           )}
 

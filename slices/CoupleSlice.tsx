@@ -69,7 +69,7 @@ const Root = styled.div<{
 const Title = styled(TitleH1)``;
 
 const Text = styled.div`
-  font-family: " Spartan", sans-serif;
+  font-family: "Spartan", sans-serif;
   font-size: 18px;
 
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
@@ -99,7 +99,7 @@ const HeroImageContainer = styled.div`
   }
 `;
 
-const HeroPaddingLarge = "20px 80px";
+const HeroPaddingLarge = "100px 80px";
 const HeroBanner = styled.div<{ orderNumber: Number }>`
   display: flex;
   justify-content: center;
