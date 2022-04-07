@@ -82,6 +82,7 @@ const Text = styled.div`
 const HeroImage = styled.img`
   width: 100%;
   object-fit: cover;
+  display: block;
   @media (min-width: 1280px) {
     object-fit: cover;
     height: 100%;

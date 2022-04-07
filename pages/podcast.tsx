@@ -14,13 +14,21 @@ import Accordion from "components/Accordion/Accordion";
 const Root = styled.div`
   display: flex;
   background-color: ${colors.brownCream};
-  justify-content: start;
-  flex-direction: column;
+  justify-content: center;
+  flex-direction: row;
   min-height: calc(100vh - 120px);
-  padding: 20px 40px;
 
   @media (min-width: 1280px) {
-    padding: 100px 80px;
+    padding: 100px 0px;
+  }
+`;
+
+const PageContent = styled.div`
+  margin: 20px 40px;
+
+  @media (min-width: 1280px) {
+    margin: 0px;
+    width: 80%;
   }
 `;
 
@@ -97,25 +105,28 @@ const Podcast: FC<PodcastProps> = ({ faqs }) => {
       <Header showBulletin={false} />
       <Root>
         {/* <HeroBanner> */}
-        <HeroText>
-          <Title>Podcast</Title>
-          <Text>
-            You can listen and subscribe to The Grief Gang podcast on all major
-            podcast platforms or press play on the playlist provided.
-          </Text>
-        </HeroText>
-        <AcastContainer>
-          <iframe
-            title="Embed Player"
-            width="100%"
-            height="138px"
-            src="https://embed.acast.com/61853de864f92b00193bfaae/623dd60393448e0012f67f97"
-            scrolling="no"
-            frameBorder="0"
-          ></iframe>
-        </AcastContainer>
-        {console.log(faqs)}
-        <Accordion items={faqs} />
+        <PageContent>
+          <HeroText>
+            <Title>Podcast</Title>
+            <Text>
+              You can listen and subscribe to The Grief Gang podcast on all
+              major podcast platforms or press play on the playlist provided.
+            </Text>
+          </HeroText>
+          <AcastContainer>
+            <iframe
+              title="Embed Player"
+              width="100%"
+              height="138px"
+              src="https://embed.acast.com/61853de864f92b00193bfaae/623dd60393448e0012f67f97"
+              scrolling="no"
+              frameBorder="0"
+            ></iframe>
+          </AcastContainer>
+          {console.log(faqs)}
+          <Accordion items={faqs} />{" "}
+        </PageContent>
+
         {/* </HeroBanner> */}
 
         {/* <Media /> */}

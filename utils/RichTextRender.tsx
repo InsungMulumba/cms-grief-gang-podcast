@@ -1,5 +1,6 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import styled from "styled-components";
 
 // Create a bespoke renderOptions object to target BLOCKS.EMBEDDED_ENTRY (linked block entries e.g. code blocks)
 // INLINES.EMBEDDED_ENTRY (linked inline entries e.g. a reference to another blog post)
@@ -24,6 +25,18 @@ function renderOptions(links) {
   for (const entry of links.entries.inline) {
     entryMap.set(entry.sys.id, entry);
   }
+
+  const BlogImage = styled.img`
+    height: 400px;
+    width: 400px;
+    margin: auto;
+
+    display: block;
+    @media (max-width: 1280px) {
+      width: 100%;
+      height: auto;
+    }
+  `;
 
   return {
     // other options...
@@ -72,7 +85,7 @@ function renderOptions(links) {
         const asset = assetMap.get(node.data.target.sys.id);
 
         // render the asset accordingly
-        return <img src={asset.url} alt="My image alt text" />;
+        return <BlogImage src={asset.url} alt="My image alt text" />;
       },
     },
   };

@@ -5,16 +5,53 @@ import MainLayout from "../../layouts/mainLayout";
 import { getAllPostSlugs, getPostBySlug } from "../../utils/contentfulApi";
 import { renderPost } from "../../utils/RichTextRender";
 import Header from "../../components/Header/Header";
+import styled from "styled-components";
+import colors from "styles/colors";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
+const Root = styled.div`
+  width: 100vw;
+  background-color: ${colors.cream};
+  min-height: calc(100vh - 120px);
+  @media (min-width: 1280px) {
+    padding: 100px 0px;
+  }
+`;
+
+const BlogContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  @media (max-width: 1280px) {
+    width: 100%;
+    margin: 0px 20px;
+  }
+`;
+
+const PageContent = styled.div`
+  margin: 20px 40px;
+
+  @media (min-width: 1280px) {
+    margin: 0px auto;
+    width: 80%;
+  }
+
+  p {
+    margin: 0px;
+    line-height: 24px;
+  }
+`;
 const PostWrapper: FC<any> = (props) => {
   const { post, preview } = props;
 
   return (
     <>
       <Header showBulletin={false} />
-      {renderPost(post.blogContent)}
+      <Root>
+        {" "}
+        <PageContent>{renderPost(post.blogContent)} </PageContent>
+      </Root>
     </>
   );
 

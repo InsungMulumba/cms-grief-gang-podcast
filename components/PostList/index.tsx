@@ -1,8 +1,14 @@
 import Link from "next/link";
+import React, { FC } from "react";
+
 // import ReactMarkdown from "react-markdown";
 // import ReactMarkdownRenderers from "@utils/ReactMarkdownRenderers";
 
-export default function PostList(props) {
+interface PostListProps {
+  posts: any;
+}
+
+const PostList: FC<PostListProps> = (props) => {
   const { posts } = props;
 
   return (
@@ -33,4 +39,5 @@ export default function PostList(props) {
       ))}
     </ol>
   );
-}
+};
+export default PostList;
