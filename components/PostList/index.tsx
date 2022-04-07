@@ -6,6 +6,8 @@ import React, { FC } from "react";
 
 interface PostListProps {
   posts: any;
+  totalPages: any;
+  currentPage: any;
 }
 
 const PostList: FC<PostListProps> = (props) => {
