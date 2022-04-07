@@ -26,6 +26,7 @@ const ItemButton = styled.button`
 
   span {
     margin: auto 0px;
+    max-width: 80%;
   }
 `;
 
