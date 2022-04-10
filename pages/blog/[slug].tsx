@@ -48,7 +48,6 @@ const PostWrapper: FC<any> = (props) => {
     <>
       <Header showBulletin={false} />
       <Root>
-        {" "}
         <PageContent>{renderPost(post.blogContent)} </PageContent>
       </Root>
     </>

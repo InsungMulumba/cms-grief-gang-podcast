@@ -75,6 +75,7 @@ export async function getPaginatedPostSummaries(page) {
           title
           slug
           tags
+          content
           displayPicture {        
               sys {
                 id
@@ -100,7 +101,7 @@ export async function getPaginatedPostSummaries(page) {
   // Call out to the API
   const response = await callContentful(query);
 
-  const paginatedPostSummaries = response.data?.blogPostCollection
+  const paginatedPostSummaries = response.data.blogPostCollection
     ? response.data.blogPostCollection
     : { total: 0, items: [] };
 
@@ -258,7 +259,6 @@ export async function getPostBySlug(slug, options = defaultOptions) {
           }
         
         tags
-        displayPictures
       }
     }
   }`;

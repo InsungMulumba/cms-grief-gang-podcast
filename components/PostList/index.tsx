@@ -61,7 +61,6 @@ const PostList: FC<PostListProps> = (props) => {
             displayPictureURL={post.displayPicture.url}
             hoverPictureURL={post.hoverPicture.url}
           />
-          {console.log(post.displayPicture)}
           <article>
             <Tags>
               {post.tags?.map((tag) => (
