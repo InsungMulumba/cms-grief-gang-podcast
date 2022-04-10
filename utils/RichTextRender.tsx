@@ -27,14 +27,15 @@ function renderOptions(links) {
   }
 
   const BlogImage = styled.img`
-    height: 400px;
-    width: 400px;
-    margin: auto;
+    height: 300px;
+    width: 300px;
+    margin: 4% auto;
 
     display: block;
     @media (max-width: 1280px) {
       width: 100%;
       height: auto;
+      margin: 10% auto;
     }
   `;
 

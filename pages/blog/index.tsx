@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import {
   getPaginatedPostSummaries,
   getPageContentBySlug,
+  getAllPostSlugs,
 } from "../../utils/contentfulApi";
 import { Config } from "../../utils/config";
 import PostList from "components/PostList";
@@ -10,7 +11,7 @@ import styled from "styled-components";
 import PageWithLayoutType from "../../types/pageWithLayout";
 import MainLayout from "../../layouts/mainLayout";
 import Header from "../../components/Header/Header";
-import colors from "styles/colors";
+import { colors, spacing } from "../../styles/constants";
 
 const Root = styled.div`
   display: flex;
@@ -18,15 +19,19 @@ const Root = styled.div`
   justify-content: center;
   flex-direction: column;
   min-height: calc(100vh - 120px);
+  padding: ${spacing.mobilePageGutter};
+  @media (min-width: 1280px) {
+    padding: ${spacing.desktopPageGutter};
+  }
 `;
 
 const BlogIndex: FC<any> = (props) => {
   const { postSummaries, currentPage, totalPages, pageContent } = props;
 
-  const pageTitle = pageContent ? pageContent.title : "Blog";
-  const pageDescription = pageContent
-    ? pageContent.description
-    : "Articles | Next.js Contentful blog starter";
+  // const pageTitle = pageContent ? pageContent.title : "Blog";
+  // const pageDescription = pageContent
+  //   ? pageContent.description
+  //   : "Articles | Next.js Contentful blog starter";
 
   return (
     <>
@@ -48,6 +53,7 @@ export default BlogIndex;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const postSummaries = await getPaginatedPostSummaries(1);
+  console.log(postSummaries);
   const pageContent = await getPageContentBySlug(
     Config.pageMeta.blogIndex.slug,
     {

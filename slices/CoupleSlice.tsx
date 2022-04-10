@@ -62,7 +62,7 @@ const Root = styled.div<{
   align-items: center;
   flex-direction: column;
   @media (min-width: 1280px) {
-    height: ${(props) => (props.setHeight ? "calc(100vh - 120px)" : "auto")};
+    height: ${(props) => (props.setHeight ? "calc(100vh - 60px)" : "auto")};
   }
 `;
 
@@ -127,8 +127,8 @@ const HeroText = styled.div<{ image: boolean }>`
   justify-content: center;
   /* width: 100%; */
 
-  @media (max-width: 1279px) {
-    padding: 20px 40px;
+  @media (max-width: 1280px) {
+    margin: 60px 40px;
   }
 
   @media (min-width: 1280px) {

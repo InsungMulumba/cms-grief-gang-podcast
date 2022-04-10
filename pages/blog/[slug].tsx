@@ -6,7 +6,7 @@ import { getAllPostSlugs, getPostBySlug } from "../../utils/contentfulApi";
 import { renderPost } from "../../utils/RichTextRender";
 import Header from "../../components/Header/Header";
 import styled from "styled-components";
-import colors from "styles/colors";
+import { colors, spacing } from "../../styles/constants";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
@@ -14,8 +14,9 @@ const Root = styled.div`
   width: 100vw;
   background-color: ${colors.cream};
   min-height: calc(100vh - 120px);
+  padding: ${spacing.mobilePageGutter};
   @media (min-width: 1280px) {
-    padding: 100px 0px;
+    padding: ${spacing.desktopPageGutter};
   }
 `;
 
@@ -25,22 +26,20 @@ const BlogContent = styled.div`
   width: 60%;
   @media (max-width: 1280px) {
     width: 100%;
-    margin: 0px 20px;
   }
 `;
 
 const PageContent = styled.div`
-  margin: 20px 40px;
-
   @media (min-width: 1280px) {
-    margin: 0px auto;
     width: 80%;
+    margin: 0px auto;
   }
 
   p {
     margin: 0px;
     line-height: 24px;
   }
+  font-family: "Spartan", sans-serif;
 `;
 const PostWrapper: FC<any> = (props) => {
   const { post, preview } = props;

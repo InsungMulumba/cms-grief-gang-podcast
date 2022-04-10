@@ -74,8 +74,25 @@ export async function getPaginatedPostSummaries(page) {
           date
           title
           slug
-          content
           tags
+          displayPicture {        
+              sys {
+                id
+              }
+              url
+              title
+              width
+              height 
+          }
+          hoverPicture {
+              sys {
+                id
+              }
+              url
+              title
+              width
+              height
+          }
         }
       }
     }`;
@@ -83,7 +100,7 @@ export async function getPaginatedPostSummaries(page) {
   // Call out to the API
   const response = await callContentful(query);
 
-  const paginatedPostSummaries = response.data.blogPostCollection
+  const paginatedPostSummaries = response.data?.blogPostCollection
     ? response.data.blogPostCollection
     : { total: 0, items: [] };
 
@@ -241,6 +258,7 @@ export async function getPostBySlug(slug, options = defaultOptions) {
           }
         
         tags
+        displayPictures
       }
     }
   }`;

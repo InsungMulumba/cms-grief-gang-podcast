@@ -2,7 +2,7 @@ const SITE_URL = "https://www.thegriefgang.com/";
 export const Config = {
   pageMeta: {
     pagination: {
-      pageSize: 2,
+      pageSize: 3,
       recentPostsSize: 3,
     },
     blogIndex: {

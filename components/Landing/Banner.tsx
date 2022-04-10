@@ -115,7 +115,7 @@ const Slogan = styled.div`
   animation: ${FadeIn} 1.5s ease-out 0.5s both;
 
   @media (max-width: 1279px) {
-    top: 5%;
+    top: 35%;
     left: 0%;
     transform: none;
     font-size: 32px;
