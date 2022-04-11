@@ -51,6 +51,7 @@ const HeroBanner = styled.div`
 const Title = styled(TitleH1)`
   color: black;
   text-align: center;
+  margin-top: 0px;
 `;
 
 const Text = styled.p`

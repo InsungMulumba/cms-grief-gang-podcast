@@ -12,6 +12,7 @@ import PageWithLayoutType from "../../types/pageWithLayout";
 import MainLayout from "../../layouts/mainLayout";
 import Header from "../../components/Header/Header";
 import { colors, spacing } from "../../styles/constants";
+import TitleH1, { SubTitle } from "../../styles/headings";
 
 const Root = styled.div`
   display: flex;
@@ -19,10 +20,16 @@ const Root = styled.div`
   justify-content: center;
   flex-direction: column;
   min-height: calc(100vh - 120px);
-  padding: ${spacing.mobilePageGutter};
+  padding: 60px 0px;
   @media (min-width: 1280px) {
     padding: ${spacing.desktopPageGutter};
   }
+`;
+
+const Title = styled(SubTitle)`
+  color: black;
+  text-align: center;
+  margin-bottom: 12px;
 `;
 
 const BlogIndex: FC<any> = (props) => {
@@ -37,6 +44,7 @@ const BlogIndex: FC<any> = (props) => {
     <>
       <Header showBulletin={false} />
       <Root>
+        <Title>Check out my blogposts</Title>
         <PostList
           posts={postSummaries}
           totalPages={totalPages}
@@ -53,7 +61,6 @@ export default BlogIndex;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const postSummaries = await getPaginatedPostSummaries(1);
-  console.log(postSummaries);
   const pageContent = await getPageContentBySlug(
     Config.pageMeta.blogIndex.slug,
     {

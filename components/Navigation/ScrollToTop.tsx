@@ -46,10 +46,8 @@ const ScrollToTop: FC = () => {
 
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].boundingClientRect.y < 0) {
-        console.log("Past 100px!");
         scrollButton.classList.remove("hide");
       } else {
-        console.log("Not past 100px");
         scrollButton.classList.add("hide");
       }
     });

@@ -5,8 +5,27 @@ const TitleH1 = styled.h1`
   font-size: 44px;
   margin: 0px;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  margin-top: 0px;
+  &&& {
+    margin-bottom: 12px;
+  }
   @media (max-width: 1279px) {
     font-size: 36px;
+  }
+`;
+
+export const SubTitle = styled.h3`
+  font-size: 32px;
+  font-family: "Spartan", sans-serif;
+
+  margin-top: 0px;
+  &&& {
+    margin-bottom: 12px;
+  }
+
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  @media (max-width: 1279px) {
+    font-size: 24px;
   }
 `;
 
