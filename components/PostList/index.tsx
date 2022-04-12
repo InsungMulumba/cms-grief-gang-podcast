@@ -2,12 +2,14 @@ import Link from "next/link";
 import React, { FC } from "react";
 import styled from "styled-components";
 import { colors } from "../../styles/constants";
+import Pagination from "./Pagination";
 
 const BlogPostContainer = styled.ul`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   padding: 0px;
-  @media (max-width: 1280px) {
+  @media (max-width: 767px) {
     flex-direction: column;
   }
   li {
@@ -16,7 +18,13 @@ const BlogPostContainer = styled.ul`
 `;
 const BlogPost = styled.li`
   flex: 1 0 33%;
+
   @media (max-width: 1280px) {
+    flex: 1 0 50%;
+    max-width: 50%;
+  }
+
+  @media (max-width: 767px) {
     margin-bottom: 90px;
   }
 `;
@@ -30,8 +38,8 @@ const Tags = styled.ul`
   width: 90%;
   margin: 0px auto;
 
-  @media (min-width: 1280px) {
-    width: 60%;
+  @media (min-width: 767px) {
+    width: 75%;
   }
 `;
 
@@ -52,7 +60,7 @@ const PostTitle = styled.h2`
   width: 90%;
   margin: 0px auto;
 
-  @media (min-width: 1280px) {
+  @media (min-width: 767px) {
     width: 300px;
     text-align: center;
   }
@@ -64,6 +72,11 @@ const BlogPicture = styled.div<{
 }>`
   width: 300px;
   height: 300px;
+
+  @media (max-width: 1280px) {
+    width: 150px;
+    height: 150px;
+  }
   margin: 0px auto;
   transition: 0.5s ease;
 
@@ -75,7 +88,7 @@ const BlogPicture = styled.div<{
     background-size: cover;
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: 767px) {
     width: 100%;
     height: 100vw;
     :hover {
@@ -91,7 +104,11 @@ interface PostListProps {
 }
 
 const PostList: FC<PostListProps> = (props) => {
-  const { posts } = props;
+  const { posts, currentPage, totalPages } = props;
+
+  // Calculate the disabled states of the next and previous links
+  const nextDisabled = parseInt(currentPage, 10) === parseInt(totalPages, 10);
+  const prevDisabled = parseInt(currentPage, 10) === 1;
 
   return (
     <BlogPostContainer>
@@ -125,6 +142,12 @@ const PostList: FC<PostListProps> = (props) => {
           </article>
         </BlogPost>
       ))}
+      <Pagination
+        totalPages={totalPages}
+        currentPage={currentPage}
+        nextDisabled={nextDisabled}
+        prevDisabled={prevDisabled}
+      />
     </BlogPostContainer>
   );
 };

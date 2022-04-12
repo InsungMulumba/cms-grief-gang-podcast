@@ -20,15 +20,6 @@ const Root = styled.div`
   }
 `;
 
-const BlogContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  @media (max-width: 1280px) {
-    width: 100%;
-  }
-`;
-
 const PageContent = styled.div`
   @media (min-width: 1280px) {
     width: 80%;

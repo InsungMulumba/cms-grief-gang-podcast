@@ -28,7 +28,7 @@ const BulletinBar = styled.a`
   align-items: center;
   /* position: sticky; */
   @media (max-width: 1280px) {
-    padding: 10px;
+    padding: 20px 10px;
   }
   top: 0;
 `;

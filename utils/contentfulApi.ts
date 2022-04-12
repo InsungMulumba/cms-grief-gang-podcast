@@ -75,7 +75,6 @@ export async function getPaginatedPostSummaries(page) {
           title
           slug
           tags
-          content
           displayPicture {        
               sys {
                 id
@@ -220,7 +219,6 @@ export async function getPostBySlug(slug, options = defaultOptions) {
         date
         title
         slug
-        content
         blogContent {
        
             json

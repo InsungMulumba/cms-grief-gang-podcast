@@ -62,37 +62,3 @@ export const asFeaturedInQuery = `{
       mediaLogo
     }
 }`;
-// dont think we need this one below
-export const blogQuery = `{
-    blogPostCollection(limit: 2, skip: 0, order: date_DESC) {
-      total
-      items {
-        sys {
-          id
-        }
-        date
-        title
-        slug
-        content
-        blogContent {
-          json
-          links {
-            assets { 
-              block {
-                sys {
-                  id
-                }
-                url
-                title
-                width
-                height
-                description
-                contentType 
-              }
-            }
-          }
-        }
-        tags
-      }
-    }
-  }`;
