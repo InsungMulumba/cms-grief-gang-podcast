@@ -72,7 +72,9 @@ const Text = styled.div`
   font-family: "Spartan", sans-serif;
   font-size: 18px;
 
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  text-shadow: 4px 4px 4px rgba(0.1, 0.2, 0, 0.1);
+
+  /* text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black; */
 
   @media (min-width: 1920px) {
     font-size: 26px;

@@ -26,6 +26,7 @@ const BlogPost = styled.li`
 
   @media (max-width: 767px) {
     margin-bottom: 90px;
+    max-width: 100%;
   }
 `;
 
@@ -59,7 +60,7 @@ const PostTitle = styled.h2`
   font-size: 20px;
   width: 90%;
   margin: 0px auto;
-
+  font-weight: 300;
   @media (min-width: 767px) {
     width: 300px;
     text-align: center;
@@ -133,12 +134,6 @@ const PostList: FC<PostListProps> = (props) => {
                 <PostTitle>{post.title}</PostTitle>
               </a>
             </Link>
-
-            {/* {post.content} */}
-            {/* <ReactMarkdown
-              children={post.content}
-              renderers={ReactMarkdownRenderers(post.excerpt)}
-            /> */}
           </article>
         </BlogPost>
       ))}
