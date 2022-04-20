@@ -1,6 +1,6 @@
 export const colors = {
   burntOrange: "#ED693C",
-  bubblegumPink: "#F7C1CB",
+  bubblegumPink: "#DFA1A4",
   brownCream: "#FAE3DC",
   cream: "#FCFAF6",
 };

@@ -126,10 +126,6 @@ const Podcast: FC<PodcastProps> = ({ faqs }) => {
           </AcastContainer>
           <Accordion items={faqs} />{" "}
         </PageContent>
-
-        {/* </HeroBanner> */}
-
-        {/* <Media /> */}
       </Root>
     </>
   );

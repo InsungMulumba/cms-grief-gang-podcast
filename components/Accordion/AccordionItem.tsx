@@ -20,10 +20,10 @@ const ItemButton = styled.button`
   width: 100%;
   justify-content: space-between;
   font-family: "Spartan", sans-serif;
-  background-color: ${colors.cream};
+  background-color: #dfa1a4;
   border: 1px solid grey;
   padding: 10px;
-
+  color: white;
   span {
     margin: auto 0px;
     max-width: 80%;

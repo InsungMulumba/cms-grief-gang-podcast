@@ -55,10 +55,35 @@ export const faqQuery = `{
   }
 }`;
 
+export const faqBlogQuery = `{
+  faqBlogCollection(limit: 20) {
+    items {
+      question
+      answer
+      orderNumber
+    }
+  }
+}`;
+
 export const asFeaturedInQuery = `{
   asFeaturedInCollection(limit: 10) {
     items {
       mediaUrl
       mediaLogo
     }
+}`;
+
+export const eventsQuery = `{
+  eventCollection(limit: 20) {
+    items {
+      date
+      eventName
+      venue
+      description
+      picture {
+        title
+        url
+      }
+    }
+  }
 }`;

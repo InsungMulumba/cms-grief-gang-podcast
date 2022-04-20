@@ -98,6 +98,10 @@ const InputPair = styled.div`
   @media (max-width: 767px) {
     flex-direction: column;
   }
+
+  input {
+    padding: 8px;
+  }
 `;
 const InputSubmitPair = styled.div`
   display: flex;
