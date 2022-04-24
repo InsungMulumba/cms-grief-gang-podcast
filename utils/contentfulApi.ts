@@ -9,6 +9,7 @@ const defaultOptions = {
 
 export async function getPageContentBySlug(query, collectionName) {
   const response = await callContentful(query);
+
   const pageContent = response?.data?.[collectionName]?.items
     ? response.data[collectionName].items
     : [];
@@ -32,8 +33,10 @@ async function callContentful(query, variables?) {
     const data = await fetch(fetchUrl, fetchOptions).then((response) =>
       response.json()
     );
+    console.log(data);
     return data;
   } catch (error) {
+    console.log(error);
     throw new Error("Could not fetch data from Contentful!");
   }
 }

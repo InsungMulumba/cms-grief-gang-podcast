@@ -67,6 +67,36 @@ const EventDate = styled.div`
   position: absolute;
   right: 0;
   bottom: 0;
+  @media (min-width: 767px) {
+    width: 150px;
+  }
+`;
+const EventInfo = styled.a`
+  background-color: ${colors.bubblegumPink};
+  color: ${colors.cream};
+  padding: 20px;
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  @media (min-width: 767px) {
+    right: 150px;
+  }
+  @media (max-width: 767px) {
+    display: none;
+  }
+`;
+
+const EventPictureContainer = styled.a`
+  height: 250px;
+  min-width: 250px;
+
+  @media (max-width: 1280px) {
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    height: initial;
+  }
 `;
 
 const EventPicture = styled.img`
@@ -75,6 +105,10 @@ const EventPicture = styled.img`
 
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+
+  @media (max-width: 1280px) {
+  }
+
   @media (max-width: 767px) {
     width: 100%;
     height: initial;
@@ -88,9 +122,7 @@ const EventPicture = styled.img`
 const EventDescription = styled.div`
   padding: 20px;
   font-family: "Spartan", sans-serif;
-  @media (max-width: 767px) {
-    margin-bottom: 50px;
-  }
+  margin-bottom: 50px;
 `;
 const Title = styled(TitleH1)`
   color: white;
@@ -149,6 +181,10 @@ interface EventsProps {
 }
 // TODO PHONE VIEW
 const Events: FC<EventsProps> = ({ events }) => {
+  const orderedEvents = (unorderedSlices: any) => {
+    return unorderedSlices.sort(({ date: a }, { orderNumber: b }) => a - b);
+  };
+
   return (
     <>
       <Head>
@@ -177,10 +213,14 @@ const Events: FC<EventsProps> = ({ events }) => {
             {events.map((event, idx) => (
               <Event key={idx}>
                 <EventDate>
-                  {format(parseISO(event.date), "dd MMMM yyyy")}
+                  {format(parseISO(event.date), "dd MMM yyyy")}
                 </EventDate>
-
-                <EventPicture src={event.picture.url} />
+                <EventInfo href={event.info} target="_blank">
+                  Click for more info
+                </EventInfo>{" "}
+                <EventPictureContainer href={event.info} target="_blank">
+                  <EventPicture src={event.picture.url} />
+                </EventPictureContainer>
                 <EventDescription>{event.description}</EventDescription>
               </Event>
             ))}
@@ -197,7 +237,7 @@ export default Events;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const events = await getPageContentBySlug(eventsQuery, "eventCollection");
-
+  console.log(events);
   return {
     props: {
       events,

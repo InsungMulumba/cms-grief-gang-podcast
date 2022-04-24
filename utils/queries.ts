@@ -74,9 +74,10 @@ export const asFeaturedInQuery = `{
 }`;
 
 export const eventsQuery = `{
-  eventCollection(limit: 20) {
+  eventCollection(limit: 20, order: date_ASC) {
     items {
       date
+      info
       eventName
       venue
       description

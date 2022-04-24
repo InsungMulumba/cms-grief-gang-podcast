@@ -39,6 +39,9 @@ const PartnerLogos = styled.div`
   flex-direction: column;
   display: contents;
   flex-wrap: wrap;
+  :hover {
+    transform: scale(1.2);
+  }
   @media (min-width: 767px) {
     flex-direction: row;
     margin: 20px 0px 40px;
@@ -46,8 +49,7 @@ const PartnerLogos = styled.div`
     a {
       flex: 1 0 33%;
       display: flex;
-    justify-content: center;
-}
+      justify-content: center;
     }
   }
 
@@ -59,6 +61,7 @@ const PartnerLogos = styled.div`
 const PartnerImg = styled.img`
   margin: 0px 20px;
   object-fit: contain;
+
   &.image-grow {
     animation: ${imageGrow} 3.5s ease-out 0.5s both;
   }
