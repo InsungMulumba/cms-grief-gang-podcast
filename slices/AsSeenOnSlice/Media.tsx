@@ -38,10 +38,17 @@ const Root = styled.div`
 const PartnerLogos = styled.div`
   flex-direction: column;
   display: contents;
+  flex-wrap: wrap;
   @media (min-width: 767px) {
     flex-direction: row;
     margin: 20px 0px 40px;
     display: flex;
+    a {
+      flex: 1 0 33%;
+      display: flex;
+    justify-content: center;
+}
+    }
   }
 
   @media (max-width: 767px) {
@@ -51,12 +58,13 @@ const PartnerLogos = styled.div`
 
 const PartnerImg = styled.img`
   margin: 0px 20px;
+  object-fit: contain;
   &.image-grow {
     animation: ${imageGrow} 3.5s ease-out 0.5s both;
   }
   @media (min-width: 1280px) {
-    height: 180px;
-    width: 180px;
+    height: 200px;
+    width: 200px;
   }
 
   @media (max-width: 1279px) {
@@ -70,6 +78,23 @@ interface mediaProps {
   data: string;
 }
 
+const urls = [
+  "https://www.bbc.co.uk/programmes/p0b51t9l",
+  "https://www.vogue.co.uk/arts-and-lifestyle/article/mothers-day-grief",
+  "https://www.womenshealthmag.com/uk/health/mental-health/a32798410/grief-networks/",
+  "https://www.harpersbazaar.com/uk/beauty/mind-body/a35861864/pandemic-grief/",
+  "https://www.ok.co.uk/lifestyle/how-to-cope-mothers-day-26391074",
+  "https://www.refinery29.com/en-gb/grief-uk-public-health-crisis",
+];
+
+const images = [
+  "/partners/bbc.png",
+  "/partners/vogue.png",
+  "/partners/womenshealth.png",
+  "/partners/hb.png",
+  "/partners/ok.png",
+  "/partners/refinery.png",
+];
 const Media: FC = () => {
   useEffect(() => {
     const myImg = document.querySelectorAll(".animate-image-grow");
@@ -95,22 +120,34 @@ const Media: FC = () => {
     <Root>
       <Text>We've also been featured on a number of different platforms</Text>
       <PartnerLogos>
-        <PartnerImg
+        {urls.map((url, index) => (
+          <a target="_blank" href={url}>
+            <PartnerImg
+              className="animate-image-grow"
+              src={`${images[index]}`}
+              loading="lazy"
+            />
+          </a>
+        ))}
+        {/* <PartnerImg
           className="animate-image-grow"
-          src={`/partners/dougyCentre.png`}
+          src={`/partners/vogue.png`}
           loading="lazy"
         />
+
         <PartnerImg
-          src={`/partners/theLossProject.png`}
+          src={`/partners/womenshealth.png`}
           loading="lazy"
           className="animate-image-grow"
         />
 
-        <PartnerImg
-          src={`/partners/bbc.png`}
-          loading="lazy"
-          className="animate-image-grow"
-        />
+        <a href="https://www.bbc.co.uk/programmes/p0b51t9l">
+          <PartnerImg
+            src={`/partners/bbc.png`}
+            loading="lazy"
+            className="animate-image-grow"
+          />{" "}
+        </a> */}
       </PartnerLogos>
     </Root>
   );

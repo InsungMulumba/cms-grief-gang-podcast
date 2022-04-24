@@ -160,7 +160,7 @@ const Couple: FC<WelcomeProps> = ({ data, setHeight }) => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.intersectionRatio > 0) {
-          // console.log("in the view");
+          // in the view
           mySlice.classList.add("fade");
           // observer.unobserve;
         }
