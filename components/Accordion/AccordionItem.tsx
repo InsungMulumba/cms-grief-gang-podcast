@@ -76,7 +76,14 @@ const AccordionItem: FC<AccordionItemProps> = ({ item }) => {
           <ItemText>{clicked ? "—" : "+"} </ItemText>
         </ItemButton>
 
-        <ContentWrapper ref={contentEl} className={clicked ? "open" : ""}>
+        <ContentWrapper
+          ref={contentEl}
+          style={
+            clicked
+              ? { height: contentEl.current.scrollHeight }
+              : { height: "0px" }
+          }
+        >
           <Content>{answer}</Content>
         </ContentWrapper>
       </Root>

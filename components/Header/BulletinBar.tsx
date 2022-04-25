@@ -15,6 +15,9 @@ opacity: 0%;
 
 const BulletinText = styled.div`
   animation: ${fadeIn} 1s ease-out 0s both;
+  @media (max-width: 414px) {
+    font-size: 14px;
+  }
 `;
 
 const BulletinBar = styled.a`

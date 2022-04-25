@@ -37,6 +37,10 @@ const EventsContainer = styled.ul`
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0px;
+  @media (max-width: 1280px) {
+    justify-content: space-between;
+  }
+
   @media (max-width: 767px) {
     flex-direction: column;
   }
@@ -52,9 +56,15 @@ const Event = styled.li`
   filter: drop-shadow(rgba(0, 0, 0, 0.05) 0px 4px 8px);
 
   border-radius: 20px;
+
+  @media (max-width: 1280px) {
+    flex-direction: column;
+    width: 45%;
+  }
+
   @media (max-width: 767px) {
     margin-bottom: 40px;
-    max-width: 100%;
+    width: 100%;
     flex-direction: column;
   }
 `;
@@ -91,11 +101,14 @@ const EventPictureContainer = styled.a`
   min-width: 250px;
 
   @media (max-width: 1280px) {
+    width: 100%;
+    height: 334px;
   }
 
   @media (max-width: 767px) {
     width: 100%;
-    height: initial;
+    height: 100%;
+    max-height: 334px;
   }
 `;
 
@@ -107,16 +120,19 @@ const EventPicture = styled.img`
   border-bottom-left-radius: 20px;
 
   @media (max-width: 1280px) {
-  }
-
-  @media (max-width: 767px) {
     width: 100%;
-    height: initial;
+    height: 334px;
     border-bottom-left-radius: 0px;
     border-top-right-radius: 20px;
   }
 
   object-fit: cover;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    height: 100%;
+    max-height: 334px;
+  }
 `;
 
 const EventDescription = styled.div`
@@ -216,7 +232,7 @@ const Events: FC<EventsProps> = ({ events }) => {
                   {format(parseISO(event.date), "dd MMM yyyy")}
                 </EventDate>
                 <EventInfo href={event.info} target="_blank">
-                  Click for more info
+                  More info
                 </EventInfo>{" "}
                 <EventPictureContainer href={event.info} target="_blank">
                   <EventPicture src={event.picture.url} />

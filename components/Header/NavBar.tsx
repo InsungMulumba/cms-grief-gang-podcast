@@ -126,6 +126,9 @@ const NavLinksMobile = styled.a`
   display: flex;
   animation: ${SlideIn} 1s ease-out 0s both;
   height: 100px;
+  @media (max-width: 413px) {
+    height: 60px;
+  }
   align-items: center;
   margin: 20px 0px;
   border-radius: 500px;
