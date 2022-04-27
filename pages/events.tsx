@@ -253,7 +253,6 @@ export default Events;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const events = await getPageContentBySlug(eventsQuery, "eventCollection");
-  console.log(events);
   return {
     props: {
       events,

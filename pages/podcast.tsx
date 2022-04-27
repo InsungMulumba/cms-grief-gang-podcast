@@ -124,7 +124,7 @@ const Podcast: FC<PodcastProps> = ({ faqs }) => {
               frameBorder="0"
             ></iframe>
           </AcastContainer>
-          <Accordion items={faqs} />{" "}
+          <Accordion items={faqs} />
         </PageContent>
       </Root>
     </>

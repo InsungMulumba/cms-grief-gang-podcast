@@ -13,6 +13,8 @@ import MainLayout from "../../layouts/mainLayout";
 import Header from "../../components/Header/Header";
 import { colors, spacing } from "../../styles/constants";
 import TitleH1, { SubTitle } from "../../styles/headings";
+import { faqBlogQuery } from "../../utils/queries";
+import Accordion from "../../components/Accordion/Accordion";
 
 const Root = styled.div`
   display: flex;
@@ -33,7 +35,7 @@ const Title = styled(SubTitle)`
 `;
 
 const BlogIndex: FC<any> = (props) => {
-  const { postSummaries, currentPage, totalPages, pageContent } = props;
+  const { postSummaries, currentPage, totalPages, pageContent, faqs } = props;
 
   // const pageTitle = pageContent ? pageContent.title : "Blog";
   // const pageDescription = pageContent
@@ -50,6 +52,7 @@ const BlogIndex: FC<any> = (props) => {
           totalPages={totalPages}
           currentPage={currentPage}
         />
+        <Accordion items={faqs} />
       </Root>
     </>
   );
@@ -61,6 +64,7 @@ export default BlogIndex;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const postSummaries = await getPaginatedPostSummaries(1);
+  const faqs = await getPageContentBySlug(faqBlogQuery, "faqCollection");
   const pageContent = await getPageContentBySlug(
     Config.pageMeta.blogIndex.slug,
     {
@@ -80,6 +84,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
         currentPage: "1",
         pageContent: pageContent || null,
         preview,
+        faqs,
       },
     };
   } else console.log("Error: no posts");
