@@ -60,7 +60,8 @@ const PostTitle = styled.h2`
   font-size: 20px;
   width: 90%;
   margin: 0px auto;
-  font-weight: 300;
+  font-weight: 700;
+  color: ${colors.burntOrange};
   @media (min-width: 767px) {
     width: 300px;
     text-align: center;
