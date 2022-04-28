@@ -70,9 +70,9 @@ const AcastContainer = styled.div`
   }
 
   @media (min-width: 1280px) {
-    padding: 20px 40px;
+    padding: 20px 0px;
   }
-  margin-bottom: 40px;
+  margin: 40px 0px;
 `;
 
 const HeroText = styled.div`
@@ -98,14 +98,15 @@ type faq = {
 };
 interface PodcastProps {
   faqs: faq[];
-  acast?: string;
+  acastLink?: any;
 }
 
-const Podcast: FC<PodcastProps> = ({ faqs, acast }) => {
-  const PodcastLink =
-    acast ??
-    "https://embed.acast.com/61853de864f92b00193bfaae/623dd60393448e0012f67f97";
+const Podcast: FC<PodcastProps> = ({ faqs, acastLink }) => {
+  console.log(acastLink);
 
+  const PodLink =
+    acastLink[0].url ??
+    "https://embed.acast.com/61853de864f92b00193bfaae/623dd60393448e0012f67f97";
   return (
     <>
       <Header showBulletin={false} />
@@ -113,18 +114,14 @@ const Podcast: FC<PodcastProps> = ({ faqs, acast }) => {
         {/* <HeroBanner> */}
         <PageContent>
           <HeroText>
-            <Title>Podcast</Title>
-            <Text>
-              You can listen and subscribe to The Grief Gang podcast on all
-              major podcast platforms or press play on the playlist provided.
-            </Text>
+            <Title>{acastLink[0].pageTitle}</Title>
           </HeroText>
           <AcastContainer>
             <iframe
               title="Embed Player"
               width="100%"
               height="100%"
-              src={PodcastLink}
+              src={PodLink}
               scrolling="no"
               frameBorder="0"
             ></iframe>

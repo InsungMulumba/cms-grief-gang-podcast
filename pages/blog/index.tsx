@@ -13,7 +13,7 @@ import MainLayout from "../../layouts/mainLayout";
 import Header from "../../components/Header/Header";
 import { colors, spacing } from "../../styles/constants";
 import TitleH1, { SubTitle } from "../../styles/headings";
-import { faqBlogQuery } from "../../utils/queries";
+import { faqBlogQuery, blogPageQuery } from "../../utils/queries";
 import Accordion from "../../components/Accordion/Accordion";
 
 const Root = styled.div`
@@ -28,14 +28,22 @@ const Root = styled.div`
   }
 `;
 
-const Title = styled(SubTitle)`
+const Title = styled(TitleH1)`
   color: ${colors.burntOrange};
   text-align: center;
   margin-bottom: 12px;
 `;
 
+const Container = styled.div`
+  @media (min-width: 1280px) {
+    width: 80%;
+    margin: 50px auto;
+  }
+`;
+
 const BlogIndex: FC<any> = (props) => {
-  const { postSummaries, currentPage, totalPages, pageContent, faqs } = props;
+  const { postSummaries, currentPage, totalPages, pageContent, faqs, page } =
+    props;
 
   // const pageTitle = pageContent ? pageContent.title : "Blog";
   // const pageDescription = pageContent
@@ -46,14 +54,19 @@ const BlogIndex: FC<any> = (props) => {
     <>
       <Header showBulletin={false} />
       <Root>
-        <Title>Check out my blogposts</Title>
-        <PostList
-          posts={postSummaries}
-          totalPages={totalPages}
-          currentPage={currentPage}
-        />
-
-        {faqs && <Accordion items={faqs} />}
+        <Title>{page[0].pageTitle}</Title>
+        <Container>
+          <PostList
+            posts={postSummaries}
+            totalPages={totalPages}
+            currentPage={currentPage}
+          />
+        </Container>
+        {faqs && (
+          <Container>
+            <Accordion items={faqs} />
+          </Container>
+        )}
       </Root>
     </>
   );
@@ -66,6 +79,7 @@ export default BlogIndex;
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const postSummaries = await getPaginatedPostSummaries(1);
   const faqs = await getPageContentBySlug(faqBlogQuery, "faqBlogCollection");
+  const page = await getPageContentBySlug(blogPageQuery, "blogPageCollection");
   const pageContent = await getPageContentBySlug(
     Config.pageMeta.blogIndex.slug,
     {
@@ -86,6 +100,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
         pageContent: pageContent || null,
         preview,
         faqs,
+        page,
       },
     };
   } else console.log("Error: no posts");

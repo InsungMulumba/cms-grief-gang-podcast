@@ -12,7 +12,8 @@ const Root = styled.div`
   padding: ${spacing.mobilePageGutter};
 
   @media (min-width: 1280px) {
-    padding: ${spacing.desktopPageGutter};
+    padding: 0px;
+    padding-top: 50px;
   }
   .disabled {
     pointer-events: none;

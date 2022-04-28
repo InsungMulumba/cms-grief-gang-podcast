@@ -38,9 +38,10 @@ export const newHomeQuery = `{
   }`;
 
 export const acastQuery = `{
-    acastLinkCollection(limit: 10) {
+    acastLinkCollection(limit: 1) {
       items {
         url
+        pageTitle
       }
     }
   }
@@ -86,6 +87,22 @@ export const eventsQuery = `{
         title
         url
       }
+    }
+  }
+}`;
+
+export const eventsPageQuery = `{
+    eventsPageCollection(limit: 1) {
+    items {
+      pageTitle
+    }
+  }
+}`;
+
+export const blogPageQuery = `{
+    blogPageCollection(limit: 1) {
+    items {
+      pageTitle
     }
   }
 }`;

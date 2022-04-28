@@ -8,7 +8,7 @@ import PageWithLayoutType from "../types/pageWithLayout";
 import Header from "../components/Header/Header";
 import TitleH1 from "../styles/headings";
 import { getPageContentBySlug } from "../utils/contentfulApi";
-import { eventsQuery } from "../utils/queries";
+import { eventsQuery, eventsPageQuery } from "../utils/queries";
 import Head from "next/head";
 
 const Root = styled.div`
@@ -37,6 +37,7 @@ const EventsContainer = styled.ul`
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0px;
+  margin: 15px 0px;
   @media (max-width: 1280px) {
     justify-content: space-between;
   }
@@ -146,20 +147,6 @@ const Title = styled(TitleH1)`
   margin-top: 0px;
 `;
 
-const HeroBanner = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-
-  @media (min-width: 1280px) {
-    align-self: center;
-    padding: 0px;
-    justify-content: flex-start;
-    height: calc(100vh - 120px);
-    padding-top: 50px;
-  }
-`;
 const HeroText = styled.div`
   display: flex;
   flex-direction: column;
@@ -179,24 +166,14 @@ const Text = styled.p`
   }
 `;
 
-const EventButton = styled.a`
-  border-radius: 500px;
-  border: 1px solid white;
-  color: white;
-  width: fit-content;
-  padding: 20px;
-  align-self: center;
-  margin: 50px 0px;
-  @media (min-width: 1280px) {
-    margin: 0px;
-  }
-`;
-
 interface EventsProps {
   events: any;
+  page: {
+    pageTitle: String;
+  };
 }
 // TODO PHONE VIEW
-const Events: FC<EventsProps> = ({ events }) => {
+const Events: FC<EventsProps> = ({ events, page }) => {
   const orderedEvents = (unorderedSlices: any) => {
     return unorderedSlices.sort(({ date: a }, { orderNumber: b }) => a - b);
   };
@@ -222,8 +199,8 @@ const Events: FC<EventsProps> = ({ events }) => {
       <Root>
         <PageContent>
           <HeroText>
-            <Title>Events</Title>
-            <Text>Check out our events below</Text>
+            {console.log(page)}
+            <Title>{page[0].pageTitle}</Title>
           </HeroText>
           <EventsContainer>
             {events.map((event, idx) => (
@@ -253,9 +230,15 @@ export default Events;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const events = await getPageContentBySlug(eventsQuery, "eventCollection");
+  const page = await getPageContentBySlug(
+    eventsPageQuery,
+    "eventsPageCollection"
+  );
+
   return {
     props: {
       events,
+      page,
     },
   };
 };
