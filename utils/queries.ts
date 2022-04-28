@@ -37,12 +37,13 @@ export const newHomeQuery = `{
     }
   }`;
 
-export const acastQuery = `
-    acastLinkCollection(limit: 1) {
+export const acastQuery = `{
+    acastLinkCollection(limit: 10) {
       items {
         url
       }
     }
+  }
   `;
 
 export const faqQuery = `{

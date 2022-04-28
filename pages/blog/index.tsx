@@ -29,7 +29,7 @@ const Root = styled.div`
 `;
 
 const Title = styled(SubTitle)`
-  color: black;
+  color: ${colors.burntOrange};
   text-align: center;
   margin-bottom: 12px;
 `;
@@ -52,7 +52,8 @@ const BlogIndex: FC<any> = (props) => {
           totalPages={totalPages}
           currentPage={currentPage}
         />
-        <Accordion items={faqs} />
+
+        {faqs && <Accordion items={faqs} />}
       </Root>
     </>
   );
@@ -64,7 +65,7 @@ export default BlogIndex;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const postSummaries = await getPaginatedPostSummaries(1);
-  const faqs = await getPageContentBySlug(faqBlogQuery, "faqCollection");
+  const faqs = await getPageContentBySlug(faqBlogQuery, "faqBlogCollection");
   const pageContent = await getPageContentBySlug(
     Config.pageMeta.blogIndex.slug,
     {
@@ -72,7 +73,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
     }
   );
 
-  if (postSummaries) {
+  if (postSummaries && faqs) {
     const totalPages = Math.ceil(
       postSummaries.total / Config.pageMeta.pagination.pageSize
     );

@@ -39,12 +39,10 @@ const PartnerLogos = styled.div`
   flex-direction: column;
   display: contents;
   flex-wrap: wrap;
-  :hover {
-    transform: scale(1.2);
-  }
+
   @media (min-width: 767px) {
     flex-direction: row;
-    margin: 20px 0px 40px;
+    margin: 0px 40px;
     display: flex;
     a {
       flex: 1 0 33%;
@@ -121,10 +119,10 @@ const Media: FC = () => {
 
   return (
     <Root>
-      <Text>We've also been featured on a number of different platforms</Text>
+      <TitleH2>As seen on</TitleH2>
       <PartnerLogos>
         {urls.map((url, index) => (
-          <a target="_blank" href={url}>
+          <a target="_blank" href={url} key={index}>
             <PartnerImg
               className="animate-image-grow"
               src={`${images[index]}`}

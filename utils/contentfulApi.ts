@@ -34,6 +34,10 @@ async function callContentful(query, variables?) {
       response.json()
     );
     console.log(data);
+    if (data.errors) {
+      console.log(data.errors[0]);
+    }
+
     return data;
   } catch (error) {
     console.log(error);

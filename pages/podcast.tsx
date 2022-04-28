@@ -49,7 +49,7 @@ const HeroBanner = styled.div`
 `;
 
 const Title = styled(TitleH1)`
-  color: black;
+  color: ${colors.burntOrange};
   text-align: center;
   margin-top: 0px;
 `;
@@ -57,7 +57,7 @@ const Title = styled(TitleH1)`
 const Text = styled.p`
   font-family: "Spartan", sans-serif;
   font-size: 24px;
-  color: black;
+  color: ${colors.burntOrange};
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   @media (min-width: 1280px) {
     margin-bottom: 32px;
@@ -98,9 +98,14 @@ type faq = {
 };
 interface PodcastProps {
   faqs: faq[];
+  acast?: string;
 }
 
-const Podcast: FC<PodcastProps> = ({ faqs }) => {
+const Podcast: FC<PodcastProps> = ({ faqs, acast }) => {
+  const PodcastLink =
+    acast ??
+    "https://embed.acast.com/61853de864f92b00193bfaae/623dd60393448e0012f67f97";
+
   return (
     <>
       <Header showBulletin={false} />
@@ -119,7 +124,7 @@ const Podcast: FC<PodcastProps> = ({ faqs }) => {
               title="Embed Player"
               width="100%"
               height="100%"
-              src="https://embed.acast.com/61853de864f92b00193bfaae/623dd60393448e0012f67f97"
+              src={PodcastLink}
               scrolling="no"
               frameBorder="0"
             ></iframe>
@@ -141,6 +146,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
     acastQuery,
     "acastLinkCollection"
   );
+
   return {
     props: {
       faqs,
