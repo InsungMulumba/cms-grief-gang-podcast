@@ -37,7 +37,7 @@ const EventsContainer = styled.ul`
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0px;
-  margin: 15px 0px;
+  margin: 35px 0px;
   @media (max-width: 1280px) {
     justify-content: space-between;
   }
