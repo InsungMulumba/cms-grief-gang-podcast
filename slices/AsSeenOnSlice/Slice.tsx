@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { FC, useEffect } from "react";
 import Media from "./Media";
 import Carousel from "./Carousel";

@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { fetchEntries } from "../utils/contentfulPosts";
 import Header from "../components/Header/Header";
-import Footer from "../components/Footer";
 import styled from "styled-components";
 import Head from "next/head";
 
@@ -40,7 +39,7 @@ const Layout: FC<LayoutProps> = ({ children, posts }) => {
       </Head>
 
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

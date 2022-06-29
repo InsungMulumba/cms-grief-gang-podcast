@@ -183,12 +183,17 @@ const NavBar: FC = () => {
       ) : null}
 
       <NavigationBarDesktop>
-        <MenuToggle onClick={() => setShowBurgerMenu(!toggleBurgerMenu)}>
+        <MenuToggle
+          aria-label="Burger Menu"
+          onClick={() => setShowBurgerMenu(!toggleBurgerMenu)}
+        >
           <BurgerMenu />
           <BurgerMenu />
           <BurgerMenu />
         </MenuToggle>
         <Logo
+          width="80px"
+          height="80px"
           src="/logo.png"
           alt="Grief Gang Podcast logo"
           crossOrigin="anonymous"

@@ -72,7 +72,7 @@ const Home: FC<HomeProps> = ({ newPosts }) => {
         </>
       )}
 
-      <style jsx>{`
+      {/* <style jsx>{`
         .container {
           display: flex;
           flex-direction: column;
@@ -104,7 +104,7 @@ const Home: FC<HomeProps> = ({ newPosts }) => {
         * {
           box-sizing: border-box;
         }
-      `}</style>
+      `}</style> */}
     </Container>
   );
 };

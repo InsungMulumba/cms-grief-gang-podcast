@@ -199,7 +199,6 @@ const Events: FC<EventsProps> = ({ events, page }) => {
       <Root>
         <PageContent>
           <HeroText>
-            {console.log(page)}
             <Title>{page[0].pageTitle}</Title>
           </HeroText>
           <EventsContainer>
