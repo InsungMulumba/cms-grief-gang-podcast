@@ -148,16 +148,7 @@ const HeroText = styled.div<{ image: boolean }>`
 const options = {
   renderText: (text) => {
     return text.split("\n").reduce((children, textSegment, index) => {
-      return [
-        ...children,
-        index > 0 && (
-          <>
-            <br key={index} />
-            <br key={index} />
-          </>
-        ),
-        textSegment,
-      ];
+      return [...children, index > 0 && <br key={index} />, textSegment];
     }, []);
   },
 };
