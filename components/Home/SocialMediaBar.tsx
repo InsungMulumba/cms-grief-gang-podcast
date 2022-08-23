@@ -32,10 +32,10 @@ const platforms = ["Instagram", "Apple", "Spotify", "Youtube", "Twitter"];
 
 const platformLinks = [
   "https://www.instagram.com/thegriefgangpodcast/?hl=en",
-  "https://podcasts.apple.com/gb/podcast/the-grief-gang/id1489821860?i=1000526164529",
-  "https://open.spotify.com/episode/4RrNlacsxKnTdGlIxjIcdp?si=3JkPT1tFQaCKzCv8NY_DQw&dl_branch=1",
+  "https://podcasts.apple.com/gb/podcast/the-grief-gang/id1489821860",
+  "https://open.spotify.com/show/6RfXRi5ZaYtFcMBTPju8tL",
   "https://youtube.com/channel/UCCpe5pGmjvqPFteN4L7T_ZA",
-  "https://twitter.com/gang_grief",
+  "https://twitter.com/thegriefgang?lang=en-GB",
 ];
 
 const SMContainer: FC = () => {
